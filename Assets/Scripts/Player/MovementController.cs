@@ -108,6 +108,11 @@ public class MovementController : MonoBehaviour
         }  
     }
 
+    public void Stop()
+    {
+        _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+    }
+
     
     void Jump()
     {
