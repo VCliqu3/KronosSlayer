@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicEnemyMovementController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
+    [HideInInspector]
     public Animator _animator;
 
     public float walkSpeed = 1f;
