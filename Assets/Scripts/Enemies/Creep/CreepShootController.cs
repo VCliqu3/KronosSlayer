@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreepShootController : MonoBehaviour
 {
-    public Animator _animator;
+    private Animator _animator;
     public BasicEnemyMovementController _basicEnemyMovementController;
 
     public GameObject creepBullet;
