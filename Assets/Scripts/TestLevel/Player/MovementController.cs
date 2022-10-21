@@ -175,7 +175,6 @@ public class MovementController : MonoBehaviour
     {
         dashEnabled = false;
         isDashing = true;
-
         dashCooldownCounter = 0;
 
         float originalGravity = _rigidbody2D.gravityScale;
