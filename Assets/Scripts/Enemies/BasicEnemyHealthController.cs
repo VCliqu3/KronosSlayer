@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicEnemyHealthController : MonoBehaviour
-{
-    
-
+{    
     public float maxHealth = 15;
     public float health;
 

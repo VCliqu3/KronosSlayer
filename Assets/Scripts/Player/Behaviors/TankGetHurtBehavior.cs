@@ -25,6 +25,8 @@ public class TankGetHurtBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        _basicEnemyMovementController.Stop();
+
         time += Time.deltaTime;
 
         if (time >= _basicEnemyHealthController.timeHurting)
@@ -33,20 +35,22 @@ public class TankGetHurtBehavior : StateMachineBehaviour
             {
                 animator.Play("Attack");
             }
+            else if (_basicEnemyMovementController.playerOnSight)
+            {
+                animator.Play("Run");
+            }
             else
             {
                 animator.Play("Idle");
-            }
-
-            _basicEnemyHealthController.isHurting = false;
+            }        
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        _basicEnemyHealthController.isHurting = false;
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -139,7 +139,6 @@ public class BasicEnemyMovementController : MonoBehaviour
             endPos = sightPoint.position + sightPoint.right * distance;
         }
 
-
         RaycastHit2D hit = Physics2D.Linecast(sightPoint.position, endPos, 1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ground"));
 
         if (hit.collider != null)
