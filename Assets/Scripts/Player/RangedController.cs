@@ -31,6 +31,7 @@ public class RangedController : MonoBehaviour
     public float overheatCoolingDecreaseMultiplier = 1; //Velocidad a la que se vacia al sobrecalentarse (u/s)
     public float timeAtMaxOverheat; //Tiempo que permanece llena cuando se sobrecalienta
     public float timeAtMinOverheat; //Tiempo que permanece vacia cuando se sobrecalienta
+    public float timeForNaturalCooling = 1f;
 
     public float overheatCounter;
     public bool gunIsOverheated;
@@ -120,7 +121,7 @@ public class RangedController : MonoBehaviour
             overheatCounter = overheatCounter > overheatLimit ? overheatLimit : overheatCounter;
             
         }
-        else if(!isShooting && !gunIsOverheated && overheatCounter > 0)
+        else if(!isShooting && !gunIsOverheated && overheatCounter > 0 && time>=timeForNaturalCooling)
         {
             overheatCounter -= Time.deltaTime * overheatDecreaseMultiplier;
 
