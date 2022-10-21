@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerProyectileDamageController : MonoBehaviour
 {
+    /*[SerializeField] Player;*/
     public float damage;
     public float shieldPenetration;
     void OnTriggerEnter2D(Collider2D collision)

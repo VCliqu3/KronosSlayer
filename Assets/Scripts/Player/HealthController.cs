@@ -58,15 +58,15 @@ public class HealthController : MonoBehaviour
         {
             float damageShieldWouldTake, damageHealthWouldTake;
             float resultingShAb;
-            float auxHealth = health; //Health puede ser negativo al recibir daño, por ello se declara una variable auxiliar
+            float auxHealth = health; //Health puede ser negativo al recibir daï¿½o, por ello se declara una variable auxiliar
 
             resultingShAb = shieldAbsorption - shieldPenetration; //Absorcion de escudo resultante
 
             resultingShAb = resultingShAb < 0 ? 0 : resultingShAb; //Por si el resultado es <0
             resultingShAb = resultingShAb > 1 ? 1 : resultingShAb; //Por si el resultado es >1
 
-            damageShieldWouldTake = damage * (resultingShAb); //Daño que el escudo fuera a recibir
-            damageHealthWouldTake = damage * (1 - resultingShAb); //Daño que la vida fuera a recibir
+            damageShieldWouldTake = damage * (resultingShAb); //Daï¿½o que el escudo fuera a recibir
+            damageHealthWouldTake = damage * (1 - resultingShAb); //Daï¿½o que la vida fuera a recibir
 
             if (damageShieldWouldTake>shield)
             {

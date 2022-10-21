@@ -1901,7 +1901,7 @@ MonoBehaviour:
   jumpingEnable: 1
   dashEnabled: 1
   dashThroughProyectiles: 0
-  dashForce: 10
+  dashForce: 20
   dashTime: 0.3
   dashCooldown: 3
   isDashing: 0
@@ -1977,6 +1977,7 @@ MonoBehaviour:
   overheatCoolingDecreaseMultiplier: 2
   timeAtMaxOverheat: 1
   timeAtMinOverheat: 0
+  timeForNaturalCooling: 1
   overheatCounter: 0
   gunIsOverheated: 0
 --- !u!96 &1471736329
