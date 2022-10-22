@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SniperShootController : MonoBehaviour
 {
-    private Animator _animator;
+
     public BasicEnemyMovementController _basicEnemyMovementController;
 
     public GameObject sniperBullet;
@@ -17,6 +17,8 @@ public class SniperShootController : MonoBehaviour
     public float bulletDamage = 3f;
     public float bulletShieldPenetration = 0f;
 
+    public float maxDistanceLaserDraw = 100f;
+
     public Transform firePoint;
     public bool playerOnShootRange;
     public bool playerOnMaxShootRange;
@@ -26,9 +28,7 @@ public class SniperShootController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
         _basicEnemyMovementController = GetComponent<BasicEnemyMovementController>();
-
     }
 
     // Update is called once per frame
@@ -47,9 +47,5 @@ public class SniperShootController : MonoBehaviour
         eBullet.GetComponent<EnemyProyectileDamageController>().damage = bulletDamage;
         eBullet.GetComponent<EnemyProyectileDamageController>().shieldPenetration = bulletShieldPenetration;   
     }
-
-    public void PlayStopAimAnimation() //Sera invocado por el CreepShootBehavior
-    {
-        _animator.Play("StopAim");
-    }
+  
 }

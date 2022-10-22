@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CreepShootController : MonoBehaviour
 {
-    private Animator _animator;
     public BasicEnemyMovementController _basicEnemyMovementController;
 
     public GameObject creepBullet;
@@ -29,7 +28,6 @@ public class CreepShootController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
         _basicEnemyMovementController = GetComponent<BasicEnemyMovementController>();
 
         time = 1 / fireRate; // Para que dispare apenas se empieze a ejecutar Shoot();
@@ -62,10 +60,4 @@ public class CreepShootController : MonoBehaviour
             time = 0;
         }
     }
-
-    public void PlayStopAimAnimation() //Sera invocado por el CreepShootBehavior
-    {
-        _animator.Play("StopAim");
-    }
-
 }

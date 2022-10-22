@@ -154,7 +154,7 @@ public class BasicEnemyMovementController : MonoBehaviour
             }
         }
 
-        Debug.DrawRay(sightPoint.position, distance*transform.right, Color.green);
+        Debug.DrawRay(sightPoint.position, distance*-transform.right, Color.green);
 
         return detectPlayer;
     }

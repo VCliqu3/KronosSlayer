@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 217763947}
   - component: {fileID: 217763949}
   - component: {fileID: 217763948}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: ShieldBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429962791}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GroundDetector
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -440,7 +440,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429962790}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.351, y: -0.8840005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -526,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3900003, y: -2.947, z: -10}
+  m_LocalPosition: {x: -5.3900003, y: -2.993, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 674685906}
   - component: {fileID: 674685905}
   - component: {fileID: 674685904}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBarsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -896,37 +896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &713756657
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 713756658}
-  m_Layer: 0
-  m_Name: SightPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &713756658
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713756657}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.202, y: 0.16099963, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1120842308}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &758395764
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +907,7 @@ GameObject:
   - component: {fileID: 758395765}
   - component: {fileID: 758395767}
   - component: {fileID: 758395766}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1076,7 +1045,7 @@ GameObject:
   - component: {fileID: 798845975}
   - component: {fileID: 798845977}
   - component: {fileID: 798845976}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,6 +1110,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798845974}
   m_CullTransparentMesh: 1
+--- !u!1 &804544510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 804544511}
+  m_Layer: 9
+  m_Name: SightPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &804544511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804544510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.143, y: 0.136, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1120842308}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &848817570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &848817571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1271,7 +1271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848817570}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.33, y: -2.9280005, z: 0}
+  m_LocalPosition: {x: 0.33, y: 7.968999, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1513,7 +1513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1021960893}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GroundDetector
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -1546,7 +1546,7 @@ GameObject:
   - component: {fileID: 1028647156}
   - component: {fileID: 1028647158}
   - component: {fileID: 1028647157}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1791,11 +1791,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120842305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.99, y: -2.955, z: 0}
+  m_LocalPosition: {x: 1.45, y: -2.98, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 713756658}
+  - {fileID: 804544511}
   - {fileID: 177551571}
   - {fileID: 429962791}
   - {fileID: 1806092325}
@@ -1865,7 +1865,7 @@ MonoBehaviour:
   walkSpeed: 1
   runSpeed: 2
   timePatrolWalk: 3
-  sightPoint: {fileID: 713756658}
+  sightPoint: {fileID: 804544511}
   groundDetector: {fileID: 429962791}
   frontSightDistance: 6
   backSightDistance: 6
@@ -1935,6 +1935,7 @@ MonoBehaviour:
   bulletSpeed: 15
   bulletDamage: 10
   bulletShieldPenetration: 0
+  maxDistanceLaserDraw: 100
   firePoint: {fileID: 177551571}
   playerOnShootRange: 0
   playerOnMaxShootRange: 0
@@ -2002,7 +2003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389533142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3900003, y: -2.947, z: -10}
+  m_LocalPosition: {x: -5.3900003, y: -2.993, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2022,7 +2023,7 @@ GameObject:
   - component: {fileID: 1442379671}
   - component: {fileID: 1442379670}
   - component: {fileID: 1442379669}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBarsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2278,7 +2279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471736319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3900003, y: -2.947, z: 0}
+  m_LocalPosition: {x: -5.3900003, y: -2.993, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2585,7 +2586,7 @@ GameObject:
   - component: {fileID: 1555686396}
   - component: {fileID: 1555686398}
   - component: {fileID: 1555686397}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: ShieldBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2983,7 +2984,7 @@ GameObject:
   - component: {fileID: 1778641641}
   - component: {fileID: 1778641643}
   - component: {fileID: 1778641642}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: ShieldBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3060,7 +3061,7 @@ GameObject:
   - component: {fileID: 1806092328}
   - component: {fileID: 1806092327}
   - component: {fileID: 1806092326}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HealthBarsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3426,7 +3427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974113015}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GroundDetector
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
