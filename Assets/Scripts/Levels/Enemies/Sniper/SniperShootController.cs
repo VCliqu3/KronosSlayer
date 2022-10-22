@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SniperShootController : MonoBehaviour
 {
+    public LineRenderer _lineRenderer;
 
     public BasicEnemyMovementController _basicEnemyMovementController;
 
@@ -29,6 +30,7 @@ public class SniperShootController : MonoBehaviour
     void Start()
     {
         _basicEnemyMovementController = GetComponent<BasicEnemyMovementController>();
+        _lineRenderer = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -48,4 +50,22 @@ public class SniperShootController : MonoBehaviour
         eBullet.GetComponent<EnemyProyectileDamageController>().shieldPenetration = bulletShieldPenetration;   
     }
   
+    public void SniperLaser()
+    {
+        if (Physics2D.Raycast(firePoint.position, transform.right))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.right);
+            DrawLaser(firePoint.position, hit.point);
+        }
+        else
+        {
+            DrawLaser(firePoint.position,firePoint.position + transform.right * 20f);
+        }
+    }
+
+    void DrawLaser(Vector2 startPos, Vector2 endPos) 
+    {
+        _lineRenderer.SetPosition(0, startPos);
+        _lineRenderer.SetPosition(1, endPos);
+    }
 }
