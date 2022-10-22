@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SniperShootController : MonoBehaviour
 {
+    [HideInInspector]
     public LineRenderer _lineRenderer;
 
     public BasicEnemyMovementController _basicEnemyMovementController;
 
     public GameObject sniperBullet;
+    public LayerMask enemyLayer;
 
     public float shootRange = 5f;
     public float maxShootRange = 5f;
@@ -52,9 +54,9 @@ public class SniperShootController : MonoBehaviour
   
     public void SniperLaser()
     {
-        if (Physics2D.Raycast(firePoint.position, transform.right))
+        if (Physics2D.Raycast(firePoint.position, transform.right, 1000f,~enemyLayer))
         {
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.right);
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.right, 1000f, ~enemyLayer);
             DrawLaser(firePoint.position, hit.point);
         }
         else

@@ -1164,7 +1164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &848817571
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1271,7 +1271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848817570}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.33, y: 7.968999, z: 0}
+  m_LocalPosition: {x: 0.135, y: -2.959, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1792,7 +1792,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120842305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4570005, y: -2.967, z: 0}
+  m_LocalPosition: {x: 2.06, y: -2.967, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1930,6 +1930,9 @@ MonoBehaviour:
   _lineRenderer: {fileID: 0}
   _basicEnemyMovementController: {fileID: 0}
   sniperBullet: {fileID: 2809911548132119558, guid: 40d10c91b95f31e41aa6234971398904, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
   shootRange: 6
   maxShootRange: 7
   timeAiming: 1.5
@@ -2779,7 +2782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1627751988
 Animator:
   serializedVersion: 4
