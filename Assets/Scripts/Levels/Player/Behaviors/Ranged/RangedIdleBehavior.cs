@@ -17,7 +17,7 @@ public class RangedIdleBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (_movementController.velX != 0)
+        if (_movementController.velX != 0 && !_movementController.groundInFront)
         {
             animator.Play("RangedRun");
         }

@@ -20,7 +20,7 @@ public class MeleeIdleBehavior : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        if (_movementController.velX != 0) //Si Corre
+        if (_movementController.velX != 0 && !_movementController.groundInFront) //Si Corre
         {
             animator.Play("MeleeRun");
         }

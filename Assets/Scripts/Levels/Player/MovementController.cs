@@ -19,7 +19,10 @@ public class MovementController : MonoBehaviour
     public float fallMultiplier = 0.5f;
     public float lowJumpMultiplier = 1f;
 
+    public float distanceFrontGroundDetection = 0.4f;
+
     public bool isGrounded;
+    public bool groundInFront;
     public Transform feetPos;
     public float rectangleLenght;
     public float rectangleHeight;
@@ -73,6 +76,7 @@ public class MovementController : MonoBehaviour
         Jump();
     
         RotatePlayer();
+        groundInFront = GroundDetection(distanceFrontGroundDetection);
     }
 
     void EnableDisableMovement()
@@ -213,4 +217,21 @@ public class MovementController : MonoBehaviour
         dashEnabled = true;
     }
 
+    bool GroundDetection(float distance) //Para detectar hasta una distancia igual a distance
+    {
+        bool detectGround = false; //Inicialmente la variable a devolver es false
+
+        Vector2 endPos = feetPos.position + feetPos.right * distance;
+
+        RaycastHit2D hit = Physics2D.Linecast(feetPos.position, endPos, 1 << LayerMask.NameToLayer("Ground")); //Para que el Raycast detecte las capas Blocks y Solids
+
+        if (hit.collider != null) //Si detecta algo, la variable a devolver se vuelve true
+        {
+            detectGround = true;
+        }
+
+        Debug.DrawRay(feetPos.position, distance * feetPos.transform.right, Color.green);
+
+        return detectGround;
+    }
 }
