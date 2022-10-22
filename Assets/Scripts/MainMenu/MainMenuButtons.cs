@@ -6,7 +6,15 @@ using UnityEngine.UI;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    public Animator animator;
+
     public void Play()
+    {
+        animator.Play("FadeOut");
+        //SceneManager.LoadScene("SampleScene");//
+    }
+
+    public void OnCompletedFadeOut()
     {
         SceneManager.LoadScene("SampleScene");
     }
