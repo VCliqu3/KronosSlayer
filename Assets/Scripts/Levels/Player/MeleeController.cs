@@ -49,7 +49,7 @@ public class MeleeController : MonoBehaviour
 
     void EnableDisableAttack()
     {
-        if(!ModeController.isRanged && !isAttacking && !_movementController.isDashing && !_healthController.isHurting) //&& _movementController.isGrounded si no se quiere que ataque saltando 
+        if(!ModeController.isRanged && !isAttacking && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied) //&& _movementController.isGrounded si no se quiere que ataque saltando 
         {
             attackEnable = true;
         }

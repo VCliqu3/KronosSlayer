@@ -59,7 +59,7 @@ public class RangedController : MonoBehaviour
 
     void EnableDisableShooting()
     {
-        if (ModeController.isRanged && !gunIsOverheated && !_movementController.isDashing && !_healthController.isHurting)
+        if (ModeController.isRanged && !gunIsOverheated && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied)
         {
             shootEnable = true;
         }

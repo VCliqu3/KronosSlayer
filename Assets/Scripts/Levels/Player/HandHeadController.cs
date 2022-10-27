@@ -14,6 +14,7 @@ public class HandHeadController : MonoBehaviour
     public Camera _camera;
     public Transform hand;
     public Transform head;
+    public Transform bodyCenter;
 
     private MovementController _movementController;
     private HealthController _healthController;
@@ -48,7 +49,7 @@ public class HandHeadController : MonoBehaviour
 
     Vector2 GetPlayerPosition()
     {
-        Vector2 playerPosition = _camera.WorldToScreenPoint(gameObject.transform.position);
+        Vector2 playerPosition = _camera.WorldToScreenPoint(bodyCenter.position);
         return playerPosition;
     }
 

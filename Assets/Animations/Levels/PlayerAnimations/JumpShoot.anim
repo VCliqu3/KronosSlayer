@@ -20,16 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: a562506a883cb4742ba78318625a8d18, type: 3}
+      value: {fileID: 21300000, guid: 2a0301a383189a840a32003789e82bda, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 5ca73d6ad1905194e92081d4ee2cdcc5, type: 3}
+      value: {fileID: 21300000, guid: 40bcbf386fc12194799bee68bcea8f4c, type: 3}
     attribute: m_Sprite
-    path: Hand
+    path: BodyCenter/Hand
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -48,7 +48,7 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     - serializedVersion: 2
-      path: 2270227889
+      path: 2792409359
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -56,8 +56,8 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: a562506a883cb4742ba78318625a8d18, type: 3}
-    - {fileID: 21300000, guid: 5ca73d6ad1905194e92081d4ee2cdcc5, type: 3}
+    - {fileID: 21300000, guid: 2a0301a383189a840a32003789e82bda, type: 3}
+    - {fileID: 21300000, guid: 40bcbf386fc12194799bee68bcea8f4c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

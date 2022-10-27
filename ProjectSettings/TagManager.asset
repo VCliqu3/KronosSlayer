@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - Ground
   - Enemy
+  - DeadPlayer
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Hazard
   - Player
   - Enemy
-  - 
+  - DeadPlayer
   - 
   - 
   - 

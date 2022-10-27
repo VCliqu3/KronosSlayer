@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class HealthController : MonoBehaviour
     public bool playerHasDied = false;
 
     public bool invincibilityEnabled = false;
+
+    public float secondsToRestart = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +86,7 @@ public class HealthController : MonoBehaviour
             if(auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
             {
                 health = 0;
-                //KillPlayer();
+                StartCoroutine(KillPlayer());
             }
             else
             {
@@ -130,12 +133,22 @@ public class HealthController : MonoBehaviour
         if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
         {
             health = 0;
-            //KillPlayer();
+            StartCoroutine(KillPlayer());
         }
         else
         {
             health = auxHealth;
         }
+    }
+
+    IEnumerator KillPlayer()
+    {
+        _animator.SetTrigger("Death");
+        playerHasDied = true;
+        gameObject.layer = 10;
+        Physics2D.IgnoreLayerCollision(9, 10);
+        yield return new WaitForSeconds(secondsToRestart);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void AddShield(float shieldAmount)
