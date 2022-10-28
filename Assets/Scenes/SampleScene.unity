@@ -4792,7 +4792,7 @@ MonoBehaviour:
   jumpForce: 7
   fallMultiplier: 0.5
   lowJumpMultiplier: 2
-  distanceFrontGroundDetection: 0.375
+  distanceFrontGroundDetection: 0.36
   isGrounded: 0
   groundInFront: 0
   feetPos: {fileID: 609923000}
