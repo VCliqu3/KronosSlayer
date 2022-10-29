@@ -169,7 +169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33dccf83b7f7f294992c97ebe1990464, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74a40ab33ba4c2445af06a24b89e1c9d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -221,7 +221,7 @@ Transform:
   - {fileID: 1822974874496350511}
   - {fileID: 1822974873188124461}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &1822974873874414923
 SpriteRenderer:
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 33dccf83b7f7f294992c97ebe1990464, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74a40ab33ba4c2445af06a24b89e1c9d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

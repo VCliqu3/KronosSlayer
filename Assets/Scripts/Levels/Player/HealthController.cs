@@ -143,6 +143,7 @@ public class HealthController : MonoBehaviour
 
     IEnumerator KillPlayer()
     {
+        PauseController.canPauseGame = false;
         _animator.SetTrigger("Death");
         playerHasDied = true;
         gameObject.layer = 10;

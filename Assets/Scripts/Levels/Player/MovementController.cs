@@ -142,7 +142,7 @@ public class MovementController : MonoBehaviour
                     _rigidbody2D.velocity += (fallMultiplier) * Physics2D.gravity.y * Time.fixedDeltaTime * Vector2.up; //Vector2.up = (0,1)
                 }
 
-                if ((_rigidbody2D.velocity.y > 0 && !(Input.GetKey(KeyCode.Space)))||_healthController.isHurting)
+                if ((_rigidbody2D.velocity.y > 0 && (!(Input.GetKey(KeyCode.Space)) || _healthController.isHurting))) //||_healthController.isHurting
                 {
                     _rigidbody2D.velocity += (lowJumpMultiplier) * Physics2D.gravity.y * Time.fixedDeltaTime * Vector2.up; //Vector2.up = (0,1)
                 }
