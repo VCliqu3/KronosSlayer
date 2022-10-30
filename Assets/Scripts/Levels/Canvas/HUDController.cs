@@ -16,6 +16,7 @@ public class HUDController : MonoBehaviour
     public Image healthBar;
     public Image shieldBar;
     public TMP_Text scoreText;
+    public TMP_Text timeText;
 
     private HealthController _healthController;
     private MovementController _movementController;
@@ -67,5 +68,28 @@ public class HUDController : MonoBehaviour
     public void SetScoreText()
     {
         scoreText.text = "Puntaje: " + FindObjectOfType<ScoreController>().CalculateTotalScore();
+    }
+
+    public void SetTimeText()
+    {
+        int minutes, seconds;
+        ClockController _clockController = FindObjectOfType<ClockController>();
+        minutes = _clockController.rawlevelTime / 60;
+        seconds = _clockController.rawlevelTime - minutes * 60;
+
+        string minutesText = minutes.ToString();
+        string secondsText = seconds.ToString();
+
+        if (minutes < 10)
+        {
+            minutesText = "0" + minutesText;
+        }
+
+        if (seconds < 10)
+        {
+            secondsText = "0" + secondsText;
+        }
+
+        timeText.text = minutesText + ":" + secondsText;
     }
 }
