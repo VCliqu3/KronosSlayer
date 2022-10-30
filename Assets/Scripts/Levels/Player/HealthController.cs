@@ -27,11 +27,15 @@ public class HealthController : MonoBehaviour
 
     public float secondsToRestart = 3f;
 
+    private HUDController _HUDController;
+
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
         _movementController = GetComponent<MovementController>();
+
+        _HUDController = FindObjectOfType<HUDController>();
 
         health = maxHealth;
         shield = maxShield;
@@ -92,7 +96,11 @@ public class HealthController : MonoBehaviour
             {
                 health = auxHealth;
                 StartCoroutine(HurtPlayer());
+
             }
+
+            _HUDController.SetHealthBar();
+            _HUDController.SetShieldBar();
         }
     }
 
@@ -123,7 +131,8 @@ public class HealthController : MonoBehaviour
         auxHealth += healthAmount;
 
         health = auxHealth > maxHealth ? maxHealth : auxHealth;
-        
+
+        _HUDController.SetHealthBar();
     }
     public void LoseHealth(float healthAmount)
     {
@@ -139,6 +148,8 @@ public class HealthController : MonoBehaviour
         {
             health = auxHealth;
         }
+
+        _HUDController.SetHealthBar();
     }
 
     IEnumerator KillPlayer()
@@ -158,6 +169,8 @@ public class HealthController : MonoBehaviour
         auxShield += shieldAmount;
 
         shield = auxShield > maxShield ? maxShield : auxShield;
+
+        _HUDController.SetShieldBar();
     }
 
     public void LoseShield(float shieldAmount)
@@ -166,15 +179,21 @@ public class HealthController : MonoBehaviour
         auxShield -= shieldAmount;
 
         shield = auxShield < 0 ? 0 : auxShield;
+
+        _HUDController.SetShieldBar();
     }
 
     public void FullHealth()
     {
         health = maxHealth;
+
+        _HUDController.SetHealthBar();
     }
 
     public void FullShield()
     {
         shield = maxShield;
+
+        _HUDController.SetShieldBar();
     }
 }

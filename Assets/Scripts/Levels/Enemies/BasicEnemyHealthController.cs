@@ -13,16 +13,21 @@ public class BasicEnemyHealthController : MonoBehaviour
     public float shieldAbsorption = 0.8f; //Expresado en porcentaje (0 a 1), teoricamente puede ser mayor a 1 y menor a 0 
 
     private BasicEnemyHealthBarController _basicEnemyHealthBarController;
+    private BasicEnemyScoreController _basicEnemyScoreController;
     private Animator _animator;
 
     public float timeHurting = 0.5f;
     public bool isHurting = false;
+
+    private HUDController _HUDController;
 
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
         _basicEnemyHealthBarController = GetComponent<BasicEnemyHealthBarController>();
+        _basicEnemyScoreController = GetComponent<BasicEnemyScoreController>();
+        _HUDController = FindObjectOfType<HUDController>();
 
         health = maxHealth;
         shield = maxShield;
@@ -76,6 +81,8 @@ public class BasicEnemyHealthController : MonoBehaviour
 
     void KillEnemy()
     {
+        FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
+        _HUDController.SetScoreText();
         Destroy(gameObject);
     }
 }

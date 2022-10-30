@@ -36,12 +36,17 @@ public class RangedController : MonoBehaviour
     public float overheatCounter;
     public bool gunIsOverheated;
 
+    private HUDController _HUDController;
+
     // Start is called before the first frame update
     void Start()
     {
         _movementController = GetComponent<MovementController>();
         _healthController = GetComponent<HealthController>();
         _handHeadController = GetComponent<HandHeadController>();
+
+        _HUDController = FindObjectOfType<HUDController>();
+        //_HUDController.SetOverheatBar();
 
         time = 1 / fireRate;
     }
@@ -119,13 +124,17 @@ public class RangedController : MonoBehaviour
             overheatCounter += Time.deltaTime*overheatIncreaseMultiplier;
 
             overheatCounter = overheatCounter > overheatLimit ? overheatLimit : overheatCounter;
-            
+
+            _HUDController.SetOverheatBar();
+
         }
         else if(!isShooting && !gunIsOverheated && overheatCounter > 0 && time>=timeForNaturalCooling)
         {
             overheatCounter -= Time.deltaTime * overheatDecreaseMultiplier;
 
             overheatCounter = overheatCounter < 0 ? 0 : overheatCounter;
+
+            _HUDController.SetOverheatBar();
         }
 
         if (overheatCounter >= overheatLimit)
@@ -151,10 +160,14 @@ public class RangedController : MonoBehaviour
             //yield return new WaitForSeconds(0.01f);
 
             overheatCounter -= Time.deltaTime * overheatCoolingDecreaseMultiplier;
+            _HUDController.SetOverheatBar();
+
             yield return null;
         }
 
         overheatCounter = overheatCounter < 0 ? 0 : overheatCounter;
+
+        _HUDController.SetOverheatBar();
 
         yield return new WaitForSeconds(timeAtMinOverheat);
 

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDController : MonoBehaviour
 {
@@ -10,9 +12,10 @@ public class HUDController : MonoBehaviour
     public Color overheatBarLowColor;
     public Color overheatBarFullColor;
 
-    public Image dashCircleImage;
+    public Image dashCooldownIndicator;
     public Image healthBar;
     public Image shieldBar;
+    public TMP_Text scoreText;
 
     private HealthController _healthController;
     private MovementController _movementController;
@@ -23,15 +26,21 @@ public class HUDController : MonoBehaviour
         _healthController = FindObjectOfType<HealthController>();
         _movementController = FindObjectOfType<MovementController>();
         _rangedController = FindObjectOfType<RangedController>();
+
+        SetOverheatBar();
+        SetDashCooldownIndicator();
+        SetHealthBar();
+        SetShieldBar();
+        SetScoreText();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        SetOverheatBar();
-        SetDashCooldownCircle();
-        SetHealthBar();
-        SetShieldBar();
+        //SetOverheatBar();
+        //SetDashCooldownIndicator();
+        //SetHealthBar();
+        //SetShieldBar();
     }
 
     public void SetOverheatBar()
@@ -40,9 +49,9 @@ public class HUDController : MonoBehaviour
         overheatBarImage.color = Color.Lerp(overheatBarLowColor, overheatBarFullColor, overheatBarImage.fillAmount);
     }
 
-    public void SetDashCooldownCircle()
+    public void SetDashCooldownIndicator()
     {
-        dashCircleImage.fillAmount = _movementController.dashCooldownCounter / _movementController.dashCooldown;
+        dashCooldownIndicator.fillAmount = _movementController.dashCooldownCounter / _movementController.dashCooldown;
     }
 
     public void SetHealthBar()
@@ -53,5 +62,10 @@ public class HUDController : MonoBehaviour
     public void SetShieldBar()
     {
         shieldBar.fillAmount = _healthController.shield / _healthController.maxShield;
+    }
+
+    public void SetScoreText()
+    {
+        scoreText.text = "Puntaje: " + FindObjectOfType<ScoreController>().CalculateTotalScore();
     }
 }

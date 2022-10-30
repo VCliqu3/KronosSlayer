@@ -49,6 +49,8 @@ public class MovementController : MonoBehaviour
 
     private TrailRenderer _trailRenderer;
 
+    private HUDController _HUDController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,8 @@ public class MovementController : MonoBehaviour
         _trailRenderer = GetComponent<TrailRenderer>();
         _healthController = GetComponent<HealthController>();
         _handHeadController = GetComponent<HandHeadController>();
+
+        _HUDController = FindObjectOfType<HUDController>();
 
         dashCooldownCounter = dashCooldown;
     }
@@ -181,6 +185,8 @@ public class MovementController : MonoBehaviour
         isDashing = true;
         dashCooldownCounter = 0;
 
+        _HUDController.SetDashCooldownIndicator();
+
         float originalGravity = _rigidbody2D.gravityScale;
         _rigidbody2D.gravityScale = 0f;
 
@@ -209,10 +215,13 @@ public class MovementController : MonoBehaviour
         while (dashCooldownCounter < dashCooldown)
         {
             dashCooldownCounter += Time.deltaTime;
+            _HUDController.SetDashCooldownIndicator();
+
             yield return null;
         }
 
         dashCooldownCounter = dashCooldownCounter > dashCooldown ? dashCooldown : dashCooldownCounter;
+        _HUDController.SetDashCooldownIndicator();
 
         dashEnabled = true;
     }
