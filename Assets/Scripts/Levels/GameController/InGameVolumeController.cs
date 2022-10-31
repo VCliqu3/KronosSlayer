@@ -8,12 +8,12 @@ public class InGameVolumeController : MonoBehaviour
     public GameObject volumePanel;
     private Animator _volumePanelAnimator;
     private Image _volumePanelImage;
+
     // Start is called before the first frame update
     void Start()
     {
         _volumePanelAnimator = volumePanel.GetComponent<Animator>();
-        _volumePanelImage = volumePanel.GetComponent<Image>();
-
+        _volumePanelImage = volumePanel.GetComponent<Image>(); 
     }
 
     // Update is called once per frame
@@ -40,7 +40,6 @@ public class InGameVolumeController : MonoBehaviour
         Time.timeScale = 0f;
         PauseController.gamePaused = true;
     }
-
     public IEnumerator VolumeResume()
     {
         _volumePanelAnimator.SetTrigger("Resume");
@@ -51,7 +50,6 @@ public class InGameVolumeController : MonoBehaviour
         PauseController.gamePaused = false;
 
     }
-
     public void CallVolumeResume()
     {
         StartCoroutine(VolumeResume());

@@ -7,6 +7,9 @@ public class MeleeRunBehavior : StateMachineBehaviour
     private MovementController _movementController;
     private MeleeController _meleeController;
 
+    public string WalkingSFXName;
+    private bool isPlayingWalkingSFX = false;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,6 +20,18 @@ public class MeleeRunBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (!isPlayingWalkingSFX)
+        {
+            AudioManager.instance.PlayPerpetualSFX(WalkingSFXName);
+            isPlayingWalkingSFX = true;
+        }
+
+        if (PauseController.gamePaused)
+        {
+            AudioManager.instance.StopPerpetualSFX();
+            isPlayingWalkingSFX = false;
+        }
+
         if (_movementController.velX == 0 || _movementController.groundInFront)
         {
             animator.Play("MeleeIdle");
@@ -38,11 +53,11 @@ public class MeleeRunBehavior : StateMachineBehaviour
         }
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //   
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        AudioManager.instance.StopPerpetualSFX();
+        AudioManager.instance.StopPerpetualSFX(); isPlayingWalkingSFX = false;
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
