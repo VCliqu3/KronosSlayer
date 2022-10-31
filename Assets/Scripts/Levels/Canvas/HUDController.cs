@@ -34,16 +34,7 @@ public class HUDController : MonoBehaviour
         SetShieldBar();
         SetScoreText();
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        //SetOverheatBar();
-        //SetDashCooldownIndicator();
-        //SetHealthBar();
-        //SetShieldBar();
-    }
-
+   
     public void SetOverheatBar()
     {
         overheatBarImage.fillAmount = _rangedController.overheatCounter / _rangedController.overheatLimit;

@@ -34,11 +34,6 @@ public class ClockController : MonoBehaviour
         rawlevelTime = Mathf.CeilToInt(levelTime);
 
         CheckIfTimeChanged();
-
-        if(rawlevelTime <= 0)
-        {
-            //ShipAutodestruction();
-        }
     }
 
     public void CheckIfTimeChanged()
@@ -48,6 +43,11 @@ public class ClockController : MonoBehaviour
             timeHasChanged = true;
             previousRawTime = rawlevelTime;
             _HUDController.SetTimeText();
+
+            if(rawlevelTime <= 0)
+            {
+                //ShipAutodestruction()
+            }
         }
         else
         {
