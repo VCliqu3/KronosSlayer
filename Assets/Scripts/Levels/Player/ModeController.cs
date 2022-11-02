@@ -31,7 +31,7 @@ public class ModeController : MonoBehaviour
 
     void EnableDisableChangeMode()
     {
-        if(!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied)
+        if(!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused)
         {
             canChangeMod = true;
         }
