@@ -15,6 +15,8 @@ public class LevelController : MonoBehaviour
     public float timeForLevelText = 1f;
     public TMP_Text levelText;
 
+    public GameObject deathPanel;
+
     void Start()
     {        
         ChangeAttempsInCurrentLevel(1);
@@ -51,4 +53,10 @@ public class LevelController : MonoBehaviour
         levelText.gameObject.SetActive(true);
 
     }
+
+    public void ActivateDeathPanel()
+    {
+        deathPanel.SetActive(true);
+    }
+
 }

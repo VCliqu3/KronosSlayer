@@ -25,7 +25,7 @@ public class HealthController : MonoBehaviour
 
     public bool invincibilityEnabled = false;
 
-    public float secondsToRestart = 3f;
+    public float timeToPopUpDeathPanel = 2f;
 
     private HUDController _HUDController;
 
@@ -159,8 +159,10 @@ public class HealthController : MonoBehaviour
         playerHasDied = true;
         gameObject.layer = 10;
         Physics2D.IgnoreLayerCollision(9, 10);
-        yield return new WaitForSeconds(secondsToRestart);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        yield return new WaitForSeconds(timeToPopUpDeathPanel);
+
+        FindObjectOfType<LevelController>().ActivateDeathPanel();        
     }
 
     public void AddShield(float shieldAmount)

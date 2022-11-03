@@ -18,6 +18,12 @@ public class AttackTransition31 : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (_movementController.isGrounded) //Si salta
+        {
+            _movementController.Stop();
+        }
+        
+
         /*
         if (_meleeController.isAttacking)
         {

@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class Attack1Behavior : StateMachineBehaviour
 {
+    private MovementController _movementController;
     private MeleeController _meleeController;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        _movementController = animator.gameObject.GetComponent<MovementController>();
         _meleeController = animator.gameObject.GetComponent<MeleeController>();
         _meleeController.DamageEnemies(_meleeController.attack1Damage, _meleeController.attack1ShieldPenetration, _meleeController.attack1Range);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (_movementController.isGrounded) //Si salta
+        {
+            _movementController.Stop();
+        }
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

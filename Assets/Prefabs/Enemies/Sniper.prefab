@@ -529,6 +529,9 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+  deadPlayer:
+    serializedVersion: 2
+    m_Bits: 1024
   shootRange: 6
   maxShootRange: 7
   timeAiming: 1.5

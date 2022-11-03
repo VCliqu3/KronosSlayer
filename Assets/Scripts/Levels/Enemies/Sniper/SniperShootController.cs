@@ -11,6 +11,7 @@ public class SniperShootController : MonoBehaviour
 
     public GameObject sniperBullet;
     public LayerMask enemyLayer;
+    public LayerMask deadPlayer;
 
     public float shootRange = 5f;
     public float maxShootRange = 5f;
@@ -56,7 +57,7 @@ public class SniperShootController : MonoBehaviour
     {
         if (Physics2D.Raycast(firePoint.position, transform.right, 1000f,~enemyLayer))
         {
-            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.right, 1000f, ~enemyLayer);
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, transform.right, 1000f, ~enemyLayer & ~deadPlayer);
             DrawLaser(firePoint.position, hit.point);
         }
         else
