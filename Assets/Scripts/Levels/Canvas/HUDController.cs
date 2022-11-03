@@ -33,6 +33,7 @@ public class HUDController : MonoBehaviour
         SetHealthBar();
         SetShieldBar();
         SetScoreText();
+        SetTimeText();
     }
    
     public void SetOverheatBar()

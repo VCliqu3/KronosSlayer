@@ -29,7 +29,7 @@ public class SniperGetHurtBehavior : StateMachineBehaviour
 
         time += Time.deltaTime;
 
-        if (time >= _basicEnemyHealthController.timeHurting)
+        if (time >= _basicEnemyHealthController.timeHurting && !_basicEnemyHealthController.isDead)
         {
             if (_sniperShootController.playerOnShootRange)
             {

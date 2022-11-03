@@ -15,16 +15,21 @@ public class BasicEnemyHealthController : MonoBehaviour
     private BasicEnemyHealthBarController _basicEnemyHealthBarController;
     private BasicEnemyScoreController _basicEnemyScoreController;
     private Animator _animator;
+    private BoxCollider2D _boxCollider2D;
 
     public float timeHurting = 0.5f;
     public bool isHurting = false;
+    public bool isDead = false;
 
     private HUDController _HUDController;
+
+    public float timeFadeAfterDeath = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
         _basicEnemyHealthBarController = GetComponent<BasicEnemyHealthBarController>();
         _basicEnemyScoreController = GetComponent<BasicEnemyScoreController>();
         _HUDController = FindObjectOfType<HUDController>();
@@ -35,43 +40,47 @@ public class BasicEnemyHealthController : MonoBehaviour
 
     public void TakeDamage(float damage, float shieldPenetration)
     {
-        float damageShieldWouldTake, damageHealthWouldTake;
-        float resultingShAb;
-        float auxHealth = health; //Health puede ser negativo al recibir daño, por ello se declara una variable auxiliar
-
-        resultingShAb = shieldAbsorption - shieldPenetration; //Absorcion de escudo resultante
-
-        resultingShAb = resultingShAb < 0 ? 0 : resultingShAb; //Por si el resultado es <0
-        resultingShAb = resultingShAb > 1 ? 1 : resultingShAb; //Por si el resultado es >1
-
-        damageShieldWouldTake = damage * (resultingShAb); //Daño que el escudo fuera a recibir
-        damageHealthWouldTake = damage * (1 - resultingShAb); //Daño que la vida fuera a recibir
-
-        if (damageShieldWouldTake > shield)
+        if (!isDead)
         {
-            auxHealth -= damageHealthWouldTake + (damageShieldWouldTake - shield);
-            shield = 0;
+            float damageShieldWouldTake, damageHealthWouldTake;
+            float resultingShAb;
+            float auxHealth = health; //Health puede ser negativo al recibir daño, por ello se declara una variable auxiliar
 
-        }
-        else
-        {
-            auxHealth -= damageHealthWouldTake;
-            shield -= damageShieldWouldTake;
-        }
+            resultingShAb = shieldAbsorption - shieldPenetration; //Absorcion de escudo resultante
 
-        if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
-        {
-            health = 0;
-            KillEnemy();
-        }
-        else
-        {
-            health = auxHealth;
-            HurtEnemy();
-        }
+            resultingShAb = resultingShAb < 0 ? 0 : resultingShAb; //Por si el resultado es <0
+            resultingShAb = resultingShAb > 1 ? 1 : resultingShAb; //Por si el resultado es >1
 
-        _basicEnemyHealthBarController.SetHealthBar();
-        _basicEnemyHealthBarController.SetShieldBar();
+            damageShieldWouldTake = damage * (resultingShAb); //Daño que el escudo fuera a recibir
+            damageHealthWouldTake = damage * (1 - resultingShAb); //Daño que la vida fuera a recibir
+
+            if (damageShieldWouldTake > shield)
+            {
+                auxHealth -= damageHealthWouldTake + (damageShieldWouldTake - shield);
+                shield = 0;
+
+            }
+            else
+            {
+                auxHealth -= damageHealthWouldTake;
+                shield -= damageShieldWouldTake;
+            }
+
+            if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
+            {
+                health = 0;
+                isDead = true;
+                StartCoroutine(KillEnemy());
+            }
+            else 
+            {
+                health = auxHealth;
+                HurtEnemy();
+            }
+
+            _basicEnemyHealthBarController.SetHealthBar();
+            _basicEnemyHealthBarController.SetShieldBar();
+        }
     }
 
     void HurtEnemy()
@@ -79,10 +88,22 @@ public class BasicEnemyHealthController : MonoBehaviour
         _animator.SetTrigger("GetHurt"); //Trigger para animacion GetHurt
     }
 
-    void KillEnemy()
+    IEnumerator KillEnemy()
     {
         FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
         _HUDController.SetScoreText();
+
+        _animator.SetTrigger("Death");
+        _boxCollider2D.enabled = false;
+
+        yield return new WaitForSeconds(timeFadeAfterDeath);
+
+        _animator.SetTrigger("FadeOut");
+    }
+
+    public void DestroyEnemy()
+    {
         Destroy(gameObject);
     }
+
 }

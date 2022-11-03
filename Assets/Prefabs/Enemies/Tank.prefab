@@ -264,7 +264,7 @@ MonoBehaviour:
   playerOnSightBack: 0
   groundInFront: 0
   groundDown: 1
-  isFacingRight: 1
+  isFacingRight: 0
   maxTimeStandingPatrol: 2
   minTimeStandingPatrol: 1
   isPatrolling: 0

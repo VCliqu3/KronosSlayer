@@ -34,12 +34,15 @@ public class BasicEnemyMovementController : MonoBehaviour
 
     public bool canTurnBack = true;
 
+    private BasicEnemyHealthController _basicEnemyHealthController;
+
     // Start is called before the first frame update
     void Start()
     {
         
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _basicEnemyHealthController = GetComponent<BasicEnemyHealthController>();
 
         patrolCoroutine = Patrol();
     }
@@ -56,7 +59,7 @@ public class BasicEnemyMovementController : MonoBehaviour
 
         EnableDisableCanTurnBack();
 
-        if (playerOnSightBack && canTurnBack)
+        if (playerOnSightBack && canTurnBack && !_basicEnemyHealthController.isDead)
         {
             ForcedRotation();
         }
