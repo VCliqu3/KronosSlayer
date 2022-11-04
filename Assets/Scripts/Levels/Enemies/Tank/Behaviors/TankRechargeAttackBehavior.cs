@@ -23,10 +23,12 @@ public class TankRechargeAttackBehavior : StateMachineBehaviour
         {
             animator.Play("Run");
         }
+        /*
         else if (!_basicEnemyMovementController.playerOnSight)
         {
             animator.Play("Idle");
         }
+        */
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -59,7 +59,7 @@ public class BasicEnemyMovementController : MonoBehaviour
 
         EnableDisableCanTurnBack();
 
-        if (playerOnSightBack && canTurnBack && !_basicEnemyHealthController.isDead)
+        if (playerOnSightBack && !playerOnSight && canTurnBack && !_basicEnemyHealthController.isDead)
         {
             ForcedRotation();
         }

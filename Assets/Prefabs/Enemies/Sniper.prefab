@@ -306,7 +306,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: c6cf9c1af88150642bea8cc102afd955, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0203408, y: -0.114236265}
@@ -526,7 +526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 0}
-  _basicEnemyMovementController: {fileID: 0}
   sniperBullet: {fileID: 2809911548132119558, guid: 40d10c91b95f31e41aa6234971398904, type: 3}
   enemyLayer:
     serializedVersion: 2

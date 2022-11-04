@@ -7,7 +7,7 @@ public class SniperShootController : MonoBehaviour
     [HideInInspector]
     public LineRenderer _lineRenderer;
 
-    public BasicEnemyMovementController _basicEnemyMovementController;
+    private BasicEnemyMovementController _basicEnemyMovementController;
 
     public GameObject sniperBullet;
     public LayerMask enemyLayer;

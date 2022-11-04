@@ -7,12 +7,16 @@ public class TankRunBehavior : StateMachineBehaviour
     private BasicEnemyMovementController _basicEnemyMovementController;
     private TankAttackController _tankAttackController;
 
+    public float time = 0f;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _basicEnemyMovementController = animator.gameObject.GetComponent<BasicEnemyMovementController>();
         _tankAttackController = animator.gameObject.GetComponent<TankAttackController>();
-    }
+
+        time = 0f;
+}
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -22,9 +26,14 @@ public class TankRunBehavior : StateMachineBehaviour
         {
             animator.Play("Attack");
         }
-
-        if (!_basicEnemyMovementController.playerOnSight || !_basicEnemyMovementController.groundDown || _basicEnemyMovementController.groundInFront)
+        else if(!_basicEnemyMovementController.playerOnSight)
         {
+            time += Time.deltaTime;
+        }
+
+        if (time >=_tankAttackController.timeRemainingFollowing || !_basicEnemyMovementController.groundDown || _basicEnemyMovementController.groundInFront)
+        {
+            time = 0;
             animator.Play("Idle");
         }
     }

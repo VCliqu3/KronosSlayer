@@ -31,14 +31,17 @@ public class TankAttackBehavior : StateMachineBehaviour
             {
                 animator.Play("RechargeAttack");
             }
-            else if (_basicEnemyMovementController.playerOnSight && _basicEnemyMovementController.groundDown && !_basicEnemyMovementController.groundInFront)
+            else
+            {
+                animator.Play("StopAttacking");
+            }
+
+            /*
+             * else if (_basicEnemyMovementController.playerOnSight && _basicEnemyMovementController.groundDown && !_basicEnemyMovementController.groundInFront)
             {
                 animator.Play("Run");
             }
-            else
-            {
-                animator.Play("Idle");
-            }
+            */
         }
     }
 

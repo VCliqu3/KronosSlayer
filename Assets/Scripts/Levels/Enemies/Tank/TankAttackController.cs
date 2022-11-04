@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TankAttackController : MonoBehaviour
 {
-    public Animator _animator;
-    public BasicEnemyMovementController _basicEnemyMovementController;
+    private Animator _animator;
+    private BasicEnemyMovementController _basicEnemyMovementController;
     public LayerMask playerLayer;
+
+    public float timeRemainingFollowing = 1.5f;
 
     public float attackRange = 5f;
     public float maxAttackRange = 5f;
