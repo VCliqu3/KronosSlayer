@@ -10071,7 +10071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ca52d8bb1acea418809c02c62246ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForLevelText: 2
+  timeForLevelText: 1
   levelText: {fileID: 881565769}
   deathPanel: {fileID: 312009376}
 --- !u!114 &1843565730
