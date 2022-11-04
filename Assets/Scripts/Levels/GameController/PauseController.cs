@@ -9,6 +9,7 @@ public class PauseController : MonoBehaviour
     static public bool canPauseGame;
 
     public GameObject pausePanel;
+    public GameObject volumePanel;
     private Animator _pausePanelAnimator;
     private Image _pausePanelImage;
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class PauseController : MonoBehaviour
             {
                 Pause();
             }
-            else if (pausePanel.activeInHierarchy)
+            else if (pausePanel.activeInHierarchy && !volumePanel.activeInHierarchy)
             {
                 StartCoroutine(Resume());
             }

@@ -19,39 +19,19 @@ public class InGameVolumeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("v"))
+        if (Input.GetKeyDown(KeyCode.Escape) && volumePanel.activeInHierarchy)
         {
-            if (!PauseController.gamePaused && PauseController.canPauseGame)
-            {
-                VolumePause();
-            }
-            else if (volumePanel.activeInHierarchy)
-            {
-                StartCoroutine(VolumeResume());
-            }
+            CloseVolumePanel();
         }
     }
 
-    public void VolumePause()
+    public void ActivateVolumePanel()
     {
         volumePanel.SetActive(true);
-        _volumePanelAnimator.SetTrigger("Pause");
-
-        Time.timeScale = 0f;
-        PauseController.gamePaused = true;
     }
-    public IEnumerator VolumeResume()
+    public void CloseVolumePanel()
     {
-        _volumePanelAnimator.SetTrigger("Resume");
-        yield return new WaitUntil(() => _volumePanelImage.color.a == 0); //Se espera que sea completamente transparente
         volumePanel.SetActive(false);
 
-        Time.timeScale = 1f;
-        PauseController.gamePaused = false;
-
-    }
-    public void CallVolumeResume()
-    {
-        StartCoroutine(VolumeResume());
     }
 }
