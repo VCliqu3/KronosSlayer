@@ -18,4 +18,9 @@ public class MainMenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
 }
