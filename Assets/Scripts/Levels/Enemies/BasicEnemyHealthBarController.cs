@@ -21,7 +21,7 @@ public class BasicEnemyHealthBarController : MonoBehaviour
     }
     void Update()
     {
-        if (_basicEnemyHealthController.isHurting)
+        if (_basicEnemyHealthController.shield != _basicEnemyHealthController.maxShield || _basicEnemyHealthController.health != _basicEnemyHealthController.maxHealth)
         {
             healthBarsCanvas.SetActive(true);
         }

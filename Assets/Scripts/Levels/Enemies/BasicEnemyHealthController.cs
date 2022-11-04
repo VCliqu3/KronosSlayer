@@ -17,6 +17,7 @@ public class BasicEnemyHealthController : MonoBehaviour
     private Animator _animator;
     private BoxCollider2D _boxCollider2D;
 
+    public bool hurtEnable = true;
     public float timeHurting = 0.5f;
     public bool isHurting = false;
     public bool isDead = false;
@@ -75,7 +76,11 @@ public class BasicEnemyHealthController : MonoBehaviour
             else 
             {
                 health = auxHealth;
-                HurtEnemy();
+
+                if (hurtEnable)
+                {
+                    HurtEnemy();
+                }
             }
 
             _basicEnemyHealthBarController.SetHealthBar();
