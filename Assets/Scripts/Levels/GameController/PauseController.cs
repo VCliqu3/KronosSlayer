@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
     static public bool gamePaused;
     static public bool canPauseGame;
+
+    public Animator animator;
 
     public GameObject pausePanel;
     public GameObject volumePanel;
@@ -63,4 +66,17 @@ public class PauseController : MonoBehaviour
     {
         StartCoroutine(Resume());
     }
+
+    //Para reintentar//
+    public void ReintentarBoton()
+    {
+        animator.Play("ReintentarAni");
+    }
+
+    public void OnCompletedReintentarAni()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("SampleScene");
+    }
+    //Para reintentar//
 }
