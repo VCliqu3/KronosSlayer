@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody2D;
+    [HideInInspector]
+    public Rigidbody2D _rigidbody2D;
     [HideInInspector]
     public Animator _animator;
 
@@ -121,7 +122,11 @@ public class MovementController : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
     }
 
-    
+    public void StopOnY()
+    {
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+    }
+
     void Jump()
     {
         isGrounded = Physics2D.OverlapArea(new Vector2 (feetPos.position.x - rectangleLenght/2,feetPos.position.y-rectangleHeight/2), new Vector2(feetPos.position.x + rectangleLenght / 2, feetPos.position.y + rectangleHeight / 2), whatIsGround | enemies);

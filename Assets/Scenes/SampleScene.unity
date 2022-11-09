@@ -8883,6 +8883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75dd1b5466e0c94a8cfa8db60103d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 0}
   _animator: {fileID: 0}
   movementSpeed: 5
   velX: 0
@@ -8942,15 +8943,21 @@ MonoBehaviour:
   BasicEnemyLayers:
     serializedVersion: 2
     m_Bits: 512
+  stopOnYOnAttack: 0
+  attackImpulseOnAir: 0
+  cancelGravityOnAttack: 0
   attack1Damage: 5
   attack1ShieldPenetration: 0
   attack1Range: 0.7
+  attack1Impulse: 1
   attack2Damage: 6
   attack2ShieldPenetration: 0
   attack2Range: 0.7
+  attack2Impulse: 1
   attack3Damage: 7
   attack3ShieldPenetration: 0
   attack3Range: 0.8
+  attack3Impulse: 3
   isAttacking: 0
   isOnAttackTransition: 0
   attackingBehind: 0

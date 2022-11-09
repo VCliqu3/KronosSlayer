@@ -10,6 +10,8 @@ public class BasicEnemyHealthBarController : MonoBehaviour
     public GameObject healthBarsCanvas;
     public Image healthBar;
     public Image shieldBar;
+    public Image healthBarContainer;
+    public Image shieldBarContainer;
     public bool facingRight;
 
     void Start()
@@ -24,6 +26,16 @@ public class BasicEnemyHealthBarController : MonoBehaviour
         if (_basicEnemyHealthController.shield != _basicEnemyHealthController.maxShield || _basicEnemyHealthController.health != _basicEnemyHealthController.maxHealth)
         {
             healthBarsCanvas.SetActive(true);
+        }
+
+        if(_basicEnemyHealthController.shield == 0)
+        {
+            shieldBarContainer.enabled = false;
+        }
+
+        if (_basicEnemyHealthController.health == 0)
+        {
+            healthBarContainer.enabled = false;
         }
 
         RotateCanvas();

@@ -11,17 +11,24 @@ public class MeleeController : MonoBehaviour
     public Transform attackPoint;
     public LayerMask BasicEnemyLayers;
 
+    public bool stopOnYOnAttack = true;
+    public bool attackImpulseOnAir = true;
+    public bool cancelGravityOnAttack = true;
+
     public float attack1Damage;
     public float attack1ShieldPenetration;
     public float attack1Range;
+    public float attack1Impulse;
 
     public float attack2Damage;
     public float attack2ShieldPenetration;
     public float attack2Range;
+    public float attack2Impulse;
 
     public float attack3Damage;
     public float attack3ShieldPenetration;
     public float attack3Range;
+    public float attack3Impulse;
 
     public bool isAttacking = false;
     public bool isOnAttackTransition = false;
@@ -44,7 +51,7 @@ public class MeleeController : MonoBehaviour
     void Update()
     {    
         Attack();
-        EnableDisableAttack();  
+        EnableDisableAttack();
     }
 
     void EnableDisableAttack()
@@ -109,6 +116,18 @@ public class MeleeController : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attack1Range);
+    }
+
+    public void ImpulsePlayer(float impulseForce)
+    {
+        if (_movementController.playerFacingRight)
+        {
+            _rigidbody2D.AddForce(new Vector2 (impulseForce,0f), ForceMode2D.Impulse);
+        }
+        else
+        {
+            _rigidbody2D.AddForce(new Vector2(-impulseForce, 0f), ForceMode2D.Impulse);
+        }
     }
 
 }
