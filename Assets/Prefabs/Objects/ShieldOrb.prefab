@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e948d208eb3b04ca298c1f1e98cc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialImpulse: 17
+  initialImpulse: 3
   groundDistanceToStartOscilation: 0.8
   oscilationAmplitude: 0.3
   oscilationFrequency: 3

@@ -7,45 +7,43 @@ public class BasicEnemyDropsController : MonoBehaviour
     public float shieldOrbDropOdds = 0.2f;
     public float healthOrbDropOdds = 0.2f;
 
-    public bool willDropShieldOrb =false;
-    public bool willDropHealthOrb = false;
+    private bool willDropShieldOrb = false;
+    private bool willDropHealthOrb = false;
 
     public GameObject shieldOrb;
     public GameObject healthOrb;
 
     private HealthController _playerHealthController;
-    // Start is called before the first frame update
-    void Start()
+ 
+    public void BasicEnemyDrops()
     {
         _playerHealthController = FindObjectOfType<HealthController>();
 
-        float random1 = Random.Range(0f, 1f);
-        float random2 = Random.Range(0f, 1f);
+        float randomNumberShield = Random.Range(0f, 1f);
+        float randomNumberHealth = Random.Range(0f, 1f);
 
-        if (shieldOrbDropOdds >= random1)
+        if (shieldOrbDropOdds >= randomNumberShield)
         {
             willDropShieldOrb = true;
         }
 
-        if (healthOrbDropOdds >= random2)
+        if (healthOrbDropOdds >= randomNumberHealth)
         {
             willDropHealthOrb = true;
         }
 
-        if(willDropHealthOrb && willDropShieldOrb)
+        if (willDropHealthOrb && willDropShieldOrb)
         {
-            if(_playerHealthController.health != _playerHealthController.maxHealth)
+            if (_playerHealthController.health != _playerHealthController.maxHealth)
             {
                 willDropShieldOrb = false; //Si le falta vida al player, dropea el orbe de vida
             }
-            else 
+            else
             {
                 willDropHealthOrb = false; //Si la vida esta completa, dropea el orbe de escudo
             }
         }
-    } 
-    public void BasicEnemyDrops()
-    {
+
         if (willDropShieldOrb)
         {
             DropShieldOrb();

@@ -45,7 +45,7 @@ public class OrbMovementController : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Linecast(transform.position, endPos, 1 << LayerMask.NameToLayer("Ground")); //Para que el Raycast detecte las capas Blocks y Solids
 
-        if (hit.collider != null) //Si detecta algo, la variable a devolver se vuelve true
+        if (hit.collider != null && _rigidbody2D.velocity.y<0) //Si detecta algo, la variable a devolver se vuelve true
         {
             detectGround = true;
             yOriginPoint = transform.position.y;
