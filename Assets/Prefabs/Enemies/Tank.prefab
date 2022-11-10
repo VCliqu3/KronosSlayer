@@ -290,7 +290,7 @@ MonoBehaviour:
   timeHurting: 0.5
   isHurting: 0
   isDead: 0
-  timeFadeAfterDeath: 3
+  timeFadeAfterDeath: 2
 --- !u!114 &1399860952490098740
 MonoBehaviour:
   m_ObjectHideFlags: 0

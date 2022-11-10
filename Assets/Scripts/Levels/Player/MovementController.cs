@@ -48,7 +48,7 @@ public class MovementController : MonoBehaviour
 
     private bool pseudoEnableJumping = true;
 
-    private TrailRenderer _trailRenderer;
+    public TrailRenderer _trailRenderer;
 
     private HUDController _HUDController;
 
@@ -59,7 +59,6 @@ public class MovementController : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _meleeController = GetComponent<MeleeController>();
-        _trailRenderer = GetComponent<TrailRenderer>();
         _healthController = GetComponent<HealthController>();
         _handHeadController = GetComponent<HandHeadController>();
 
