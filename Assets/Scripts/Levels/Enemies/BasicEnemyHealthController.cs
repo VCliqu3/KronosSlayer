@@ -98,6 +98,8 @@ public class BasicEnemyHealthController : MonoBehaviour
     IEnumerator KillEnemy()
     {
         FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
+        FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
+
         _HUDController.SetScoreText();
 
         _basicEnemyDropsController.BasicEnemyDrops();
