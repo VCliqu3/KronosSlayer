@@ -16,6 +16,9 @@ public class LevelController : MonoBehaviour
     public TMP_Text levelText;
 
     public GameObject deathPanel;
+    public GameObject levelCompletePanel;
+
+    public bool levelCompleted = false;
 
     void Start()
     {        
@@ -57,6 +60,15 @@ public class LevelController : MonoBehaviour
     public void ActivateDeathPanel()
     {
         deathPanel.SetActive(true);
+    }
+
+    public void ActivateLevelCompletePanel()
+    {
+        levelCompleted = true;
+        levelCompletePanel.SetActive(true);
+
+        Time.timeScale = 0f;
+        PauseController.gamePaused = true;
     }
 
 }

@@ -14,11 +14,13 @@ public class ClockController : MonoBehaviour
     public bool levelTimeCanDecrease = true;
 
     private HUDController _HUDController;
+    private LevelController _levelController;
 
     // Start is called before the first frame update
     void Start()
     {
         _HUDController = FindObjectOfType<HUDController>();
+        _levelController = GetComponent<LevelController>();
         levelTime = timeToCompleteLevel;
         previousRawTime = rawlevelTime;
     }
@@ -26,7 +28,7 @@ public class ClockController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (levelTimeCanDecrease && levelTime>=0)
+        if (levelTimeCanDecrease && levelTime>=0 && !_levelController.levelCompleted)
         {
             levelTime -= Time.deltaTime;
         }
