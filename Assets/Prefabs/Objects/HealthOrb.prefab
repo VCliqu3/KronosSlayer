@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7978108228448225883
 SpriteRenderer:
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.023547173, y: -0.023547173}
   serializedVersion: 2
-  m_Radius: 0.24434471
+  m_Radius: 0.3
 --- !u!50 &7978108228448225884
 Rigidbody2D:
   serializedVersion: 4
@@ -175,4 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04940526cacc5d488985a113775e923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  collectionRange: 0.25
   healthAmount: 5
+  shieldAmount: 0

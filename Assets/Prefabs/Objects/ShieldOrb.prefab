@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2770589248468203193}
   - component: {fileID: 2770589248468203192}
   - component: {fileID: 2770589248468203143}
-  - component: {fileID: 2770589248468203142}
+  - component: {fileID: 1691910038806944153}
   m_Layer: 0
   m_Name: ShieldOrb
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2770589248468203195
 SpriteRenderer:
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.023547173, y: -0.023547173}
   serializedVersion: 2
-  m_Radius: 0.24434471
+  m_Radius: 0.3
 --- !u!50 &2770589248468203192
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +163,7 @@ MonoBehaviour:
   oscilationAmplitude: 0.3
   oscilationFrequency: 3
   hasStartedOscilating: 0
---- !u!114 &2770589248468203142
+--- !u!114 &1691910038806944153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +172,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2770589248468203197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f5d4ca6f130c0748b608bb470719e71, type: 3}
+  m_Script: {fileID: 11500000, guid: c04940526cacc5d488985a113775e923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  collectionRange: 0.25
+  healthAmount: 0
   shieldAmount: 5

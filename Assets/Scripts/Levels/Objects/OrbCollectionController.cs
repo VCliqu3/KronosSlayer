@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldOrbController : MonoBehaviour
+public class OrbCollectionController : MonoBehaviour
 {
     private OrbMovementController _orbMovementController;
     private bool canBeCollected = false;
 
+    public LayerMask playerLayer;
+
+    public float collectionRange;
+    public float healthAmount;
     public float shieldAmount;
+
     void Start()
     {
         _orbMovementController = GetComponent<OrbMovementController>();
@@ -18,12 +23,16 @@ public class ShieldOrbController : MonoBehaviour
         {
             canBeCollected = true;
         }
+
+        OrbCollection();
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    
+    void OrbCollection()
     {
-        if (collision.CompareTag("Player") && canBeCollected) //Solo se puede recoger si ya ha caido completamente
+        if (Physics2D.OverlapCircle(transform.position, collectionRange, playerLayer) && canBeCollected)
         {
-            collision.GetComponent<HealthController>().AddShield(shieldAmount);
+            FindObjectOfType<HealthController>().AddHealth(healthAmount);
+            FindObjectOfType<HealthController>().AddShield(shieldAmount);
             Destroy(gameObject);
         }
     }
@@ -34,5 +43,10 @@ public class ShieldOrbController : MonoBehaviour
         {
             canBeCollected = true;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, collectionRange);
     }
 }
