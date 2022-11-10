@@ -14,6 +14,7 @@ public class BasicEnemyHealthController : MonoBehaviour
 
     private BasicEnemyHealthBarController _basicEnemyHealthBarController;
     private BasicEnemyScoreController _basicEnemyScoreController;
+    private BasicEnemyDropsController _basicEnemyDropsController;
     private Animator _animator;
     private BoxCollider2D _boxCollider2D;
 
@@ -33,6 +34,7 @@ public class BasicEnemyHealthController : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _basicEnemyHealthBarController = GetComponent<BasicEnemyHealthBarController>();
         _basicEnemyScoreController = GetComponent<BasicEnemyScoreController>();
+        _basicEnemyDropsController = GetComponent<BasicEnemyDropsController>();
         _HUDController = FindObjectOfType<HUDController>();
 
         health = maxHealth;
@@ -97,6 +99,8 @@ public class BasicEnemyHealthController : MonoBehaviour
     {
         FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
         _HUDController.SetScoreText();
+
+        _basicEnemyDropsController.BasicEnemyDrops();
 
         _animator.SetTrigger("Death");
         _boxCollider2D.enabled = false;
