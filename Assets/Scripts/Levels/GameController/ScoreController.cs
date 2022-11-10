@@ -7,6 +7,11 @@ public class ScoreController : MonoBehaviour
 {
     public static int[] score = new int[LevelController.numberOfLevels]; //Hay 3 niveles 
 
+    void Start()
+    {
+        ResetScoreInCurrentLevel();
+    }
+
     public void AddScoreInCurrentLevel(int scoreToAdd) //Metodo para añadir puntaje
     {
         score[SceneManager.GetActiveScene().buildIndex - LevelController.level1BuildIndex] += scoreToAdd; //El buildIndex del Level1 es 1
