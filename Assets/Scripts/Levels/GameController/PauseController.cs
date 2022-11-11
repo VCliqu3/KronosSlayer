@@ -43,16 +43,16 @@ public class PauseController : MonoBehaviour
     }
 
     public void Pause()
-    {      
+    {
         pausePanel.SetActive(true);
         _pausePanelAnimator.SetTrigger("Pause");
 
         Time.timeScale = 0f;
-        gamePaused = true;       
+        gamePaused = true;
     }
 
     public IEnumerator Resume()
-    {        
+    {
         _pausePanelAnimator.SetTrigger("Resume");
         yield return new WaitUntil(() => _pausePanelImage.color.a == 0); //Se espera que sea completamente transparente
         pausePanel.SetActive(false);
@@ -76,7 +76,22 @@ public class PauseController : MonoBehaviour
     public void OnCompletedReintentarAni()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
     }
     //Para reintentar//
+
+    //PA IR AL MENU XD
+
+    public void MainMenuBoton()
+    {
+        animator.Play("MainMenuAni");
+    }
+
+    public void OnCompletedMainMenuAni()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    //PA IR AL MENU XD
 }
