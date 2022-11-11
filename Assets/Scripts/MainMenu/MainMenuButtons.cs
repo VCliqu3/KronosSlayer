@@ -16,7 +16,7 @@ public class MainMenuButtons : MonoBehaviour
 
     public void OnCompletedFadeOut()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
     }
 
     public void Salir()
