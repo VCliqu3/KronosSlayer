@@ -70,9 +70,7 @@ public class BasicEnemyHealthController : MonoBehaviour
             }
 
             if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
-            {
-                health = 0;
-                isDead = true;
+            {         
                 StartCoroutine(KillEnemy());
             }
             else 
@@ -97,6 +95,9 @@ public class BasicEnemyHealthController : MonoBehaviour
 
     IEnumerator KillEnemy()
     {
+        health = 0;
+        isDead = true;
+
         FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
         FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
 
