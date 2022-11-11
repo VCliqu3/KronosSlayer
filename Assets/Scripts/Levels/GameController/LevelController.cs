@@ -8,7 +8,7 @@ using TMPro;
 public class LevelController : MonoBehaviour
 {
     static public int numberOfLevels = 3;
-    static public int level1BuildIndex = 1;
+    static public int level1BuildIndex = 2;
 
     static public int[] numberOfAttemps = new int[numberOfLevels]; //Hay 3 niveles
 
