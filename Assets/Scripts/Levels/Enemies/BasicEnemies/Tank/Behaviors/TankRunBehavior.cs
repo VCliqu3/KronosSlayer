@@ -16,7 +16,7 @@ public class TankRunBehavior : StateMachineBehaviour
         _tankAttackController = animator.gameObject.GetComponent<TankAttackController>();
 
         time = 0f;
-}
+    }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

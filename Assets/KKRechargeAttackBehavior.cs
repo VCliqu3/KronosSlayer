@@ -2,36 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankRechargeAttackBehavior : StateMachineBehaviour
+public class KKRechargeAttackBehavior : StateMachineBehaviour
 {
-    private BasicEnemyMovementController _basicEnemyMovementController;
-    private TankAttackController _tankAttackController;
+    private KKMovementController _KKMovementController;
+    private KKAttackController _KKAttackController;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _basicEnemyMovementController = animator.gameObject.GetComponent<BasicEnemyMovementController>();
-        _tankAttackController = animator.gameObject.GetComponent<TankAttackController>();
+        _KKMovementController = animator.gameObject.GetComponent<KKMovementController>();
+        _KKAttackController = animator.gameObject.GetComponent<KKAttackController>();
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _basicEnemyMovementController.Stop();
-
-        /*
-        if (_basicEnemyMovementController.playerOnSight && !_tankAttackController.playerOnAttackRange)
+        if (_KKMovementController.playerOnSight && !_KKAttackController.playerOnAttackRange)
         {
             animator.Play("Run");
         }
-        */
-
-        /*
-        else if (!_basicEnemyMovementController.playerOnSight)
-        {
-            animator.Play("Idle");
-        }
-        */
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class KKMovementController : MonoBehaviour
 {
+    public bool isActivated = false;
+
     private Rigidbody2D _rigidbody2D;
+    private KKJumpAttackController _KKJumpAttackController;
     [HideInInspector]
     public Animator _animator;
 
@@ -38,6 +41,7 @@ public class KKMovementController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 11);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _KKJumpAttackController = GetComponent<KKJumpAttackController>();
     }
 
     // Update is called once per frame
@@ -51,6 +55,8 @@ public class KKMovementController : MonoBehaviour
         {
             ForcedRotation();
         }
+
+        EnableDisableCanTurnBack();
     }
 
     public bool DetectPlayer(float distance, string direction) //Para ver si el jugador ha sido detectado por el RayCast, con una maxima distancia de deteccion de distance
@@ -138,5 +144,19 @@ public class KKMovementController : MonoBehaviour
         grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - rectangleLenght / 2, transform.position.y - rectangleHeight / 2), new Vector2(transform.position.x + rectangleLenght / 2, transform.position.y + rectangleHeight / 2), whatIsGround);
 
         return grounded;
+    }
+
+    public void EnableDisableCanTurnBack()
+    {
+      
+        if (!_KKJumpAttackController.isJumpAttacking)
+        {
+            canTurnBack = true;
+        }
+        else
+        {
+            canTurnBack = false;
+        }
+        
     }
 }

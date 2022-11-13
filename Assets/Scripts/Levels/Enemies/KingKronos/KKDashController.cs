@@ -14,11 +14,11 @@ public class KKDashController : MonoBehaviour
 
     public bool playerOnDashRange = false;
 
-
     public bool dashEnabled = true;
 
-    public float dashForce = 25f;
+    public float timeChargingDash = 1f;
     public float dashTime = 0.2f;
+    public float dashForce = 25f;
 
     public float dashDamage = 3f;
     public float dashShieldPenetration = 0f;
@@ -27,8 +27,6 @@ public class KKDashController : MonoBehaviour
     public float dashCooldownCounter;
 
     public bool isDashing = false;
-
-
 
     public Transform dashAttackPoint;
 
@@ -48,7 +46,7 @@ public class KKDashController : MonoBehaviour
         //Dash();
     }
 
-    void Dash()
+    public void Dash()
     {
         if (dashEnabled && playerOnDashRange)
         {
@@ -60,17 +58,31 @@ public class KKDashController : MonoBehaviour
 
     IEnumerator Dashing()
     {
-        dashEnabled = false;
         isDashing = true;
+        dashEnabled = false;
+
+        _animator.Play("ChargeDash");
+
         dashCooldownCounter = 0;
+
+        yield return new WaitForSeconds(timeChargingDash);
+
+        float playerPosX = FindObjectOfType<MovementController>().transform.position.x;
+        float distanceToDash = Mathf.Abs(transform.position.x - playerPosX);
+
+        dashTime = distanceToDash / dashForce;
+
+        _animator.SetTrigger("Dash");
 
         _rigidbody2D.velocity = transform.right * dashForce;
 
         yield return new WaitForSeconds(dashTime);
 
-        _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y); //Importante para arreglar bug de GetHurt mientras se dashea
+        _KKMovementController.Stop();
 
         isDashing = false;
+
+        _animator.Play("Attack");
 
     }
 

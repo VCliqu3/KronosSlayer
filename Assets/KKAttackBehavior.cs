@@ -2,36 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankRechargeAttackBehavior : StateMachineBehaviour
+public class KKAttackBehavior : StateMachineBehaviour
 {
-    private BasicEnemyMovementController _basicEnemyMovementController;
-    private TankAttackController _tankAttackController;
+    private KKMovementController _KKMovementController;
+    private KKAttackController _KKAttackController;
+
+    private float time = 0f;
+
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _basicEnemyMovementController = animator.gameObject.GetComponent<BasicEnemyMovementController>();
-        _tankAttackController = animator.gameObject.GetComponent<TankAttackController>();
+        _KKMovementController = animator.gameObject.GetComponent<KKMovementController>();
+        _KKAttackController = animator.gameObject.GetComponent<KKAttackController>();
+
+        time = 0;
+
+        _KKMovementController.Stop();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _basicEnemyMovementController.Stop();
+        time += Time.deltaTime;
 
-        /*
-        if (_basicEnemyMovementController.playerOnSight && !_tankAttackController.playerOnAttackRange)
+        if (time >= _KKAttackController.attackDuration)
         {
-            animator.Play("Run");
+            if (_KKAttackController.playerOnAttackRange)
+            {
+                animator.Play("RechargeAttack");
+            }
+            else
+            {
+                animator.Play("StopAttacking");
+            }
         }
-        */
-
-        /*
-        else if (!_basicEnemyMovementController.playerOnSight)
-        {
-            animator.Play("Idle");
-        }
-        */
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

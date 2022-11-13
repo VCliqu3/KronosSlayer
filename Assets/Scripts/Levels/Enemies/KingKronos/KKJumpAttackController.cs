@@ -17,8 +17,10 @@ public class KKJumpAttackController : MonoBehaviour
     public bool jumpEnabled = true;
 
     public float jumpAngle = 45;
-    public float timeStayingUp = 0.5f;
     public float fallSpeed = 5f;
+    public float timeStayingUp = 0.5f;
+    public float timeChargingJump = 1f;
+    public float timeOnGround = 1f;
 
     public float jumpAttackDamage = 3f;
     public float jumpAttackShieldPenetration = 0f;
@@ -26,7 +28,7 @@ public class KKJumpAttackController : MonoBehaviour
     public float jumpCooldown = 5f;
     public float jumpCooldownCounter;
 
-    public bool isJumping = false;
+    public bool isJumpAttacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +43,9 @@ public class KKJumpAttackController : MonoBehaviour
     void Update()
     {
         playerOnJumpRange = (_KKMovementController.DetectPlayer(jumpRangeMax, "front") && !_KKMovementController.DetectPlayer(jumpRangeMin, "front"));
-        Jump();
+        //Jump();
     }
-    void Jump()
+    public void Jump()
     {
         if (jumpEnabled && playerOnJumpRange)
         {
@@ -54,9 +56,14 @@ public class KKJumpAttackController : MonoBehaviour
 
     IEnumerator Jumping()
     {
+        isJumpAttacking = true;
         jumpEnabled = false;
-        isJumping = true;
+
+        _animator.Play("ChargeJump");
+
         jumpCooldownCounter = 0f;
+
+        yield return new WaitForSeconds(timeChargingJump);
 
         float playerPosX = FindObjectOfType<MovementController>().transform.position.x;
         float playerPosY = FindObjectOfType<MovementController>().transform.position.y;
@@ -74,6 +81,8 @@ public class KKJumpAttackController : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(-jumpForce * Mathf.Cos(jumpAngleToRadians), jumpForce * Mathf.Sin(jumpAngleToRadians));
         }
         */
+
+        _animator.SetTrigger("Jump");
 
         if (_KKMovementController.isFacingRight)
         {
@@ -99,6 +108,8 @@ public class KKJumpAttackController : MonoBehaviour
 
         Vector2 fallDirection = new Vector2(playerPosX - transform.position.x, playerPosY - transform.position.y).normalized;
 
+        _animator.SetTrigger("JumpAttack");
+
         _rigidbody2D.velocity = fallDirection * fallSpeed;
 
         while (!_KKMovementController.isGrounded)
@@ -107,6 +118,16 @@ public class KKJumpAttackController : MonoBehaviour
         }
 
         _rigidbody2D.gravityScale = originalGravity;
+
+        _KKMovementController.Stop();
+
+        _animator.SetTrigger("LandJumpAttack");
+
+        yield return new WaitForSeconds(timeOnGround);
+
+        isJumpAttacking = false;
+
+        _animator.Play("Idle");
     }
     IEnumerator JumpCooldown()
     {

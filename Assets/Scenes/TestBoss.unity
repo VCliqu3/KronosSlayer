@@ -6764,7 +6764,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1037780138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6893,6 +6893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b00bfd7cfb8acd4092eaf9539e1a2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActivated: 0
   _animator: {fileID: 0}
   walkSpeed: 1
   runSpeed: 2
@@ -6902,7 +6903,7 @@ MonoBehaviour:
   backSightDistance: 100
   playerOnSight: 0
   playerOnSightBack: 0
-  isFacingRight: 0
+  isFacingRight: 1
   canTurnBack: 1
   whatIsGround:
     serializedVersion: 2
@@ -6952,11 +6953,12 @@ MonoBehaviour:
   dashRangeMax: 7
   playerOnDashRange: 0
   dashEnabled: 1
-  dashForce: 25
+  timeChargingDash: 1
   dashTime: 0.2
+  dashForce: 25
   dashDamage: 3
   dashShieldPenetration: 0
-  dashCooldown: 3
+  dashCooldown: 8
   dashCooldownCounter: 0
   isDashing: 0
   dashAttackPoint: {fileID: 1478260213}
@@ -6977,13 +6979,15 @@ MonoBehaviour:
   playerOnJumpRange: 0
   jumpEnabled: 1
   jumpAngle: 45
-  timeStayingUp: 0.5
   fallSpeed: 10
+  timeStayingUp: 0.5
+  timeChargingJump: 1
+  timeOnGround: 1
   jumpAttackDamage: 3
   jumpAttackShieldPenetration: 0
-  jumpCooldown: 5
+  jumpCooldown: 10
   jumpCooldownCounter: 0
-  isJumping: 0
+  isJumpAttacking: 0
 --- !u!114 &1037780146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7980,6 +7984,7 @@ GameObject:
   - component: {fileID: 1246457601}
   - component: {fileID: 1246457599}
   - component: {fileID: 1246457600}
+  - component: {fileID: 1246457602}
   m_Layer: 0
   m_Name: TestObject
   m_TagString: Untagged
@@ -8026,6 +8031,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246457602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246457598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ec8e9d804a73f4a894a76400f4a10d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1249092121
 GameObject:
   m_ObjectHideFlags: 0
