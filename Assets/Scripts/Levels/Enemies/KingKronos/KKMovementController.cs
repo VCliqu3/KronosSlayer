@@ -24,6 +24,11 @@ public class KKMovementController : MonoBehaviour
 
     public bool canTurnBack = true;
 
+    public LayerMask whatIsGround;
+    public bool isGrounded;
+    public float rectangleLenght;
+    public float rectangleHeight;
+
     //private BasicEnemyHealthController _basicEnemyHealthController;
 
 
@@ -38,6 +43,7 @@ public class KKMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = CheckGround();
         playerOnSight = DetectPlayer(frontSightDistance, "front");
         playerOnSightBack = DetectPlayer(backSightDistance, "back");
 
@@ -105,6 +111,11 @@ public class KKMovementController : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(0f, _rigidbody2D.velocity.y);
     }
 
+    public void StopOnY()
+    {
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+    }
+
     public void ForcedRotation()
     {
         if (!isFacingRight)
@@ -118,5 +129,14 @@ public class KKMovementController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
             isFacingRight = !isFacingRight;
         }
+    }
+
+    public bool CheckGround()
+    {
+        bool grounded;
+
+        grounded = Physics2D.OverlapArea(new Vector2(transform.position.x - rectangleLenght / 2, transform.position.y - rectangleHeight / 2), new Vector2(transform.position.x + rectangleLenght / 2, transform.position.y + rectangleHeight / 2), whatIsGround);
+
+        return grounded;
     }
 }

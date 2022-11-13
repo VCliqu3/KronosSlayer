@@ -15,5 +15,10 @@ public class PlayerProyectileDamageController : MonoBehaviour
             Destroy(gameObject);
             
         }
+        else if (collision.CompareTag("KingKronos"))
+        {
+            collision.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
+            Destroy(gameObject);
+        }
     }
 }

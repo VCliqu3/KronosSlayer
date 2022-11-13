@@ -50,7 +50,7 @@ public class KKDashController : MonoBehaviour
 
     void Dash()
     {
-        if (dashEnabled && playerOnDashRange && !_KKAttackController.playerOnAttackRange )
+        if (dashEnabled && playerOnDashRange)
         {
             //_animator.SetTrigger("Dash");
             StartCoroutine(Dashing());

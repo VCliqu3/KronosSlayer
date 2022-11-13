@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemyHealthController : MonoBehaviour
-{    
+public class KKHealthController : MonoBehaviour
+{
     public float maxHealth = 15;
     public float health;
 
     public float maxShield = 20;
     public float shield;
 
+    public bool canAccumulateDamage = true;
+    public float damageAccumulationLimit = 20;
+    public float damageAccumulatedCounter = 0;
+    public float damageAccumulationSpeedRate = 1f;
+    public float damageAccumulationEmptyRate = 1f;
+    public float timeToAccumulateAfterEmpty = 1f;
+
     public float shieldAbsorption = 0.8f; //Expresado en porcentaje (0 a 1), teoricamente puede ser mayor a 1 y menor a 0 
+    public float damageReduction = 0;
 
     private BasicEnemyHealthBarController _basicEnemyHealthBarController;
-    private BasicEnemyScoreController _basicEnemyScoreController;
-    private BasicEnemyDropsController _basicEnemyDropsController;
     private Animator _animator;
     private BoxCollider2D _boxCollider2D;
 
@@ -23,8 +29,6 @@ public class BasicEnemyHealthController : MonoBehaviour
     public bool isHurting = false;
     public bool isDead = false;
 
-    private HUDController _HUDController;
-
     public float timeFadeAfterDeath = 3f;
 
     // Start is called before the first frame update
@@ -32,18 +36,22 @@ public class BasicEnemyHealthController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
-        _basicEnemyHealthBarController = GetComponent<BasicEnemyHealthBarController>();
-        _basicEnemyScoreController = GetComponent<BasicEnemyScoreController>();
-        _basicEnemyDropsController = GetComponent<BasicEnemyDropsController>();
-        _HUDController = FindObjectOfType<HUDController>();
 
         health = maxHealth;
         shield = maxShield;
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     public void TakeDamage(float damage, float shieldPenetration)
     {
-        if (!isDead)
+        damage *= (1-damageReduction);
+
+        if (!isDead || damageReduction>=1)
         {
             float damageShieldWouldTake, damageHealthWouldTake;
             float resultingShAb;
@@ -70,10 +78,10 @@ public class BasicEnemyHealthController : MonoBehaviour
             }
 
             if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
-            {         
+            {
                 StartCoroutine(KillEnemy());
             }
-            else 
+            else
             {
                 health = auxHealth;
 
@@ -83,13 +91,18 @@ public class BasicEnemyHealthController : MonoBehaviour
                 }
             }
 
-            _basicEnemyHealthBarController.SetHealthBar();
-            _basicEnemyHealthBarController.SetShieldBar();
+            if (canAccumulateDamage)
+            {
+                StartCoroutine(AccumulateDamage(damage));
+            }
+
+            //_basicEnemyHealthBarController.SetHealthBar();
+            //_basicEnemyHealthBarController.SetShieldBar();
         }
     }
 
     void HurtEnemy()
-    {   
+    {
         _animator.SetTrigger("GetHurt"); //Trigger para animacion GetHurt
     }
 
@@ -98,12 +111,7 @@ public class BasicEnemyHealthController : MonoBehaviour
         health = 0;
         isDead = true;
 
-        FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
         FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
-
-        _HUDController.SetScoreText();
-
-        _basicEnemyDropsController.BasicEnemyDrops();
 
         _animator.SetTrigger("Death");
         _boxCollider2D.enabled = false;
@@ -117,4 +125,42 @@ public class BasicEnemyHealthController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    
+    IEnumerator AccumulateDamage(float damage)
+    {
+        canAccumulateDamage = false;
+        float auxDamage = damage;
+
+        while(auxDamage > 0 && damageAccumulatedCounter<= damageAccumulationLimit)
+        {
+            damageAccumulatedCounter += Time.deltaTime * damageAccumulationSpeedRate;
+            auxDamage -= Time.deltaTime * damageAccumulationSpeedRate;
+            yield return null;
+        }
+
+        damageAccumulatedCounter = damageAccumulatedCounter > damageAccumulationLimit ? damageAccumulationLimit : damageAccumulatedCounter;
+
+        if (damageAccumulatedCounter < damageAccumulationLimit)
+        {
+            canAccumulateDamage = true;
+        }
+    }
+
+    IEnumerator EmptyDamageAccumulated()
+    {
+        while (damageAccumulatedCounter > 0)
+        {
+            damageAccumulatedCounter -= Time.deltaTime * damageAccumulationEmptyRate;
+
+            yield return null;
+        }
+
+        damageAccumulatedCounter = damageAccumulatedCounter < 0 ? 0 : damageAccumulatedCounter;
+
+        yield return new WaitForSeconds(timeToAccumulateAfterEmpty);
+
+        canAccumulateDamage = true;
+    }
+    
 }

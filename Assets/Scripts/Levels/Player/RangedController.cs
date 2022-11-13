@@ -146,12 +146,10 @@ public class RangedController : MonoBehaviour
                 StartCoroutine(CoolGunDown());
             }
         }
-
     }
 
     IEnumerator CoolGunDown()
     {
-
         yield return new WaitForSeconds(timeAtMaxOverheat);
 
         while (overheatCounter > 0)
@@ -172,6 +170,5 @@ public class RangedController : MonoBehaviour
         yield return new WaitForSeconds(timeAtMinOverheat);
 
         gunIsOverheated = false;
-
     }
 }
