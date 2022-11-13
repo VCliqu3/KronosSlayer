@@ -6896,7 +6896,7 @@ MonoBehaviour:
   isActivated: 0
   _animator: {fileID: 0}
   walkSpeed: 1
-  runSpeed: 2
+  runSpeed: 3
   timeRemainingFollowing: 1.5
   sightPoint: {fileID: 1184971834}
   frontSightDistance: 100
@@ -6974,6 +6974,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70a67b612e4dbd47a6ae6df18fad6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
   jumpRangeMin: 6
   jumpRangeMax: 8
   playerOnJumpRange: 0
@@ -7000,18 +7003,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2275a8d8912e5d24d87834cceb7723c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TPRangeMin: 5
-  TPRangeMax: 7
+  TPRangeMin: 0
+  TPRangeMax: 100
   playerOnTPRange: 0
   TPEnabled: 1
   TPAttackDamage: 3
   TPAttacShieldPenetration: 0
+  timeChargingTP: 2
   timeStayingUp: 0.5
-  distanceToAppearUp: 2
-  downImpulse: 5
-  TPCooldown: 5
-  TPCooldownCounter: 0
-  isTPing: 0
+  timeOnGround: 1
+  distanceToAppearUp: 3
+  downImpulse: 8
+  isTPAttacking: 0
 --- !u!114 &1037780147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7031,8 +7034,8 @@ MonoBehaviour:
   canAccumulateDamage: 1
   damageAccumulationLimit: 20
   damageAccumulatedCounter: 0
-  damageAccumulationSpeedRate: 1
-  damageAccumulationEmptyRate: 1
+  damageAccumulationSpeedRate: 3
+  damageAccumulationEmptyRate: 7.5
   timeToAccumulateAfterEmpty: 1
   shieldAbsorption: 1
   damageReduction: 0

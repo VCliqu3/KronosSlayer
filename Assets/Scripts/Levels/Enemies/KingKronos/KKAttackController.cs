@@ -23,7 +23,7 @@ public class KKAttackController : MonoBehaviour
     public float heightAttackArea;
     public float lenghtAttackArea;
 
-    public bool isAttacking;
+    public bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()

@@ -7,7 +7,10 @@ public class KKMovementController : MonoBehaviour
     public bool isActivated = false;
 
     private Rigidbody2D _rigidbody2D;
+    private KKAttackController _KKAttackController;
     private KKJumpAttackController _KKJumpAttackController;
+    private KKDashController _KKDashController;
+    private KKTPController _KKTPController;
     [HideInInspector]
     public Animator _animator;
 
@@ -41,7 +44,10 @@ public class KKMovementController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 11);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _KKAttackController = GetComponent<KKAttackController>();
         _KKJumpAttackController = GetComponent<KKJumpAttackController>();
+        _KKDashController = GetComponent<KKDashController>();
+        _KKTPController = GetComponent<KKTPController>();
     }
 
     // Update is called once per frame
@@ -147,9 +153,8 @@ public class KKMovementController : MonoBehaviour
     }
 
     public void EnableDisableCanTurnBack()
-    {
-      
-        if (!_KKJumpAttackController.isJumpAttacking)
+    {  
+        if (!_KKJumpAttackController.isJumpAttacking && !_KKDashController.isDashing && !_KKTPController.isTPAttacking && !_KKAttackController.isAttacking && isActivated)
         {
             canTurnBack = true;
         }

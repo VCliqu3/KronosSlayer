@@ -7,24 +7,20 @@ public class KKTPController : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private KKMovementController _KKMovementController;
-
-    public float TPRangeMin = 5f;
-    public float TPRangeMax = 7f;
-
-    public bool playerOnTPRange = false;
+    private KKHealthController _KKHealthController;
 
     public bool TPEnabled = true;
 
     public float TPAttackDamage = 3f;
     public float TPAttacShieldPenetration = 0f;
 
+    public float timeChargingTP = 1f;
     public float timeStayingUp = 1f;
+    public float timeOnGround = 1f;
     public float distanceToAppearUp = 2f;
     public float downImpulse = 2f;
-    public float TPCooldown = 5f;
-    public float TPCooldownCounter;
 
-    public bool isTPing = false;
+    public bool isTPAttacking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,55 +28,65 @@ public class KKTPController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _KKMovementController = GetComponent<KKMovementController>();
+        _KKHealthController = GetComponent<KKHealthController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerOnTPRange = (_KKMovementController.DetectPlayer(TPRangeMax, "front") && !_KKMovementController.DetectPlayer(TPRangeMin, "front"));
         //TPAttack();
     }
 
-    void TPAttack()
+    public void TPAttack()
     {
-        if (TPEnabled && playerOnTPRange)
+        if (TPEnabled && _KKHealthController.damageAccumulatedCounter >= _KKHealthController.damageAccumulationLimit) //&&playerOnTPRange
         {
             StartCoroutine(TPAttacking());
-            StartCoroutine(TPAttackCooldown());
         }
     }
 
-    IEnumerator TPAttacking()
+    public IEnumerator TPAttacking()
     {
         TPEnabled = false;
-        isTPing = true;
-        TPCooldownCounter = 0;
+        isTPAttacking = true;
+        _KKHealthController.canAccumulateDamage = false;
+
+        _animator.Play("ChargeTP");
+
+        yield return new WaitForSeconds(timeChargingTP);
 
         Vector2 playerPos = FindObjectOfType<MovementController>().transform.position;
         transform.position = new Vector2(playerPos.x, playerPos.y + distanceToAppearUp);
+        _KKMovementController.ForcedRotation();
 
         float originalGravity = _rigidbody2D.gravityScale;
         _rigidbody2D.gravityScale = 0f;
+
+        _animator.SetTrigger("StayUpTPAttack");
 
         yield return new WaitForSeconds(timeStayingUp);
 
         _rigidbody2D.gravityScale = originalGravity;
 
-        _rigidbody2D.AddForce(new Vector2(0,-downImpulse), ForceMode2D.Impulse); 
+        _animator.SetTrigger("TPAttack");
 
+        _rigidbody2D.AddForce(new Vector2(0,-downImpulse), ForceMode2D.Impulse);
 
-    }
-    IEnumerator TPAttackCooldown()
-    {
-        while (TPCooldownCounter < TPCooldown)
+        while (!_KKMovementController.isGrounded)
         {
-            TPCooldownCounter += Time.deltaTime;
-
             yield return null;
         }
 
-        TPCooldownCounter = TPCooldownCounter > TPCooldown ? TPCooldown : TPCooldown;
+        _animator.SetTrigger("LandTPAttack");
+
+        yield return new WaitForSeconds(timeOnGround);
+
+        isTPAttacking = false;
+
+        _KKHealthController.CallEmptyDamageAccumulated();
 
         TPEnabled = true;
+        _animator.Play("Idle");
+
     }
 }

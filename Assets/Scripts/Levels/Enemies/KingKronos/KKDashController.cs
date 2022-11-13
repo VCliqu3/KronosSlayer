@@ -7,7 +7,6 @@ public class KKDashController : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private KKMovementController _KKMovementController;
-    private KKAttackController _KKAttackController;
 
     public float dashRangeMin = 5f;
     public float dashRangeMax = 7f;
@@ -34,7 +33,6 @@ public class KKDashController : MonoBehaviour
     void Start()
     {
         _KKMovementController = GetComponent<KKMovementController>();
-        _KKAttackController = GetComponent<KKAttackController>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
@@ -50,7 +48,6 @@ public class KKDashController : MonoBehaviour
     {
         if (dashEnabled && playerOnDashRange)
         {
-            //_animator.SetTrigger("Dash");
             StartCoroutine(Dashing());
             StartCoroutine(DashCooldown());
         }

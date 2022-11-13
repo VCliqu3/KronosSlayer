@@ -7,7 +7,8 @@ public class KKJumpAttackController : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private KKMovementController _KKMovementController;
-    private KKDashController _KKDashController;
+
+    public LayerMask whatIsGround;
 
     public float jumpRangeMin = 7f;
     public float jumpRangeMax = 9f;
@@ -34,7 +35,6 @@ public class KKJumpAttackController : MonoBehaviour
     void Start()
     {
         _KKMovementController = GetComponent<KKMovementController>();
-        _KKDashController = GetComponent<KKDashController>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
@@ -65,8 +65,12 @@ public class KKJumpAttackController : MonoBehaviour
 
         yield return new WaitForSeconds(timeChargingJump);
 
-        float playerPosX = FindObjectOfType<MovementController>().transform.position.x;
-        float playerPosY = FindObjectOfType<MovementController>().transform.position.y;
+        Vector2 playerPos = FindObjectOfType<MovementController>().transform.position;
+        float playerPosX = playerPos.x;
+
+        RaycastHit2D hit2D = Physics2D.Raycast(playerPos, -transform.up, Mathf.Infinity, whatIsGround);
+        float proyectionPlayerPosY = hit2D.point.y;
+        //float proyectionPlayerPosY = FindObjectOfType<MovementController>().transform.position.y;
         float distanceToJump = Mathf.Abs(transform.position.x - playerPosX);
         float jumpAngleToRadians = jumpAngle * Mathf.PI / 180;
         float jumpForce = Mathf.Sqrt(distanceToJump * 9.81f / Mathf.Sin(2 * jumpAngleToRadians));
@@ -106,7 +110,7 @@ public class KKJumpAttackController : MonoBehaviour
 
         yield return new WaitForSeconds(timeStayingUp);
 
-        Vector2 fallDirection = new Vector2(playerPosX - transform.position.x, playerPosY - transform.position.y).normalized;
+        Vector2 fallDirection = new Vector2(playerPosX - transform.position.x, proyectionPlayerPosY - transform.position.y).normalized;
 
         _animator.SetTrigger("JumpAttack");
 

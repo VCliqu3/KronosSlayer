@@ -14,7 +14,7 @@ public class KKHealthController : MonoBehaviour
     public float damageAccumulationLimit = 20;
     public float damageAccumulatedCounter = 0;
     public float damageAccumulationSpeedRate = 1f;
-    public float damageAccumulationEmptyRate = 1f;
+    public float damageAccumulationEmptyRate = 7.5f;
     public float timeToAccumulateAfterEmpty = 1f;
 
     public float shieldAbsorption = 0.8f; //Expresado en porcentaje (0 a 1), teoricamente puede ser mayor a 1 y menor a 0 
@@ -40,6 +40,8 @@ public class KKHealthController : MonoBehaviour
 
         health = maxHealth;
         shield = maxShield;
+
+        damageReduction = 1;
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class KKHealthController : MonoBehaviour
     {
         damage *= (1-damageReduction);
 
-        if (!isDead || damageReduction>=1)
+        if (!isDead && damageReduction<1)
         {
             float damageShieldWouldTake, damageHealthWouldTake;
             float resultingShAb;
@@ -151,7 +153,7 @@ public class KKHealthController : MonoBehaviour
         }
     }
 
-    IEnumerator EmptyDamageAccumulated()
+    public IEnumerator EmptyDamageAccumulated()
     {
         while (damageAccumulatedCounter > 0)
         {
@@ -167,6 +169,11 @@ public class KKHealthController : MonoBehaviour
         yield return new WaitForSeconds(timeToAccumulateAfterEmpty);
 
         canAccumulateDamage = true;
+    }
+
+    public void CallEmptyDamageAccumulated()
+    {
+        StartCoroutine(EmptyDamageAccumulated());
     }
     
 }
