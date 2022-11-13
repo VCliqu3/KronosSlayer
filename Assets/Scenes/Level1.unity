@@ -9527,6 +9527,9 @@ MonoBehaviour:
   BasicEnemyLayers:
     serializedVersion: 2
     m_Bits: 512
+  KingKronosLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   stopOnYOnAttack: 0
   attackImpulseOnAir: 0
   cancelGravityOnAttack: 0

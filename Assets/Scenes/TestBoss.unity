@@ -888,6 +888,7 @@ GameObject:
   - component: {fileID: 153929683}
   - component: {fileID: 153929682}
   - component: {fileID: 153929681}
+  - component: {fileID: 153929684}
   m_Layer: 0
   m_Name: KKCanvas
   m_TagString: Untagged
@@ -980,6 +981,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &153929684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153929679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dfc1a69288ef843abc85853c8c7141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1589077569}
+  shieldBar: {fileID: 1319696694}
+  damageAccumulationBar: {fileID: 1634795463}
 --- !u!1 &204545662
 GameObject:
   m_ObjectHideFlags: 0
@@ -7005,9 +7021,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  health: 0
+  health: 100
   maxShield: 100
-  shield: 0
+  shield: 100
+  canAccumulateDamage: 1
+  damageAccumulationLimit: 20
+  damageAccumulatedCounter: 0
+  damageAccumulationSpeedRate: 1
+  damageAccumulationEmptyRate: 1
+  timeToAccumulateAfterEmpty: 1
   shieldAbsorption: 1
   damageReduction: 0
   hurtEnable: 1
@@ -9767,6 +9789,9 @@ MonoBehaviour:
   BasicEnemyLayers:
     serializedVersion: 2
     m_Bits: 512
+  KingKronosLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   stopOnYOnAttack: 0
   attackImpulseOnAir: 0
   cancelGravityOnAttack: 0
@@ -10720,7 +10745,7 @@ GameObject:
   - component: {fileID: 1634795464}
   - component: {fileID: 1634795463}
   m_Layer: 5
-  m_Name: OverheatBar
+  m_Name: DamageAccumulationBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,7 +20,7 @@ public class KKHealthController : MonoBehaviour
     public float shieldAbsorption = 0.8f; //Expresado en porcentaje (0 a 1), teoricamente puede ser mayor a 1 y menor a 0 
     public float damageReduction = 0;
 
-    private BasicEnemyHealthBarController _basicEnemyHealthBarController;
+    private KKHUDController _KKHUDController;
     private Animator _animator;
     private BoxCollider2D _boxCollider2D;
 
@@ -36,6 +36,7 @@ public class KKHealthController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+        _KKHUDController = FindObjectOfType<KKHUDController>();
 
         health = maxHealth;
         shield = maxShield;
@@ -96,8 +97,8 @@ public class KKHealthController : MonoBehaviour
                 StartCoroutine(AccumulateDamage(damage));
             }
 
-            //_basicEnemyHealthBarController.SetHealthBar();
-            //_basicEnemyHealthBarController.SetShieldBar();
+            _KKHUDController.SetHealthBar();
+            _KKHUDController.SetShieldBar();
         }
     }
 
@@ -136,10 +137,13 @@ public class KKHealthController : MonoBehaviour
         {
             damageAccumulatedCounter += Time.deltaTime * damageAccumulationSpeedRate;
             auxDamage -= Time.deltaTime * damageAccumulationSpeedRate;
+
+            _KKHUDController.SetDamageAccumulationBar();
             yield return null;
         }
 
         damageAccumulatedCounter = damageAccumulatedCounter > damageAccumulationLimit ? damageAccumulationLimit : damageAccumulatedCounter;
+        _KKHUDController.SetDamageAccumulationBar();
 
         if (damageAccumulatedCounter < damageAccumulationLimit)
         {
@@ -152,11 +156,13 @@ public class KKHealthController : MonoBehaviour
         while (damageAccumulatedCounter > 0)
         {
             damageAccumulatedCounter -= Time.deltaTime * damageAccumulationEmptyRate;
+            _KKHUDController.SetDamageAccumulationBar();
 
             yield return null;
         }
 
         damageAccumulatedCounter = damageAccumulatedCounter < 0 ? 0 : damageAccumulatedCounter;
+        _KKHUDController.SetDamageAccumulationBar();
 
         yield return new WaitForSeconds(timeToAccumulateAfterEmpty);
 

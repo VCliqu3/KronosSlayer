@@ -10,6 +10,7 @@ public class MeleeController : MonoBehaviour
 
     public Transform attackPoint;
     public LayerMask BasicEnemyLayers;
+    public LayerMask KingKronosLayer;
 
     public bool stopOnYOnAttack = true;
     public bool attackImpulseOnAir = true;
@@ -110,6 +111,13 @@ public class MeleeController : MonoBehaviour
         foreach(Collider2D basicEnemy in hitBasicEnemies)
         {
             basicEnemy.GetComponent<BasicEnemyHealthController>().TakeDamage(damage, shieldPenetration);
+        }
+
+        Collider2D[] hitKingKronos = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, KingKronosLayer);
+
+        foreach (Collider2D kk in hitKingKronos)
+        {
+            kk.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
         }
     }
 
