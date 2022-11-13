@@ -117,7 +117,7 @@ public class KKHealthController : MonoBehaviour
         FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
 
         _animator.SetTrigger("Death");
-        _boxCollider2D.enabled = false;
+        //_boxCollider2D.enabled = false;
 
         yield return new WaitForSeconds(timeFadeAfterDeath);
 

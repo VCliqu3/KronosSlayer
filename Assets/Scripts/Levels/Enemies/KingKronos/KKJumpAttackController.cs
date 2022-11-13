@@ -17,6 +17,7 @@ public class KKJumpAttackController : MonoBehaviour
 
     public bool jumpEnabled = true;
 
+    public float parabolaPercentage = 0.5f;
     public float jumpAngle = 45;
     public float fallSpeed = 5f;
     public float timeStayingUp = 0.5f;
@@ -56,7 +57,7 @@ public class KKJumpAttackController : MonoBehaviour
 
     IEnumerator Jumping()
     {
-        isJumpAttacking = true;
+       
         jumpEnabled = false;
 
         _animator.Play("ChargeJump");
@@ -71,20 +72,11 @@ public class KKJumpAttackController : MonoBehaviour
         RaycastHit2D hit2D = Physics2D.Raycast(playerPos, -transform.up, Mathf.Infinity, whatIsGround);
         float proyectionPlayerPosY = hit2D.point.y;
         //float proyectionPlayerPosY = FindObjectOfType<MovementController>().transform.position.y;
-        float distanceToJump = Mathf.Abs(transform.position.x - playerPosX);
+        float distanceToJump = Mathf.Abs(transform.position.x - playerPosX)*parabolaPercentage*2;
         float jumpAngleToRadians = jumpAngle * Mathf.PI / 180;
         float jumpForce = Mathf.Sqrt(distanceToJump * 9.81f / Mathf.Sin(2 * jumpAngleToRadians));
 
-        /*
-        if (_KKMovementController.isFacingRight) //Ambas formas funcionan
-        {
-            _rigidbody2D.velocity = new Vector2(jumpForce * Mathf.Cos(jumpAngleToRadians), jumpForce * Mathf.Sin(jumpAngleToRadians));
-        }
-        else
-        {
-            _rigidbody2D.velocity = new Vector2(-jumpForce * Mathf.Cos(jumpAngleToRadians), jumpForce * Mathf.Sin(jumpAngleToRadians));
-        }
-        */
+        isJumpAttacking = true;
 
         _animator.SetTrigger("Jump");
 

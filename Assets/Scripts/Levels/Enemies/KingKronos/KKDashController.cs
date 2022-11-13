@@ -54,8 +54,7 @@ public class KKDashController : MonoBehaviour
     }
 
     IEnumerator Dashing()
-    {
-        isDashing = true;
+    {    
         dashEnabled = false;
 
         _animator.Play("ChargeDash");
@@ -69,6 +68,7 @@ public class KKDashController : MonoBehaviour
 
         dashTime = distanceToDash / dashForce;
 
+        isDashing = true;
         _animator.SetTrigger("Dash");
 
         _rigidbody2D.velocity = transform.right * dashForce;
