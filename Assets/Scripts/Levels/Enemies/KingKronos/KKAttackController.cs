@@ -8,20 +8,18 @@ public class KKAttackController : MonoBehaviour
     private KKMovementController _KKMovementController;
     public LayerMask playerLayer;
 
+    public Transform attackPoint;
+    public float attackRadius;
+
     public float attackRange = 5f;
     public float maxAttackRange = 5f;
 
     public float attackDuration = 2;
-    public float attackDamage = 3f;
+    public float attackDamage = 5f;
     public float attackShieldPenetration = 0f;
-
-    public Transform attackPoint;
 
     public bool playerOnAttackRange;
     public bool playerOnMaxAttackRange;
-
-    public float heightAttackArea;
-    public float lenghtAttackArea;
 
     public bool isAttacking = false;
 
@@ -39,9 +37,9 @@ public class KKAttackController : MonoBehaviour
         playerOnMaxAttackRange = _KKMovementController.DetectPlayer(maxAttackRange, "front");
     }
 
-    public void DamagePlayer()
+    public void DamageAttackPlayer()
     {
-        Collider2D[] hitPlayer = Physics2D.OverlapAreaAll(new Vector2(attackPoint.position.x - lenghtAttackArea / 2, attackPoint.position.y - heightAttackArea / 2), new Vector2(attackPoint.position.x + lenghtAttackArea / 2, attackPoint.position.y + heightAttackArea / 2), playerLayer);
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, playerLayer);
 
         foreach (Collider2D player in hitPlayer)
         {

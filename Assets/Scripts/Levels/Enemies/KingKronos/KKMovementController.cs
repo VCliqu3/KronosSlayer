@@ -7,6 +7,7 @@ public class KKMovementController : MonoBehaviour
     public bool isActivated = false;
 
     private Rigidbody2D _rigidbody2D;
+    private KKHealthController _KKHealthController;
     private KKAttackController _KKAttackController;
     private KKJumpAttackController _KKJumpAttackController;
     private KKDashController _KKDashController;
@@ -35,15 +36,13 @@ public class KKMovementController : MonoBehaviour
     public float rectangleLenght;
     public float rectangleHeight;
 
-    //private BasicEnemyHealthController _basicEnemyHealthController;
-
-
     // Start is called before the first frame update
     void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 11);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _KKHealthController = GetComponent<KKHealthController>();
         _KKAttackController = GetComponent<KKAttackController>();
         _KKJumpAttackController = GetComponent<KKJumpAttackController>();
         _KKDashController = GetComponent<KKDashController>();
@@ -57,7 +56,7 @@ public class KKMovementController : MonoBehaviour
         playerOnSight = DetectPlayer(frontSightDistance, "front");
         playerOnSightBack = DetectPlayer(backSightDistance, "back");
 
-        if (playerOnSightBack && !playerOnSight && canTurnBack) //&& !_basicEnemyHealthController.isDead
+        if (playerOnSightBack && !playerOnSight && canTurnBack && !_KKHealthController.isDead)
         {
             ForcedRotation();
         }

@@ -9,6 +9,10 @@ public class KKTPController : MonoBehaviour
     private KKMovementController _KKMovementController;
     private KKHealthController _KKHealthController;
 
+    public LayerMask playerLayer;
+    public Transform TPAttackPoint;
+    public float attackRadius = 1f;
+
     public bool TPEnabled = true;
 
     public float TPAttackDamage = 3f;
@@ -20,6 +24,7 @@ public class KKTPController : MonoBehaviour
     public float distanceToAppearUp = 2f;
     public float downImpulse = 2f;
 
+
     public bool isTPAttacking = false;
 
     // Start is called before the first frame update
@@ -29,12 +34,6 @@ public class KKTPController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _KKMovementController = GetComponent<KKMovementController>();
         _KKHealthController = GetComponent<KKHealthController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //TPAttack();
     }
 
     public void TPAttack()
@@ -77,6 +76,8 @@ public class KKTPController : MonoBehaviour
             yield return null;
         }
 
+        DamageTPAttackPlayer();
+
         _animator.SetTrigger("LandTPAttack");
 
         yield return new WaitForSeconds(timeOnGround);
@@ -88,5 +89,15 @@ public class KKTPController : MonoBehaviour
         TPEnabled = true;
         _animator.Play("Idle");
 
+    }
+
+    public void DamageTPAttackPlayer()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(TPAttackPoint.position, attackRadius, playerLayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+            player.GetComponent<HealthController>().TakeDamage(TPAttackDamage, TPAttacShieldPenetration);
+        }
     }
 }

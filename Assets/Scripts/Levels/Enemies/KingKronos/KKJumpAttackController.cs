@@ -9,6 +9,9 @@ public class KKJumpAttackController : MonoBehaviour
     private KKMovementController _KKMovementController;
 
     public LayerMask whatIsGround;
+    public LayerMask playerLayer;
+    public Transform jumpAttackPoint;
+    public float attackRadius = 1f;
 
     public float jumpRangeMin = 7f;
     public float jumpRangeMax = 9f;
@@ -17,15 +20,15 @@ public class KKJumpAttackController : MonoBehaviour
 
     public bool jumpEnabled = true;
 
+    public float jumpAttackDamage = 3f;
+    public float jumpAttackShieldPenetration = 0f;
+
     public float parabolaPercentage = 0.5f;
     public float jumpAngle = 45;
     public float fallSpeed = 5f;
     public float timeStayingUp = 0.5f;
     public float timeChargingJump = 1f;
     public float timeOnGround = 1f;
-
-    public float jumpAttackDamage = 3f;
-    public float jumpAttackShieldPenetration = 0f;
 
     public float jumpCooldown = 5f;
     public float jumpCooldownCounter;
@@ -117,6 +120,7 @@ public class KKJumpAttackController : MonoBehaviour
 
         _KKMovementController.Stop();
 
+        DamageJumpAttackPlayer();
         _animator.SetTrigger("LandJumpAttack");
 
         yield return new WaitForSeconds(timeOnGround);
@@ -137,5 +141,15 @@ public class KKJumpAttackController : MonoBehaviour
         jumpCooldownCounter = jumpCooldownCounter > jumpCooldown ? jumpCooldown : jumpCooldownCounter;
 
         jumpEnabled = true;
+    }
+
+    public void DamageJumpAttackPlayer()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(jumpAttackPoint.position, attackRadius, playerLayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+            player.GetComponent<HealthController>().TakeDamage(jumpAttackDamage, jumpAttackShieldPenetration);
+        }
     }
 }

@@ -19,15 +19,13 @@ public class KKDashController : MonoBehaviour
     public float dashTime = 0.2f;
     public float dashForce = 25f;
 
-    public float dashDamage = 3f;
-    public float dashShieldPenetration = 0f;
+    //public float dashDamage = 3f;
+    //public float dashShieldPenetration = 0f;
 
     public float dashCooldown = 1f;
     public float dashCooldownCounter;
 
     public bool isDashing = false;
-
-    public Transform dashAttackPoint;
 
     // Start is called before the first frame update
     void Start()

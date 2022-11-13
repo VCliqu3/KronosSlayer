@@ -157,8 +157,10 @@ public class HealthController : MonoBehaviour
         PauseController.canPauseGame = false;
         _animator.SetTrigger("Death");
         playerHasDied = true;
+
+        Physics2D.IgnoreLayerCollision(9, 10); //Collisiones contra Enemigos
+        Physics2D.IgnoreLayerCollision(11, 10); //Collisiones contra KingKronos
         gameObject.layer = 10;
-        Physics2D.IgnoreLayerCollision(9, 10);
 
         yield return new WaitForSeconds(timeToPopUpDeathPanel);
 
