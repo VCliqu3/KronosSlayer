@@ -15,8 +15,13 @@ public class KKAttackController : MonoBehaviour
     public float maxAttackRange = 5f;
 
     public float attackDuration = 2;
+    public float enragedAttackDuration = 1.5f;
+
     public float attackDamage = 5f;
+    public float enragedAttackDamage = 8f;
+
     public float attackShieldPenetration = 0f;
+    public float enragedAttackShieldPenetration = 0f;
 
     public bool playerOnAttackRange;
     public bool playerOnMaxAttackRange;

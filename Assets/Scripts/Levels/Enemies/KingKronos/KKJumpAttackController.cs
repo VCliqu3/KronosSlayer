@@ -20,17 +20,30 @@ public class KKJumpAttackController : MonoBehaviour
 
     public bool jumpEnabled = true;
 
-    public float jumpAttackDamage = 3f;
+    public float jumpAttackDamage = 7f;
+    public float enragedJumpAttackDamage = 9f;
+
     public float jumpAttackShieldPenetration = 0f;
+    public float enragedJumpAttackShieldPenetration = 0f;
 
     public float parabolaPercentage = 0.5f;
-    public float jumpAngle = 45;
-    public float fallSpeed = 5f;
+    public float enragedParabolaPercentage = 1f;
+    public float jumpAngle = 75;
+    public float enragedJumpAngle = 45;
+
+    public float fallSpeed = 10f;
+    public float enragedFallSpeed = 12f;
+
     public float timeStayingUp = 0.5f;
+
     public float timeChargingJump = 1f;
+    public float enragedTimeChargingJump = 0.6f;
+
     public float timeOnGround = 1f;
 
-    public float jumpCooldown = 5f;
+    public float jumpCooldown = 10f;
+    public float enragedJumpCooldown = 8f;
+
     public float jumpCooldownCounter;
 
     public bool isJumpAttacking = false;

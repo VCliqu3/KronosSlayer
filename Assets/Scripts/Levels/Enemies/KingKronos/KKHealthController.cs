@@ -15,6 +15,10 @@ public class KKHealthController : MonoBehaviour
     public float damageAccumulatedCounter = 0;
     public float damageAccumulationSpeedRate = 1f;
     public float damageAccumulationEmptyRate = 7.5f;
+
+    public float damageAccumulationMultiplier = 1f;
+    public float enragedDamageAccumulationMultiplier = 1.5f;
+
     public float timeToAccumulateAfterEmpty = 1f;
 
     public float shieldAbsorption = 0.8f; //Expresado en porcentaje (0 a 1), teoricamente puede ser mayor a 1 y menor a 0 
@@ -24,10 +28,18 @@ public class KKHealthController : MonoBehaviour
     private Animator _animator;
     private BoxCollider2D _boxCollider2D;
 
+    private KKAttackController _KKAttackController;
+    private KKDashController _KKDashController;
+    private KKJumpAttackController _KKJumpAttackController;
+    private KKTPController _KKTPController;
+
     public bool hurtEnable = true;
     public float timeHurting = 0.5f;
     public bool isHurting = false;
     public bool isDead = false;
+
+    public bool isEnraged = false;
+    public bool onEnrageAnim = false;
 
     public float timeFadeAfterDeath = 3f;
 
@@ -37,6 +49,11 @@ public class KKHealthController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _KKHUDController = FindObjectOfType<KKHUDController>();
+
+        _KKAttackController = GetComponent<KKAttackController>();
+        _KKJumpAttackController = GetComponent<KKJumpAttackController>();
+        _KKDashController = GetComponent<KKDashController>();
+        _KKTPController = GetComponent<KKTPController>();
 
         health = maxHealth;
         shield = maxShield;
@@ -127,7 +144,7 @@ public class KKHealthController : MonoBehaviour
     IEnumerator AccumulateDamage(float damage)
     {
         canAccumulateDamage = false;
-        float auxDamage = damage;
+        float auxDamage = damage * damageAccumulationMultiplier;
 
         while(auxDamage > 0 && damageAccumulatedCounter<= damageAccumulationLimit)
         {
@@ -170,4 +187,32 @@ public class KKHealthController : MonoBehaviour
         StartCoroutine(EmptyDamageAccumulated());
     }
     
+    public void Enrage()
+    {
+        isEnraged = true;
+
+        damageAccumulationMultiplier = enragedDamageAccumulationMultiplier; //Cambian las estadisticas de las habilidades KingKronos
+
+        _KKAttackController.attackDuration = _KKAttackController.enragedAttackDuration;
+        _KKAttackController.attackDamage = _KKAttackController.enragedAttackDamage;
+        _KKAttackController.attackShieldPenetration = _KKAttackController.enragedAttackShieldPenetration;
+
+        _KKDashController.timeChargingDash = _KKDashController.enragedTimeChargingDash;
+        _KKDashController.dashForce = _KKDashController.enragedDashForce;
+        _KKDashController.dashCooldown = _KKDashController.enragedDashCooldown;
+
+        _KKJumpAttackController.jumpAttackDamage = _KKJumpAttackController.enragedJumpAttackDamage;
+        _KKJumpAttackController.jumpAttackShieldPenetration = _KKJumpAttackController.enragedJumpAttackShieldPenetration;
+        _KKJumpAttackController.fallSpeed = _KKJumpAttackController.enragedFallSpeed;
+        _KKJumpAttackController.timeChargingJump = _KKJumpAttackController.enragedTimeChargingJump;
+        _KKJumpAttackController.jumpCooldown = _KKJumpAttackController.enragedJumpCooldown;
+        _KKJumpAttackController.parabolaPercentage = _KKJumpAttackController.enragedParabolaPercentage;
+        _KKJumpAttackController.jumpAngle = _KKJumpAttackController.enragedJumpAngle;
+
+        _KKTPController.TPAttackDamage = _KKTPController.enragedTPAttackDamage;
+        _KKTPController.TPAttacShieldPenetration = _KKTPController.enragedTPAttacShieldPenetration;
+        _KKTPController.timeChargingTP = _KKTPController.enragedtimeChargingTP;
+        _KKTPController.downImpulse = _KKTPController.enrageddownImpulse;
+        _KKTPController.timeStayingUp = _KKTPController.enragedTimeStayingUp;
+    }
 }

@@ -153,7 +153,7 @@ public class KKMovementController : MonoBehaviour
 
     public void EnableDisableCanTurnBack()
     {  
-        if (!_KKJumpAttackController.isJumpAttacking && !_KKDashController.isDashing && !_KKTPController.isTPAttacking && !_KKAttackController.isAttacking && isActivated)
+        if (!_KKJumpAttackController.isJumpAttacking && !_KKDashController.isDashing && !_KKTPController.isTPAttacking && !_KKAttackController.isAttacking && isActivated &&!_KKHealthController.onEnrageAnim)
         {
             canTurnBack = true;
         }

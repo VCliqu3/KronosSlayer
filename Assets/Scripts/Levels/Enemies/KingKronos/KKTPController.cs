@@ -15,15 +15,23 @@ public class KKTPController : MonoBehaviour
 
     public bool TPEnabled = true;
 
-    public float TPAttackDamage = 3f;
+    public float TPAttackDamage = 7f;
+    public float enragedTPAttackDamage = 9f;
+
     public float TPAttacShieldPenetration = 0f;
+    public float enragedTPAttacShieldPenetration = 0f;
 
     public float timeChargingTP = 1f;
-    public float timeStayingUp = 1f;
-    public float timeOnGround = 1f;
-    public float distanceToAppearUp = 2f;
-    public float downImpulse = 2f;
+    public float enragedtimeChargingTP = 1f;
 
+    public float timeStayingUp = 1f;
+    public float enragedTimeStayingUp = 0.1f;
+    public float timeOnGround = 1f;
+
+    public float distanceToAppearUp = 2f;
+
+    public float downImpulse = 2f;
+    public float enrageddownImpulse = 2f;
 
     public bool isTPAttacking = false;
 

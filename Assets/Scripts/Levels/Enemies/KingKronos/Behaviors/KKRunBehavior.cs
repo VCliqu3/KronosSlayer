@@ -31,7 +31,12 @@ public class KKRunBehavior : StateMachineBehaviour
     {
         _KKMovementController.Run();
 
-        if (_KKMovementController.playerOnSight)
+        if (_KKHealthController.shield <= 0 && !_KKHealthController.isEnraged)
+        {
+            _KKHealthController.Enrage();
+            animator.Play("Enrage");
+        }
+        else if (_KKMovementController.playerOnSight)
         {
             if (_KKTPController.TPEnabled && _KKHealthController.damageAccumulatedCounter >= _KKHealthController.damageAccumulationLimit)
             {
@@ -50,7 +55,6 @@ public class KKRunBehavior : StateMachineBehaviour
                 animator.Play("Attack");
             }
         }
-
         else
         {
             time += Time.deltaTime;

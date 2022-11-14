@@ -16,13 +16,16 @@ public class KKDashController : MonoBehaviour
     public bool dashEnabled = true;
 
     public float timeChargingDash = 1f;
-    public float dashTime = 0.2f;
-    public float dashForce = 25f;
+    public float enragedTimeChargingDash = 0.8f;
 
-    //public float dashDamage = 3f;
-    //public float dashShieldPenetration = 0f;
+    public float dashForce = 15f;
+    public float enragedDashForce = 25f;
 
-    public float dashCooldown = 1f;
+    public float dashTime;
+
+    public float dashCooldown = 8f;
+    public float enragedDashCooldown = 5f;
+
     public float dashCooldownCounter;
 
     public bool isDashing = false;

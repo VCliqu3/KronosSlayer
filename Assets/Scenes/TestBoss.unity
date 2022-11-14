@@ -6931,8 +6931,11 @@ MonoBehaviour:
   attackRange: 1
   maxAttackRange: 1.5
   attackDuration: 2
+  enragedAttackDuration: 1.5
   attackDamage: 5
+  enragedAttackDamage: 8
   attackShieldPenetration: 0
+  enragedAttackShieldPenetration: 0
   playerOnAttackRange: 0
   playerOnMaxAttackRange: 0
   isAttacking: 0
@@ -6952,10 +6955,13 @@ MonoBehaviour:
   dashRangeMax: 7
   playerOnDashRange: 0
   dashEnabled: 1
-  timeChargingDash: 0.5
-  dashTime: 0.3
+  timeChargingDash: 0.8
+  enragedTimeChargingDash: 0.5
   dashForce: 15
+  enragedDashForce: 25
+  dashTime: 0
   dashCooldown: 8
+  enragedDashCooldown: 6
   dashCooldownCounter: 0
   isDashing: 0
 --- !u!114 &1037780145
@@ -6983,14 +6989,21 @@ MonoBehaviour:
   playerOnJumpRange: 0
   jumpEnabled: 1
   jumpAttackDamage: 7
+  enragedJumpAttackDamage: 9
   jumpAttackShieldPenetration: 0
-  parabolaPercentage: 0.5
-  jumpAngle: 45
-  fallSpeed: 15
+  enragedJumpAttackShieldPenetration: 0
+  parabolaPercentage: 0.25
+  enragedParabolaPercentage: 1
+  jumpAngle: 75
+  enragedJumpAngle: 45
+  fallSpeed: 12
+  enragedFallSpeed: 15
   timeStayingUp: 0.2
-  timeChargingJump: 0.5
+  timeChargingJump: 0.8
+  enragedTimeChargingJump: 0.5
   timeOnGround: 1
   jumpCooldown: 10
+  enragedJumpCooldown: 8
   jumpCooldownCounter: 0
   isJumpAttacking: 0
 --- !u!114 &1037780146
@@ -7012,12 +7025,17 @@ MonoBehaviour:
   attackRadius: 1
   TPEnabled: 1
   TPAttackDamage: 7
+  enragedTPAttackDamage: 9
   TPAttacShieldPenetration: 0
+  enragedTPAttacShieldPenetration: 0
   timeChargingTP: 1.5
+  enragedtimeChargingTP: 1
   timeStayingUp: 0.3
+  enragedTimeStayingUp: 0.1
   timeOnGround: 1
-  distanceToAppearUp: 4
+  distanceToAppearUp: 4.5
   downImpulse: 8
+  enrageddownImpulse: 12
   isTPAttacking: 0
 --- !u!114 &1037780147
 MonoBehaviour:
@@ -7040,6 +7058,8 @@ MonoBehaviour:
   damageAccumulatedCounter: 0
   damageAccumulationSpeedRate: 3
   damageAccumulationEmptyRate: 7.5
+  damageAccumulationMultiplier: 1
+  enragedDamageAccumulationMultiplier: 1.5
   timeToAccumulateAfterEmpty: 1
   shieldAbsorption: 1
   damageReduction: 0
@@ -7047,6 +7067,8 @@ MonoBehaviour:
   timeHurting: 0.5
   isHurting: 0
   isDead: 0
+  isEnraged: 0
+  onEnrageAnim: 0
   timeFadeAfterDeath: 3
 --- !u!1 &1045884781
 GameObject:
