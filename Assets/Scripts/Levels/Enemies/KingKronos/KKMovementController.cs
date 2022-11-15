@@ -43,6 +43,8 @@ public class KKMovementController : MonoBehaviour
     public float timeOnGroundOpening;
     public float fallImpulseOpening;
 
+    public TrailRenderer _trailRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -194,10 +196,14 @@ public class KKMovementController : MonoBehaviour
         _animator.SetTrigger("FallOpening");
         _rigidbody2D.AddForce(new Vector2(0, -fallImpulseOpening), ForceMode2D.Impulse);
 
+        _trailRenderer.emitting = true;
+
         while (!isGrounded)
         {
             yield return null;
         }
+
+        _trailRenderer.emitting = false;
 
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
         _animator.SetTrigger("LandOpening");

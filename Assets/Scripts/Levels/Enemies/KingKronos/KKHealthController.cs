@@ -49,6 +49,8 @@ public class KKHealthController : MonoBehaviour
 
     public float timeFadeAfterDeath = 3f;
 
+    public TrailRenderer _trailRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -147,6 +149,8 @@ public class KKHealthController : MonoBehaviour
     {
         health = 0;
         isDead = true;
+
+        _trailRenderer.emitting = false;
 
         _rigidbody2D.gravityScale = 1;
         _KKMovementController.Stop();

@@ -33,6 +33,8 @@ public class KKDashController : MonoBehaviour
 
     public float chargeDamageReduction = 0.5f;
 
+    public TrailRenderer _trailRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +82,11 @@ public class KKDashController : MonoBehaviour
 
         _rigidbody2D.velocity = transform.right * dashForce;
 
+        _trailRenderer.emitting = true;
+
         yield return new WaitForSeconds(dashTime);
+
+        _trailRenderer.emitting = false;
 
         _KKMovementController.Stop();
 

@@ -203,7 +203,9 @@ public class MovementController : MonoBehaviour
         _rigidbody2D.velocity = transform.right * dashForce;
 
         _trailRenderer.emitting = true;
+
         yield return new WaitForSeconds(dashTime);
+
         _trailRenderer.emitting = false;
 
         _rigidbody2D.gravityScale = originalGravity;

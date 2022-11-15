@@ -39,6 +39,8 @@ public class KKTPController : MonoBehaviour
 
     public float chargeDamageReduction = 0.5f;
 
+    public TrailRenderer _trailRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,10 +87,14 @@ public class KKTPController : MonoBehaviour
 
         _rigidbody2D.AddForce(new Vector2(0,-downImpulse), ForceMode2D.Impulse);
 
+        _trailRenderer.emitting = true;
+
         while (!_KKMovementController.isGrounded)
         {
             yield return null;
         }
+
+        _trailRenderer.emitting = false;
 
         DamageTPAttackPlayer();
 
@@ -124,10 +130,14 @@ public class KKTPController : MonoBehaviour
 
             _rigidbody2D.AddForce(new Vector2(0, -downImpulse), ForceMode2D.Impulse);
 
+            _trailRenderer.emitting = true;
+
             while (!_KKMovementController.isGrounded)
             {
                 yield return null;
             }
+
+            _trailRenderer.emitting = false;
 
             DamageTPAttackPlayer();
 

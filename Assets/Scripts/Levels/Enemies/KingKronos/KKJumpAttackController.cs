@@ -52,6 +52,8 @@ public class KKJumpAttackController : MonoBehaviour
 
     public float chargeDamageReduction = 0.5f;
 
+    public TrailRenderer _trailRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -130,10 +132,14 @@ public class KKJumpAttackController : MonoBehaviour
 
         _rigidbody2D.velocity = fallDirection * fallSpeed;
 
+        _trailRenderer.emitting = true;
+
         while (!_KKMovementController.isGrounded)
         {
             yield return null;
         }
+
+        _trailRenderer.emitting = false;
 
         _rigidbody2D.gravityScale = originalGravity;
 
