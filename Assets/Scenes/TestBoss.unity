@@ -889,6 +889,7 @@ GameObject:
   - component: {fileID: 153929682}
   - component: {fileID: 153929681}
   - component: {fileID: 153929684}
+  - component: {fileID: 153929685}
   m_Layer: 0
   m_Name: KKCanvas
   m_TagString: Untagged
@@ -996,6 +997,27 @@ MonoBehaviour:
   healthBar: {fileID: 1589077569}
   shieldBar: {fileID: 1319696694}
   damageAccumulationBar: {fileID: 1634795463}
+  _KKHealthController: {fileID: 1037780147}
+--- !u!95 &153929685
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153929679}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a087fc3427fb53498212068284b72b3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &204545662
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,7 +6797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1037780137
 Rigidbody2D:
   serializedVersion: 4
@@ -6902,8 +6924,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037780136}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -4.008, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.19, y: -1.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6912,7 +6934,7 @@ Transform:
   - {fileID: 2068323410}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1037780142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6927,15 +6949,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActivated: 0
   _animator: {fileID: 0}
-  walkSpeed: 1
-  runSpeed: 3
+  runSpeed: 3.5
+  enragedRunSpeed: 5
   timeRemainingFollowing: 1.5
   sightPoint: {fileID: 1184971834}
   frontSightDistance: 100
   backSightDistance: 100
   playerOnSight: 0
   playerOnSightBack: 0
-  isFacingRight: 1
+  isFacingRight: 0
   canTurnBack: 1
   whatIsGround:
     serializedVersion: 2
@@ -6943,6 +6965,10 @@ MonoBehaviour:
   isGrounded: 0
   rectangleLenght: 0.625
   rectangleHeight: 0.1
+  KKCanvasAnimator: {fileID: 153929685}
+  timeStayingUpOpening: 1
+  timeOnGroundOpening: 1
+  fallImpulseOpening: 10
 --- !u!114 &1037780143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7082,10 +7108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4eb15dbb7660146ae7a3e7bc667331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  health: 200
-  maxShield: 150
-  shield: 150
+  maxHealth: 20
+  health: 20
+  maxShield: 15
+  shield: 15
   canAccumulateDamage: 1
   damageAccumulationLimit: 30
   damageAccumulatedCounter: 0
@@ -8081,6 +8107,7 @@ GameObject:
   - component: {fileID: 1246457599}
   - component: {fileID: 1246457600}
   - component: {fileID: 1246457602}
+  - component: {fileID: 1246457603}
   m_Layer: 0
   m_Name: TestObject
   m_TagString: Untagged
@@ -8139,6 +8166,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ec8e9d804a73f4a894a76400f4a10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KingKronos: {fileID: 1037780136}
+--- !u!114 &1246457603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246457598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5a5e9b4a2bb4e4e8fdb4d8353d9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KKBossFight: {fileID: 1804888410}
+  playerCamFollowPoint: {fileID: 1166732311}
 --- !u!1 &1249092121
 GameObject:
   m_ObjectHideFlags: 0
@@ -11583,8 +11625,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1389533142}
-  KKBossFight: {fileID: 1804888410}
-  playerCamFollowPoint: {fileID: 1166732311}
 --- !u!1 &1844809142
 GameObject:
   m_ObjectHideFlags: 0

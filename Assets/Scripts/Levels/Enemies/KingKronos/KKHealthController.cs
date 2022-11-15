@@ -136,7 +136,11 @@ public class KKHealthController : MonoBehaviour
         _animator.SetLayerWeight(1, 0); //GetHurtBlinkingAnimation Desactivada
 
         isHurting = false; //Bool para trigger colliders regresa a false
-        canTakeDamage = true;
+
+        if (!onEnrageAnim)
+        {
+            canTakeDamage = true;
+        }
     }
 
     IEnumerator KillEnemy()
@@ -165,11 +169,11 @@ public class KKHealthController : MonoBehaviour
         }
 
         _animator.Play("Death");
+        _KKMovementController.KKCanvasAnimator.SetTrigger("FadeOut");
 
         FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
 
         yield return new WaitForSeconds(timeFadeAfterDeath);
-
         _animator.SetTrigger("FadeOut");
     }
 
@@ -177,7 +181,6 @@ public class KKHealthController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
     
     IEnumerator AccumulateDamage(float damage)
     {
@@ -230,6 +233,8 @@ public class KKHealthController : MonoBehaviour
         isEnraged = true;
 
         damageAccumulationMultiplier = enragedDamageAccumulationMultiplier; //Cambian las estadisticas de las habilidades KingKronos
+
+        _KKMovementController.runSpeed = _KKMovementController.enragedRunSpeed;
 
         _KKAttackController.attackDuration = _KKAttackController.enragedAttackDuration;
         _KKAttackController.attackDamage = _KKAttackController.enragedAttackDamage;

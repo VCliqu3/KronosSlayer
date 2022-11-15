@@ -7,8 +7,7 @@ public class CameraController : MonoBehaviour
 {
     public GameObject _camera;
     private CinemachineVirtualCamera _CMVCam;
-    public Transform KKBossFight;
-    public Transform playerCamFollowPoint;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +17,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("h"))
-        {
-            StartCoroutine(CameraTranslationPosition(KKBossFight.position, 6, 2));      
-        }
-
-        if (Input.GetKeyDown("j"))
-        {
-            StartCoroutine(CameraTranslationTarget(playerCamFollowPoint, 5, 2));
-        }
+        
     }
     
     public IEnumerator CameraTranslationPosition(Vector2 pointToTranslate, float sizeToTranslate, float transitionTime)
@@ -83,4 +74,13 @@ public class CameraController : MonoBehaviour
         _CMVCam.Follow = objectToTranslate;
     }
 
+    public void CallCameraTranslationPosition(Vector2 pointToTranslate, float sizeToTranslate, float transitionTime)
+    {
+        StartCoroutine(CameraTranslationPosition(pointToTranslate, sizeToTranslate, transitionTime));
+    }
+
+    public void CallCameraTranslationTarget(Transform objectToTranslate, float sizeToTranslate, float transitionTime)
+    {
+        StartCoroutine(CameraTranslationTarget(objectToTranslate, sizeToTranslate, transitionTime));
+    }
 }

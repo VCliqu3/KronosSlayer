@@ -12,6 +12,7 @@ public class KKEnrageBehavior : StateMachineBehaviour
         _KKHealthController = animator.gameObject.GetComponent<KKHealthController>();
 
         _KKHealthController.onEnrageAnim = true;
+        _KKHealthController.canTakeDamage = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,6 +25,7 @@ public class KKEnrageBehavior : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _KKHealthController.onEnrageAnim = false;
+        _KKHealthController.canTakeDamage = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

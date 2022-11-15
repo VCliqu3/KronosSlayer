@@ -7,6 +7,7 @@ public class KKJumpAttackController : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private KKMovementController _KKMovementController;
+    private KKHealthController _KKHealthController;
 
     public LayerMask whatIsGround;
     public LayerMask playerLayer;
@@ -48,12 +49,15 @@ public class KKJumpAttackController : MonoBehaviour
 
     public bool isJumpAttacking = false;
 
+    public float chargeDamageReduction = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
-        _KKMovementController = GetComponent<KKMovementController>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _KKMovementController = GetComponent<KKMovementController>();
+        _KKHealthController = GetComponent<KKHealthController>();
     }
 
     // Update is called once per frame
@@ -72,15 +76,16 @@ public class KKJumpAttackController : MonoBehaviour
     }
 
     IEnumerator Jumping()
-    {
-       
+    { 
         jumpEnabled = false;
 
+        _KKHealthController.damageReduction = chargeDamageReduction;
         _animator.Play("ChargeJump");
 
         jumpCooldownCounter = 0f;
 
         yield return new WaitForSeconds(timeChargingJump);
+        _KKHealthController.damageReduction = 0;
 
         Vector2 playerPos = FindObjectOfType<MovementController>().transform.position;
         float playerPosX = playerPos.x;

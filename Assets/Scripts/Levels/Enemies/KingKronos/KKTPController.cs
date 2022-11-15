@@ -36,6 +36,8 @@ public class KKTPController : MonoBehaviour
 
     public bool isTPAttacking = false;
 
+    public float chargeDamageReduction = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,9 +61,11 @@ public class KKTPController : MonoBehaviour
         isTPAttacking = true;
         _KKHealthController.canAccumulateDamage = false;
 
+        _KKHealthController.damageReduction = chargeDamageReduction;
         _animator.Play("ChargeTP");
 
         yield return new WaitForSeconds(timeChargingTP);
+        _KKHealthController.damageReduction = 0;
 
         Vector2 playerPos = FindObjectOfType<MovementController>().transform.position;
         transform.position = new Vector2(playerPos.x, playerPos.y + distanceToAppearUp);

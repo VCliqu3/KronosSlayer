@@ -11,17 +11,18 @@ public class KKHUDController : MonoBehaviour
     public Image shieldBar;
     public Image damageAccumulationBar;
 
-    private KKHealthController _KKHealthController;
+    public KKHealthController _KKHealthController;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _KKHealthController = FindObjectOfType<KKHealthController>();
-
+        //_KKHealthController = FindObjectOfType<KKHealthController>();
+        /*
         SetHealthBar();
         SetShieldBar();
         SetDamageAccumulationBar();
+        */
     }
 
     public void SetDamageAccumulationBar()

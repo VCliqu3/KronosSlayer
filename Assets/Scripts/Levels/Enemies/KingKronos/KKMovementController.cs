@@ -7,6 +7,7 @@ public class KKMovementController : MonoBehaviour
     public bool isActivated = false;
 
     private Rigidbody2D _rigidbody2D;
+    private KKHUDController _KKHUDController;
     private KKHealthController _KKHealthController;
     private KKAttackController _KKAttackController;
     private KKJumpAttackController _KKJumpAttackController;
@@ -15,8 +16,8 @@ public class KKMovementController : MonoBehaviour
     [HideInInspector]
     public Animator _animator;
 
-    public float walkSpeed = 1f;
-    public float runSpeed = 2f;
+    public float runSpeed = 2.5f;
+    public float enragedRunSpeed = 3.5f;
     public float timeRemainingFollowing = 1.5f;
 
     public Transform sightPoint;
@@ -36,17 +37,25 @@ public class KKMovementController : MonoBehaviour
     public float rectangleLenght;
     public float rectangleHeight;
 
+    public Animator KKCanvasAnimator;
+    public float timeStayingUpOpening;
+    public float timeOnGroundOpening;
+    public float fallImpulseOpening;
+
     // Start is called before the first frame update
     void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 11);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _KKHUDController = FindObjectOfType<KKHUDController>();
         _KKHealthController = GetComponent<KKHealthController>();
         _KKAttackController = GetComponent<KKAttackController>();
         _KKJumpAttackController = GetComponent<KKJumpAttackController>();
         _KKDashController = GetComponent<KKDashController>();
         _KKTPController = GetComponent<KKTPController>();
+
+        StartCoroutine(OpeningScene());
     }
 
     // Update is called once per frame
@@ -162,5 +171,37 @@ public class KKMovementController : MonoBehaviour
             canTurnBack = false;
         }
         
+    }
+
+    public IEnumerator OpeningScene()
+    {
+        KKCanvasAnimator.SetTrigger("FadeIn");
+
+        _KKHUDController.SetHealthBar();
+        _KKHUDController.SetShieldBar();
+        _KKHUDController.SetDamageAccumulationBar();
+
+        float originalGravity = _rigidbody2D.gravityScale;
+        _rigidbody2D.gravityScale = 0f;
+
+        _animator.Play("StayUpOpening");
+
+        yield return new WaitForSeconds(timeStayingUpOpening);
+
+        _rigidbody2D.gravityScale = originalGravity;
+
+        _animator.SetTrigger("FallOpening");
+        _rigidbody2D.AddForce(new Vector2(0, -fallImpulseOpening), ForceMode2D.Impulse);
+
+        while (!isGrounded)
+        {
+            yield return null;
+        }
+
+        _animator.SetTrigger("LandOpening");
+
+        yield return new WaitForSeconds(timeOnGroundOpening);
+
+        _animator.SetTrigger("OPAnim");
     }
 }
