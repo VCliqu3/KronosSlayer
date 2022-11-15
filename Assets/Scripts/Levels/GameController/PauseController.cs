@@ -76,7 +76,7 @@ public class PauseController : MonoBehaviour
     public void OnCompletedReintentarAni()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //Para reintentar//
 
