@@ -13,30 +13,36 @@ public class KKHealthController : MonoBehaviour
     public bool canAccumulateDamage = true;
     public float damageAccumulationLimit = 20;
     public float damageAccumulatedCounter = 0;
-    public float damageAccumulationSpeedRate = 1f;
     public float damageAccumulationEmptyRate = 7.5f;
 
+    public float timeToAccumulate1Attack = 1f;
     public float damageAccumulationMultiplier = 1f;
     public float enragedDamageAccumulationMultiplier = 1.5f;
 
+    public float timeToEmptyDamageAccumulationBar = 3f;
     public float timeToAccumulateAfterEmpty = 1f;
 
     public float shieldAbsorption = 0.8f; //Expresado en porcentaje (0 a 1), teoricamente puede ser mayor a 1 y menor a 0 
-    public float damageReduction = 0;
+
 
     private KKHUDController _KKHUDController;
     private Animator _animator;
-    private BoxCollider2D _boxCollider2D;
+    private Rigidbody2D _rigidbody2D;
 
+    private KKMovementController _KKMovementController;
     private KKAttackController _KKAttackController;
     private KKDashController _KKDashController;
     private KKJumpAttackController _KKJumpAttackController;
     private KKTPController _KKTPController;
 
+    public float damageReduction = 0;
+    public bool canTakeDamage = true;
     public bool hurtEnable = true;
-    public float timeHurting = 0.5f;
+    public float timeHurting = 1f;
     public bool isHurting = false;
     public bool isDead = false;
+
+    public float deathFallImpulse = 15f;
 
     public bool isEnraged = false;
     public bool onEnrageAnim = false;
@@ -47,9 +53,10 @@ public class KKHealthController : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         _KKHUDController = FindObjectOfType<KKHUDController>();
 
+        _KKMovementController = GetComponent<KKMovementController>();
         _KKAttackController = GetComponent<KKAttackController>();
         _KKJumpAttackController = GetComponent<KKJumpAttackController>();
         _KKDashController = GetComponent<KKDashController>();
@@ -58,14 +65,15 @@ public class KKHealthController : MonoBehaviour
         health = maxHealth;
         shield = maxShield;
 
-        damageReduction = 1;
+        canTakeDamage = false;
+        damageReduction = 0;
     }
 
     public void TakeDamage(float damage, float shieldPenetration)
     {
         damage *= (1-damageReduction);
 
-        if (!isDead && damageReduction<1)
+        if (!isDead && damageReduction<1 && canTakeDamage)
         {
             float damageShieldWouldTake, damageHealthWouldTake;
             float resultingShAb;
@@ -101,7 +109,7 @@ public class KKHealthController : MonoBehaviour
 
                 if (hurtEnable)
                 {
-                    HurtEnemy();
+                    StartCoroutine(HurtEnemy());
                 }
             }
 
@@ -115,9 +123,20 @@ public class KKHealthController : MonoBehaviour
         }
     }
 
-    void HurtEnemy()
+    IEnumerator HurtEnemy()
     {
-        _animator.SetTrigger("GetHurt"); //Trigger para animacion GetHurt
+        isHurting = true; //Bool para trigger colliders se vuelve true
+        canTakeDamage = false;
+
+        //_animator.SetTrigger("GetHurt"); //Trigger para animacion GetHurt
+        _animator.SetLayerWeight(1, 1); //GetHurtBlinkingAnimation Activada
+
+        yield return new WaitForSeconds(timeHurting);
+
+        _animator.SetLayerWeight(1, 0); //GetHurtBlinkingAnimation Desactivada
+
+        isHurting = false; //Bool para trigger colliders regresa a false
+        canTakeDamage = true;
     }
 
     IEnumerator KillEnemy()
@@ -125,10 +144,29 @@ public class KKHealthController : MonoBehaviour
         health = 0;
         isDead = true;
 
-        FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
+        _rigidbody2D.gravityScale = 1;
+        _KKMovementController.Stop();
+        _KKMovementController.StopOnY();
 
-        _animator.SetTrigger("Death");
-        //_boxCollider2D.enabled = false;
+        _KKDashController.StopAllCoroutines();
+        _KKJumpAttackController.StopAllCoroutines();
+        _KKTPController.StopAllCoroutines();
+
+        if (!_KKMovementController.isGrounded)
+        {
+            _rigidbody2D.AddForce(new Vector2(0, -deathFallImpulse), ForceMode2D.Impulse);
+
+            _animator.Play("FallToDie");
+
+            while (!_KKMovementController.isGrounded)
+            {
+                yield return null;
+            }
+        }
+
+        _animator.Play("Death");
+
+        FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
 
         yield return new WaitForSeconds(timeFadeAfterDeath);
 
@@ -148,8 +186,8 @@ public class KKHealthController : MonoBehaviour
 
         while(auxDamage > 0 && damageAccumulatedCounter<= damageAccumulationLimit)
         {
-            damageAccumulatedCounter += Time.deltaTime * damageAccumulationSpeedRate;
-            auxDamage -= Time.deltaTime * damageAccumulationSpeedRate;
+            damageAccumulatedCounter += Time.deltaTime * damage / timeToAccumulate1Attack; 
+            auxDamage -= Time.deltaTime * damage / timeToAccumulate1Attack;
 
             _KKHUDController.SetDamageAccumulationBar();
             yield return null;
@@ -168,7 +206,7 @@ public class KKHealthController : MonoBehaviour
     {
         while (damageAccumulatedCounter > 0)
         {
-            damageAccumulatedCounter -= Time.deltaTime * damageAccumulationEmptyRate;
+            damageAccumulatedCounter -= Time.deltaTime * damageAccumulationLimit/ timeToEmptyDamageAccumulationBar;
             _KKHUDController.SetDamageAccumulationBar();
 
             yield return null;

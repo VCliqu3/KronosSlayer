@@ -7024,6 +7024,7 @@ MonoBehaviour:
   TPAttackPoint: {fileID: 2068323410}
   attackRadius: 1
   TPEnabled: 1
+  doubleTPAttackWhenEnraged: 1
   TPAttackDamage: 7
   enragedTPAttackDamage: 9
   TPAttacShieldPenetration: 0
@@ -7049,24 +7050,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4eb15dbb7660146ae7a3e7bc667331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  health: 100
-  maxShield: 100
-  shield: 100
+  maxHealth: 20
+  health: 20
+  maxShield: 15
+  shield: 15
   canAccumulateDamage: 1
-  damageAccumulationLimit: 20
+  damageAccumulationLimit: 30
   damageAccumulatedCounter: 0
-  damageAccumulationSpeedRate: 3
   damageAccumulationEmptyRate: 7.5
+  timeToAccumulate1Attack: 1
   damageAccumulationMultiplier: 1
   enragedDamageAccumulationMultiplier: 1.5
+  timeToEmptyDamageAccumulationBar: 3
   timeToAccumulateAfterEmpty: 1
   shieldAbsorption: 1
   damageReduction: 0
+  canTakeDamage: 1
   hurtEnable: 1
-  timeHurting: 0.5
+  timeHurting: 1
   isHurting: 0
   isDead: 0
+  deathFallImpulse: 10
   isEnraged: 0
   onEnrageAnim: 0
   timeFadeAfterDeath: 3

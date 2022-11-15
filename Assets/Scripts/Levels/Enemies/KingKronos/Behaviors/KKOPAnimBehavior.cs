@@ -13,7 +13,7 @@ public class KKOPAnimBehavior : StateMachineBehaviour
         _KKMovementController = animator.gameObject.GetComponent<KKMovementController>();
         _KKHealthController = animator.gameObject.GetComponent<KKHealthController>();
 
-        _KKHealthController.damageReduction = 1;
+        _KKHealthController.canTakeDamage = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -26,7 +26,7 @@ public class KKOPAnimBehavior : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _KKMovementController.isActivated = true;
-        _KKHealthController.damageReduction = 0;
+        _KKHealthController.canTakeDamage = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

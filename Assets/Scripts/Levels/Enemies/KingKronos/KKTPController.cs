@@ -14,6 +14,7 @@ public class KKTPController : MonoBehaviour
     public float attackRadius = 1f;
 
     public bool TPEnabled = true;
+    public bool doubleTPAttackWhenEnraged = true;
 
     public float TPAttackDamage = 7f;
     public float enragedTPAttackDamage = 9f;
@@ -89,6 +90,46 @@ public class KKTPController : MonoBehaviour
         _animator.SetTrigger("LandTPAttack");
 
         yield return new WaitForSeconds(timeOnGround);
+
+        isTPAttacking = false;
+
+        if (_KKHealthController.isEnraged && doubleTPAttackWhenEnraged)
+        {
+            isTPAttacking = true;
+
+            _animator.Play("ChargeTP");
+
+            yield return new WaitForSeconds(timeChargingTP);
+
+            Vector2 playerPos_ = FindObjectOfType<MovementController>().transform.position;
+            transform.position = new Vector2(playerPos_.x, playerPos_.y + distanceToAppearUp);
+            _KKMovementController.ForcedRotation();
+
+            float originalGravity_ = _rigidbody2D.gravityScale;
+            _rigidbody2D.gravityScale = 0f;
+
+            _animator.SetTrigger("StayUpTPAttack");
+
+            yield return new WaitForSeconds(timeStayingUp);
+
+            _rigidbody2D.gravityScale = originalGravity_;
+
+            _animator.SetTrigger("TPAttack");
+
+            _rigidbody2D.AddForce(new Vector2(0, -downImpulse), ForceMode2D.Impulse);
+
+            while (!_KKMovementController.isGrounded)
+            {
+                yield return null;
+            }
+
+            DamageTPAttackPlayer();
+
+            _animator.SetTrigger("LandTPAttack");
+
+            yield return new WaitForSeconds(timeOnGround);
+
+        }
 
         isTPAttacking = false;
 
