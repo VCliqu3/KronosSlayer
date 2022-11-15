@@ -76,6 +76,10 @@ public class PauseController : MonoBehaviour
     public void OnCompletedReintentarAni()
     {
         Time.timeScale = 1f;
+
+        FindObjectOfType<ScoreController>().ResetScoreInCurrentLevel();
+        FindObjectOfType<ScoreController>().ResetEnemiesKilledInCurrentLevel();
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //Para reintentar//
@@ -90,6 +94,10 @@ public class PauseController : MonoBehaviour
     public void OnCompletedMainMenuAni()
     {
         Time.timeScale = 1f;
+       
+        FindObjectOfType<ScoreController>().ResetScoreInAllLevels();
+        FindObjectOfType<ScoreController>().ResetEnemiesKilledInAllLevels();
+        
         SceneManager.LoadScene("MainMenu");
     }
 
