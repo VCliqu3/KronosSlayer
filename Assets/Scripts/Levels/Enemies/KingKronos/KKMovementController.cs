@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class KKMovementController : MonoBehaviour
 {
@@ -198,6 +199,7 @@ public class KKMovementController : MonoBehaviour
             yield return null;
         }
 
+        CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
         _animator.SetTrigger("LandOpening");
 
         yield return new WaitForSeconds(timeOnGroundOpening);

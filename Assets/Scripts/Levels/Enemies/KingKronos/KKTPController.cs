@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class KKTPController : MonoBehaviour
 {
@@ -91,6 +92,7 @@ public class KKTPController : MonoBehaviour
 
         DamageTPAttackPlayer();
 
+        CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
         _animator.SetTrigger("LandTPAttack");
 
         yield return new WaitForSeconds(timeOnGround);
@@ -129,6 +131,7 @@ public class KKTPController : MonoBehaviour
 
             DamageTPAttackPlayer();
 
+            CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
             _animator.SetTrigger("LandTPAttack");
 
             yield return new WaitForSeconds(timeOnGround);

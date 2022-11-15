@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class KKAttackController : MonoBehaviour
 {
@@ -50,5 +51,7 @@ public class KKAttackController : MonoBehaviour
         {
             player.GetComponent<HealthController>().TakeDamage(attackDamage, attackShieldPenetration);
         }
+
+        CameraShaker.Instance.ShakeOnce(1f, 1f, 0.1f, 1f);
     }
 }

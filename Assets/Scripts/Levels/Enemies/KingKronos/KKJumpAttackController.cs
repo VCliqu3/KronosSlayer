@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class KKJumpAttackController : MonoBehaviour
 {
@@ -139,6 +140,8 @@ public class KKJumpAttackController : MonoBehaviour
         _KKMovementController.Stop();
 
         DamageJumpAttackPlayer();
+
+        CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
         _animator.SetTrigger("LandJumpAttack");
 
         yield return new WaitForSeconds(timeOnGround);
