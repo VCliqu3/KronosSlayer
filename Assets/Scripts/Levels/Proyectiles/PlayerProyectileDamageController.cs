@@ -11,14 +11,20 @@ public class PlayerProyectileDamageController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<BasicEnemyHealthController>().TakeDamage(damage, shieldPenetration);
-            Destroy(gameObject);
+            if (!collision.GetComponent<BasicEnemyHealthController>().isDead)
+            {
+                collision.GetComponent<BasicEnemyHealthController>().TakeDamage(damage, shieldPenetration);
+                Destroy(gameObject);
+            }
             
         }
         else if (collision.CompareTag("KingKronos"))
         {
-            collision.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
-            Destroy(gameObject);
+            if (!collision.GetComponent<KKHealthController>().isDead)
+            {
+                collision.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
+                Destroy(gameObject);
+            }
         }
     }
 }

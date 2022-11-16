@@ -14,12 +14,6 @@ public class CameraController : MonoBehaviour
         _CMVCam = _camera.GetComponent<CinemachineVirtualCamera>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public IEnumerator CameraTranslationPosition(Vector2 pointToTranslate, float sizeToTranslate, float transitionTime)
     {
 
@@ -82,5 +76,10 @@ public class CameraController : MonoBehaviour
     public void CallCameraTranslationTarget(Transform objectToTranslate, float sizeToTranslate, float transitionTime)
     {
         StartCoroutine(CameraTranslationTarget(objectToTranslate, sizeToTranslate, transitionTime));
+    }
+
+    public void FollowTarget(Transform target)
+    {
+        _CMVCam.Follow = target;
     }
 }

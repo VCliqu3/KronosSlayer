@@ -25,6 +25,7 @@ public class CameraTest : MonoBehaviour
         if (Input.GetKeyDown("j"))
         {
             _cameraController.CallCameraTranslationTarget(playerCamFollowPoint, 5, 2);
+            //_cameraController.FollowTarget(playerCamFollowPoint);
         }
 
         if (Input.GetKeyDown("n"))
