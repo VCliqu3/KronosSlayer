@@ -7139,8 +7139,8 @@ MonoBehaviour:
   attackRadius: 1
   TPEnabled: 1
   doubleTPAttackWhenEnraged: 1
-  TPAttackDamage: 7
-  enragedTPAttackDamage: 9
+  TPAttackDamage: 10
+  enragedTPAttackDamage: 12
   TPAttacShieldPenetration: 0
   enragedTPAttacShieldPenetration: 0
   timeChargingTP: 1.5
