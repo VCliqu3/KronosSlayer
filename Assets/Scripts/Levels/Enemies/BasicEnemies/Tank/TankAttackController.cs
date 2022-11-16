@@ -12,6 +12,7 @@ public class TankAttackController : MonoBehaviour
 
     public float attackRange = 5f;
     public float maxAttackRange = 5f;
+    public float attackRangeBack = 1f;
     public float attackDuration = 2;
     public float attackDamage = 3f;
     public float attackShieldPenetration = 0f;
@@ -19,6 +20,7 @@ public class TankAttackController : MonoBehaviour
     public Transform attackPoint;
     public bool playerOnAttackRange;
     public bool playerOnMaxAttackRange;
+    public bool playerOnAttackRangeBack;
 
     public float heightAttackArea;
     public float lenghtAttackArea;
@@ -37,6 +39,8 @@ public class TankAttackController : MonoBehaviour
     {
         playerOnAttackRange = _basicEnemyMovementController.DetectPlayer(attackRange, "front");
         playerOnMaxAttackRange = _basicEnemyMovementController.DetectPlayer(maxAttackRange, "front");
+        playerOnAttackRangeBack = _basicEnemyMovementController.DetectPlayer(attackRangeBack, "back");
+
     }
 
     public void DamagePlayer()

@@ -77,7 +77,7 @@ public class BasicEnemyHealthController : MonoBehaviour
             {
                 health = auxHealth;
 
-                if (hurtEnable)
+                if (shield <=0) //if hurtEnable
                 {
                     HurtEnemy();
                 }

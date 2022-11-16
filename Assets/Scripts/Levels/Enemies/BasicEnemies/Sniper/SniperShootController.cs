@@ -15,6 +15,7 @@ public class SniperShootController : MonoBehaviour
 
     public float shootRange = 5f;
     public float maxShootRange = 5f;
+    public float shootRangeBack = 5f;
     public float timeAiming = 2;
     public float timeRemainingAiming = 1f;
     public float bulletSpeed = 5f;
@@ -26,6 +27,7 @@ public class SniperShootController : MonoBehaviour
     public Transform firePoint;
     public bool playerOnShootRange;
     public bool playerOnMaxShootRange;
+    public bool playerOnShootRangeBack;
 
     public bool isShooting;
 
@@ -41,6 +43,8 @@ public class SniperShootController : MonoBehaviour
     {
         playerOnShootRange = _basicEnemyMovementController.DetectPlayer(shootRange, "front");
         playerOnMaxShootRange = _basicEnemyMovementController.DetectPlayer(maxShootRange, "front");
+        playerOnShootRangeBack = _basicEnemyMovementController.DetectPlayer(shootRangeBack, "back");
+
     }
 
     public void Shoot()

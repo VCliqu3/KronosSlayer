@@ -217,6 +217,39 @@ public class BasicEnemyMovementController : MonoBehaviour
             if (groundDown && !groundInFront)
             {
                 canTurnBack = true;
+            }        
+            else
+            {
+                canTurnBack = false;
+            }
+        }
+        else if (FindObjectOfType<CreepShootController>() != null)
+        {
+            if (FindObjectOfType<CreepShootController>().playerOnShootRangeBack)
+            {
+                canTurnBack = true;
+            }
+            else
+            {
+                canTurnBack = false;
+            }
+        }
+        else if (FindObjectOfType<TankAttackController>() != null)
+        {
+            if (FindObjectOfType<TankAttackController>().playerOnAttackRangeBack)
+            {
+                canTurnBack = true;
+            }
+            else
+            {
+                canTurnBack = false;
+            }
+        }
+        else if (FindObjectOfType<SniperShootController>() != null)
+        {
+            if (FindObjectOfType<SniperShootController>().playerOnShootRangeBack)
+            {
+                canTurnBack = true;
             }
             else
             {

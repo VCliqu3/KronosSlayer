@@ -325,6 +325,7 @@ MonoBehaviour:
   creepBullet: {fileID: 2809911548132119558, guid: e78d335c71a16d944b716eb76bed5a64, type: 3}
   shootRange: 4
   maxShootRange: 4
+  shootRangeBack: 4
   fireRate: 0.7
   timeRemainingShooting: 1.5
   bulletSpeed: 12
@@ -333,6 +334,7 @@ MonoBehaviour:
   firePoint: {fileID: 411369933578536836}
   playerOnShootRange: 0
   playerOnMaxShootRange: 0
+  playerOnShootRangeBack: 0
   isShooting: 0
 --- !u!114 &-3587279095763904859
 MonoBehaviour:
@@ -361,8 +363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldOrbDropOdds: 0.2
   healthOrbDropOdds: 0.2
-  willDropShieldOrb: 0
-  willDropHealthOrb: 0
   shieldOrb: {fileID: 2770589248468203197, guid: b07e7dabf7d981e4bae82953025c1b11, type: 3}
   healthOrb: {fileID: 7978108228448225856, guid: bcab7ccf83e502343bad28dacb006cb9, type: 3}
 --- !u!1 &411369932558904358

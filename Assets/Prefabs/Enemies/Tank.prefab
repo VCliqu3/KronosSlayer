@@ -327,13 +327,15 @@ MonoBehaviour:
     m_Bits: 256
   timeRemainingFollowing: 1.1
   attackRange: 1
-  maxAttackRange: 1.45
+  maxAttackRange: 1.5
+  attackRangeBack: 1
   attackDuration: 1.5
   attackDamage: 5
   attackShieldPenetration: 0
   attackPoint: {fileID: 1399860953553155908}
   playerOnAttackRange: 0
   playerOnMaxAttackRange: 0
+  playerOnAttackRangeBack: 0
   heightAttackArea: 1
   lenghtAttackArea: 3
   isAttacking: 0
@@ -364,8 +366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldOrbDropOdds: 0.2
   healthOrbDropOdds: 0.2
-  willDropShieldOrb: 0
-  willDropHealthOrb: 0
   shieldOrb: {fileID: 2770589248468203197, guid: b07e7dabf7d981e4bae82953025c1b11, type: 3}
   healthOrb: {fileID: 7978108228448225856, guid: bcab7ccf83e502343bad28dacb006cb9, type: 3}
 --- !u!1 &1399860952838549916

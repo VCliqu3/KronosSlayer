@@ -539,6 +539,7 @@ MonoBehaviour:
     m_Bits: 1024
   shootRange: 6
   maxShootRange: 7
+  shootRangeBack: 6
   timeAiming: 1.5
   timeRemainingAiming: 1.25
   bulletSpeed: 15
@@ -548,6 +549,7 @@ MonoBehaviour:
   firePoint: {fileID: 1822974874816395227}
   playerOnShootRange: 0
   playerOnMaxShootRange: 0
+  playerOnShootRangeBack: 0
   isShooting: 0
 --- !u!114 &-584721487690271124
 MonoBehaviour:
@@ -576,8 +578,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldOrbDropOdds: 0.2
   healthOrbDropOdds: 0.2
-  willDropShieldOrb: 0
-  willDropHealthOrb: 0
   shieldOrb: {fileID: 2770589248468203197, guid: b07e7dabf7d981e4bae82953025c1b11, type: 3}
   healthOrb: {fileID: 7978108228448225856, guid: bcab7ccf83e502343bad28dacb006cb9, type: 3}
 --- !u!1 &1822974874151664764
