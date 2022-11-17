@@ -148,13 +148,11 @@ public class KKJumpAttackController : MonoBehaviour
         DamageJumpAttackPlayer();
 
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
-        _animator.SetTrigger("LandJumpAttack");
+        _animator.SetTrigger("Land");
 
         yield return new WaitForSeconds(timeOnGround);
 
-        isJumpAttacking = false;
-
-        _animator.Play("Idle");
+        _animator.SetTrigger("GetUp");
     }
     IEnumerator JumpCooldown()
     {
@@ -178,5 +176,10 @@ public class KKJumpAttackController : MonoBehaviour
         {
             player.GetComponent<HealthController>().TakeDamage(jumpAttackDamage, jumpAttackShieldPenetration);
         }
+    }
+
+    public void SetIsJumpAttackingFalse()
+    {
+        isJumpAttacking = false;
     }
 }

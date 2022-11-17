@@ -24,16 +24,19 @@ public class KKTPController : MonoBehaviour
     public float enragedTPAttacShieldPenetration = 0f;
 
     public float timeChargingTP = 1f;
+    public float timeChargingEnragedJump = 0.5f;
     public float enragedtimeChargingTP = 1f;
 
     public float timeStayingUp = 1f;
+    public float timeStayingUpEnragedJump = 1f;
     public float enragedTimeStayingUp = 0.1f;
     public float timeOnGround = 1f;
 
     public float distanceToAppearUp = 2f;
+    public float enragedJumpImpulse = 6f;
 
     public float downImpulse = 2f;
-    public float enrageddownImpulse = 2f;
+    public float enragedDownImpulse = 2f;
 
     public bool isTPAttacking = false;
 
@@ -77,7 +80,7 @@ public class KKTPController : MonoBehaviour
         float originalGravity = _rigidbody2D.gravityScale;
         _rigidbody2D.gravityScale = 0f;
 
-        _animator.SetTrigger("StayUpTPAttack");
+        _animator.SetTrigger("StayUp");
 
         yield return new WaitForSeconds(timeStayingUp);
 
@@ -99,32 +102,36 @@ public class KKTPController : MonoBehaviour
         DamageTPAttackPlayer();
 
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
-        _animator.SetTrigger("LandTPAttack");
+        _animator.SetTrigger("Land");
 
         yield return new WaitForSeconds(timeOnGround);
 
-        isTPAttacking = false;
-
         if (_KKHealthController.isEnraged && doubleTPAttackWhenEnraged)
         {
-            isTPAttacking = true;
+            _animator.SetTrigger("Charge");
 
-            _animator.Play("ChargeTP");
+            yield return new WaitForSeconds(timeChargingEnragedJump);
 
-            yield return new WaitForSeconds(timeChargingTP);
+            _rigidbody2D.AddForce(new Vector2(0, enragedJumpImpulse), ForceMode2D.Impulse);
+
+            _animator.SetTrigger("Jump");
+
+            while (_rigidbody2D.velocity.y >= 0)
+            {
+                yield return null;
+            }
 
             Vector2 playerPos_ = FindObjectOfType<MovementController>().transform.position;
             transform.position = new Vector2(playerPos_.x, playerPos_.y + distanceToAppearUp);
             _KKMovementController.ForcedRotation();
 
-            float originalGravity_ = _rigidbody2D.gravityScale;
-            _rigidbody2D.gravityScale = 0f;
+            _rigidbody2D.gravityScale = 0;
 
-            _animator.SetTrigger("StayUpTPAttack");
+            _animator.SetTrigger("StayUp");
 
-            yield return new WaitForSeconds(timeStayingUp);
+            yield return new WaitForSeconds(timeStayingUpEnragedJump);
 
-            _rigidbody2D.gravityScale = originalGravity_;
+            _rigidbody2D.gravityScale = originalGravity;
 
             _animator.SetTrigger("TPAttack");
 
@@ -142,19 +149,17 @@ public class KKTPController : MonoBehaviour
             DamageTPAttackPlayer();
 
             CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
-            _animator.SetTrigger("LandTPAttack");
+            _animator.SetTrigger("Land");
 
             yield return new WaitForSeconds(timeOnGround);
-
         }
 
+        _animator.SetTrigger("GetUp");
+
         isTPAttacking = false;
+        TPEnabled = true;
 
         _KKHealthController.CallEmptyDamageAccumulated();
-
-        TPEnabled = true;
-        _animator.Play("Idle");
-
     }
 
     public void DamageTPAttackPlayer()

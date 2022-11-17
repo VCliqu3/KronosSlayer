@@ -17,6 +17,7 @@ public class HealthController : MonoBehaviour
     public float invencibilitySeconds = 3f; //Como minimo 0.5s
 
     private Animator _animator;
+    private Rigidbody2D _rigidbody2D;
     private MovementController _movementController;
 
     public bool isHurting = false;
@@ -29,10 +30,14 @@ public class HealthController : MonoBehaviour
 
     private HUDController _HUDController;
 
+    public PhysicsMaterial2D bouncyMaterial;
+    public float deathImpulseX = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         _movementController = GetComponent<MovementController>();
 
         _HUDController = FindObjectOfType<HUDController>();
@@ -161,6 +166,17 @@ public class HealthController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(9, 10); //Collisiones contra Enemigos
         Physics2D.IgnoreLayerCollision(11, 10); //Collisiones contra KingKronos
         gameObject.layer = 10;
+
+        _rigidbody2D.sharedMaterial = bouncyMaterial;
+
+        if (_movementController.playerFacingRight)
+        {
+            _rigidbody2D.AddForce(new Vector2(deathImpulseX, 0), ForceMode2D.Impulse);
+        }
+        else
+        {
+            _rigidbody2D.AddForce(new Vector2(-deathImpulseX, 0), ForceMode2D.Impulse);
+        }
 
         yield return new WaitForSeconds(timeToPopUpDeathPanel);
 

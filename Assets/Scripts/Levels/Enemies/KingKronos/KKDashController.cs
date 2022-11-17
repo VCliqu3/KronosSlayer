@@ -9,6 +9,10 @@ public class KKDashController : MonoBehaviour
     private KKMovementController _KKMovementController;
     private KKHealthController _KKHealthController;
 
+    public LayerMask playerLayer;
+    public Transform dashAttackPoint;
+    public float attackRadius = 1f;
+
     public float dashRangeMin = 5f;
     public float dashRangeMax = 7f;
 
@@ -16,8 +20,16 @@ public class KKDashController : MonoBehaviour
 
     public bool dashEnabled = true;
 
+    public float dashAttackDamage = 7f;
+    public float enragedDashAttackDamage = 9f;
+
+    public float dashAttackShieldPenetration = 0f;
+    public float enragedDashAttackShieldPenetration = 0f;
+
     public float timeChargingDash = 1f;
     public float enragedTimeChargingDash = 0.8f;
+
+    public float timeOnGround = 1f;
 
     public float dashForce = 15f;
     public float enragedDashForce = 25f;
@@ -90,10 +102,11 @@ public class KKDashController : MonoBehaviour
 
         _KKMovementController.Stop();
 
-        isDashing = false;
+        _animator.SetTrigger("DashAttack");
 
-        _animator.Play("Attack");
+        yield return new WaitForSeconds(timeOnGround);
 
+        _animator.SetTrigger("GetUp");
     }
 
     IEnumerator DashCooldown()
@@ -108,5 +121,20 @@ public class KKDashController : MonoBehaviour
         dashCooldownCounter = dashCooldownCounter > dashCooldown ? dashCooldown : dashCooldownCounter;
 
         dashEnabled = true;
+    }
+
+    public void DamageDashAttackPlayer()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(dashAttackPoint.position, attackRadius, playerLayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+            player.GetComponent<HealthController>().TakeDamage(dashAttackDamage, dashAttackShieldPenetration);
+        }
+    }
+
+    public void SetIsDashingFalse()
+    {
+        isDashing = false;
     }
 }

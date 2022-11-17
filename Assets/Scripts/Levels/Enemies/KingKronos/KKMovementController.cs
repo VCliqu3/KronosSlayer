@@ -206,7 +206,7 @@ public class KKMovementController : MonoBehaviour
         _trailRenderer.emitting = false;
 
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
-        _animator.SetTrigger("LandOpening");
+        _animator.SetTrigger("Land");
 
         yield return new WaitForSeconds(timeOnGroundOpening);
 

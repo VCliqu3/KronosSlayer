@@ -7061,12 +7061,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261c7cadbad2e0849b4b99e26f104e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  dashAttackPoint: {fileID: 2068323410}
+  attackRadius: 1.5
   dashRangeMin: 4
   dashRangeMax: 7
   playerOnDashRange: 0
   dashEnabled: 1
+  dashAttackDamage: 7
+  enragedDashAttackDamage: 9
+  dashAttackShieldPenetration: 0
+  enragedDashAttackShieldPenetration: 0
   timeChargingDash: 0.8
   enragedTimeChargingDash: 0.5
+  timeOnGround: 1
   dashForce: 15
   enragedDashForce: 25
   dashTime: 0
@@ -7095,7 +7105,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpAttackPoint: {fileID: 2068323410}
-  attackRadius: 1
+  attackRadius: 1.5
   jumpRangeMin: 6
   jumpRangeMax: 10
   playerOnJumpRange: 0
@@ -7136,7 +7146,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   TPAttackPoint: {fileID: 2068323410}
-  attackRadius: 1
+  attackRadius: 1.5
   TPEnabled: 1
   doubleTPAttackWhenEnraged: 1
   TPAttackDamage: 10
@@ -7144,13 +7154,16 @@ MonoBehaviour:
   TPAttacShieldPenetration: 0
   enragedTPAttacShieldPenetration: 0
   timeChargingTP: 1.5
+  timeChargingEnragedJump: 0.5
   enragedtimeChargingTP: 1
   timeStayingUp: 0.3
+  timeStayingUpEnragedJump: 0.1
   enragedTimeStayingUp: 0.1
   timeOnGround: 1
   distanceToAppearUp: 4
+  enragedJumpImpulse: 8
   downImpulse: 8
-  enrageddownImpulse: 12
+  enragedDownImpulse: 12
   isTPAttacking: 0
   chargeDamageReduction: 0.5
   _trailRenderer: {fileID: 1066471114}
@@ -7168,10 +7181,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   health: 200
-  maxShield: 150
-  shield: 150
+  maxShield: 1
+  shield: 1
   canAccumulateDamage: 1
-  damageAccumulationLimit: 30
+  damageAccumulationLimit: 10
   damageAccumulatedCounter: 0
   damageAccumulationEmptyRate: 7.5
   timeToAccumulate1Attack: 1
@@ -10224,6 +10237,8 @@ MonoBehaviour:
   playerHasDied: 0
   invincibilityEnabled: 0
   timeToPopUpDeathPanel: 2
+  bouncyMaterial: {fileID: 6200000, guid: febafc74fd870b644a50af28e0ae1baf, type: 2}
+  deathImpulseX: 2000
 --- !u!114 &1471736331
 MonoBehaviour:
   m_ObjectHideFlags: 0

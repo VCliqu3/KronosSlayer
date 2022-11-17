@@ -247,6 +247,8 @@ public class KKHealthController : MonoBehaviour
         _KKDashController.timeChargingDash = _KKDashController.enragedTimeChargingDash;
         _KKDashController.dashForce = _KKDashController.enragedDashForce;
         _KKDashController.dashCooldown = _KKDashController.enragedDashCooldown;
+        _KKDashController.dashAttackDamage = _KKDashController.enragedDashAttackDamage;
+        _KKDashController.dashAttackShieldPenetration = _KKDashController.enragedDashAttackShieldPenetration;
 
         _KKJumpAttackController.jumpAttackDamage = _KKJumpAttackController.enragedJumpAttackDamage;
         _KKJumpAttackController.jumpAttackShieldPenetration = _KKJumpAttackController.enragedJumpAttackShieldPenetration;
@@ -259,7 +261,7 @@ public class KKHealthController : MonoBehaviour
         _KKTPController.TPAttackDamage = _KKTPController.enragedTPAttackDamage;
         _KKTPController.TPAttacShieldPenetration = _KKTPController.enragedTPAttacShieldPenetration;
         _KKTPController.timeChargingTP = _KKTPController.enragedtimeChargingTP;
-        _KKTPController.downImpulse = _KKTPController.enrageddownImpulse;
+        _KKTPController.downImpulse = _KKTPController.enragedDownImpulse;
         _KKTPController.timeStayingUp = _KKTPController.enragedTimeStayingUp;
     }
 }
