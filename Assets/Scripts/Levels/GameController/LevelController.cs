@@ -18,6 +18,9 @@ public class LevelController : MonoBehaviour
 
     public GameObject deathPanel;
     public GameObject levelCompletePanel;
+    public GameObject denyNextLevelPanel;
+    public TMP_Text denyNextLevelPanelText;
+    public float timeDenyNextLevelPanelActive = 2f;
 
     public bool levelCompleted = false;
 
@@ -94,4 +97,40 @@ public class LevelController : MonoBehaviour
         PauseController.gamePaused = true;
     }
 
+    public void ActivateDenyNextLevelPanel()
+    {
+        denyNextLevelPanel.SetActive(true);
+    }
+
+    public IEnumerator NextLevelLogic()
+    {
+        GameObject[] basicEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        int numberEnemiesRemaining = basicEnemies.Length;
+
+        if(numberEnemiesRemaining <= 0)
+        {
+            ActivateLevelCompletePanel();
+        }
+        else
+        {
+            if (!denyNextLevelPanel.activeInHierarchy)
+            {
+                ActivateDenyNextLevelPanel();
+                if (numberEnemiesRemaining > 1)
+                {
+                    denyNextLevelPanelText.text = "Aun quedan " + numberEnemiesRemaining + " enemigos por eliminar.";
+                }
+                else
+                {
+                    denyNextLevelPanelText.text = "Aun queda " + numberEnemiesRemaining + " enemigo por eliminar.";
+                }
+                denyNextLevelPanel.GetComponent<Animator>().SetTrigger("PopUp");
+                yield return new WaitForSeconds(timeDenyNextLevelPanelActive);
+                denyNextLevelPanel.GetComponent<Animator>().SetTrigger("Close");
+                yield return new WaitUntil(() => denyNextLevelPanelText.fontSize == 0); //Se espera que se haya cerrado si el tamaño del texto es 0;
+                denyNextLevelPanel.SetActive(false);
+            }
+        }
+
+    }
 }

@@ -15,7 +15,7 @@ public class WinLevel : MonoBehaviour
     {
         if (Input.GetKeyDown("l"))
         {
-            FindObjectOfType<LevelController>().ActivateLevelCompletePanel();
+            StartCoroutine(FindObjectOfType<LevelController>().NextLevelLogic());
         }
     }
 }

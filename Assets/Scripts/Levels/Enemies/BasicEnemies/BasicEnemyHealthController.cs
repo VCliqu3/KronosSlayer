@@ -97,6 +97,7 @@ public class BasicEnemyHealthController : MonoBehaviour
     {
         health = 0;
         isDead = true;
+        gameObject.tag = "DeadEnemy";
 
         FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
         FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
