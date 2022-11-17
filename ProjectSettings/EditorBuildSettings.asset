@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/TestBoss.unity
+    guid: e82b6d7d2abbc0a43a8285f698550611
+  - enabled: 1
     path: Assets/Scenes/ExplosionDefeatScene.unity
     guid: 7059f22bf03d009469567c687c31cb7e
   m_configObjects: {}

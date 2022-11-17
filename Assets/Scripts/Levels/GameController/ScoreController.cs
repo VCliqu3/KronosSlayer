@@ -24,7 +24,7 @@ public class ScoreController : MonoBehaviour
         score[SceneManager.GetActiveScene().buildIndex - LevelController.level1BuildIndex] = 0; //El buildIndex del Level1 es 1
     }
 
-    public void ResetScoreInAllLevels()
+    static public void ResetScoreInAllLevels()
     {
         for (int i = 0; i < score.Length; i++)
         {
@@ -39,7 +39,7 @@ public class ScoreController : MonoBehaviour
         return scoreInLevel;
     }
 
-    public int CalculateTotalScore()
+    static public int CalculateTotalScore()
     {
         int totalScore = 0;
 
@@ -61,7 +61,7 @@ public class ScoreController : MonoBehaviour
         enemiesKilled[SceneManager.GetActiveScene().buildIndex - LevelController.level1BuildIndex] = 0; //El buildIndex del Level1 es 1
     }
 
-    public void ResetEnemiesKilledInAllLevels()
+    static public void ResetEnemiesKilledInAllLevels()
     {
         for (int i = 0; i < enemiesKilled.Length; i++)
         {
@@ -75,7 +75,7 @@ public class ScoreController : MonoBehaviour
         return enemiesKilledInLevel;
     }
 
-    public int CalculateTotalEnemiesKilled()
+    static public int CalculateTotalEnemiesKilled()
     {
         int totalEnemiesKilled = 0;
 

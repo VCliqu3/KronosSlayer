@@ -35,6 +35,10 @@ public class KKHealthController : MonoBehaviour
     private KKJumpAttackController _KKJumpAttackController;
     private KKTPController _KKTPController;
 
+    private BasicEnemyScoreController _basicEnemyScoreController;
+    private HUDController _HUDController;
+
+
     public float damageReduction = 0;
     public bool canTakeDamage = true;
     public bool hurtEnable = true;
@@ -63,6 +67,9 @@ public class KKHealthController : MonoBehaviour
         _KKJumpAttackController = GetComponent<KKJumpAttackController>();
         _KKDashController = GetComponent<KKDashController>();
         _KKTPController = GetComponent<KKTPController>();
+
+        _basicEnemyScoreController = GetComponent<BasicEnemyScoreController>();
+        _HUDController = FindObjectOfType<HUDController>();
 
         health = maxHealth;
         shield = maxShield;
@@ -160,6 +167,11 @@ public class KKHealthController : MonoBehaviour
         _KKJumpAttackController.StopAllCoroutines();
         _KKTPController.StopAllCoroutines();
 
+        FindObjectOfType<ScoreController>().AddScoreInCurrentLevel(_basicEnemyScoreController.enemyScore);
+        FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
+
+        _HUDController.SetScoreText();
+
         if (!_KKMovementController.isGrounded)
         {
             _rigidbody2D.AddForce(new Vector2(0, -deathFallImpulse), ForceMode2D.Impulse);
@@ -174,8 +186,6 @@ public class KKHealthController : MonoBehaviour
 
         _animator.Play("Death");
         _KKMovementController.KKCanvasAnimator.SetTrigger("FadeOut");
-
-        FindObjectOfType<ScoreController>().AddEnemiesKilledInCurrentLevel(1);
 
         yield return new WaitForSeconds(timeFadeAfterDeath);
         _animator.SetTrigger("FadeOut");

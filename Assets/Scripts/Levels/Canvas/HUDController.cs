@@ -59,8 +59,8 @@ public class HUDController : MonoBehaviour
 
     public void SetScoreText()
     {
-        int score = FindObjectOfType<ScoreController>().CalculateTotalScore();
-        string scoreToString = FindObjectOfType<ScoreController>().CalculateTotalScore().ToString();
+        int score = ScoreController.CalculateTotalScore();
+        string scoreToString = score.ToString();
 
         if (score < 10)
         {

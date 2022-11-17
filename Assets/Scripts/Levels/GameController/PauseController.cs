@@ -95,8 +95,9 @@ public class PauseController : MonoBehaviour
     {
         Time.timeScale = 1f;
        
-        FindObjectOfType<ScoreController>().ResetScoreInAllLevels();
-        FindObjectOfType<ScoreController>().ResetEnemiesKilledInAllLevels();
+        ScoreController.ResetScoreInAllLevels();
+        ScoreController.ResetEnemiesKilledInAllLevels();
+        LevelController.ResetAttempsInAllLevels();
         
         SceneManager.LoadScene("MainMenu");
     }

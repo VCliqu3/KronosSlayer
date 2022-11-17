@@ -7,7 +7,7 @@ using TMPro;
 
 public class LevelController : MonoBehaviour
 {
-    static public int numberOfLevels = 3;
+    static public int numberOfLevels = 4;
     static public int level1BuildIndex = 2;
 
     static public int[] numberOfAttemps = new int[numberOfLevels]; //Hay 3 niveles
@@ -44,18 +44,38 @@ public class LevelController : MonoBehaviour
         return attemps;
     }
 
-    public void ResetAttempsInAllLevels()
+    static public void ResetAttempsInAllLevels()
     {
         for (int i = 0; i < numberOfAttemps.Length; i++)
         {
             numberOfAttemps[i] = 0; //Resetea el numero de intentos de todo el arreglo numberOfAttemps (todos los niveles)
         }
-
     }
+
+    static public int CalculateTotalSAttemps()
+    {
+        int totalAttemps = 0;
+
+        for (int i = 0; i < numberOfAttemps.Length; i++)
+        {
+            totalAttemps += numberOfAttemps[i];
+        }
+
+        return totalAttemps;
+    }
+
     public IEnumerator FadeInLevelText(float time)
     {
         yield return new WaitForSeconds(time);
-        levelText.text = "Nivel " + (SceneManager.GetActiveScene().buildIndex - level1BuildIndex + 1);
+
+        if ((SceneManager.GetActiveScene().buildIndex) == level1BuildIndex + 3) //Si es el nivel 4
+        {
+            levelText.text = "King Kronos";
+        }
+        else
+        {
+            levelText.text = "Nave " + (SceneManager.GetActiveScene().buildIndex - level1BuildIndex + 1);
+        }
         levelText.gameObject.SetActive(true);
 
     }
