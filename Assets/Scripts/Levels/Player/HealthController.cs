@@ -31,7 +31,7 @@ public class HealthController : MonoBehaviour
     private HUDController _HUDController;
 
     public PhysicsMaterial2D bouncyMaterial;
-    public float deathImpulseX = 2f;
+    public float deathImpulseY = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -169,13 +169,11 @@ public class HealthController : MonoBehaviour
 
         _rigidbody2D.sharedMaterial = bouncyMaterial;
 
-        if (_movementController.playerFacingRight)
+        _rigidbody2D.AddForce(new Vector2(0, deathImpulseY), ForceMode2D.Impulse);
+
+        while (!_movementController.isGrounded)
         {
-            _rigidbody2D.AddForce(new Vector2(deathImpulseX, 0), ForceMode2D.Impulse);
-        }
-        else
-        {
-            _rigidbody2D.AddForce(new Vector2(-deathImpulseX, 0), ForceMode2D.Impulse);
+            yield return null;
         }
 
         yield return new WaitForSeconds(timeToPopUpDeathPanel);

@@ -10238,7 +10238,7 @@ MonoBehaviour:
   invincibilityEnabled: 0
   timeToPopUpDeathPanel: 2
   bouncyMaterial: {fileID: 6200000, guid: febafc74fd870b644a50af28e0ae1baf, type: 2}
-  deathImpulseX: 2000
+  deathImpulseY: 3.5
 --- !u!114 &1471736331
 MonoBehaviour:
   m_ObjectHideFlags: 0
