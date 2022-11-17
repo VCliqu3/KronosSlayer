@@ -11,13 +11,27 @@ public class MainMenuButtons : MonoBehaviour
     public void Play()
     {
         animator.Play("FadeOut");
-        //SceneManager.LoadScene("SampleScene");//
     }
 
-    public void OnCompletedFadeOut()
+    public void OnCompletedPlayFadeOut()
     {
         SceneManager.LoadScene("Level1");
     }
+
+    //opciones//
+    
+    public void  Opciones()
+    {
+        animator.Play("OpcionesFadeOut");
+    }
+
+    public void OnCompletedOpcionesFadeOut()
+    {
+        SceneManager.LoadScene("OptionsMenu");
+    }
+
+    //opciones//
+
 
     public void Salir()
     {
