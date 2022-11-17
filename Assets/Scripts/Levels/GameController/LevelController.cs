@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
 
     static public int[] numberOfAttemps = new int[numberOfLevels]; //Hay 3 niveles
 
+    static public int currentLevelIndex;
     public float timeForLevelText = 1f;
     public TMP_Text levelText;
 
@@ -21,7 +22,9 @@ public class LevelController : MonoBehaviour
     public bool levelCompleted = false;
 
     void Start()
-    {        
+    {
+        currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+
         ChangeAttempsInCurrentLevel(1);
 
         if (CalculateAttempsInCurrentLevel() == 1)

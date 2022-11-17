@@ -9832,6 +9832,8 @@ MonoBehaviour:
   playerHasDied: 0
   invincibilityEnabled: 0
   timeToPopUpDeathPanel: 2
+  bouncyMaterial: {fileID: 0}
+  deathImpulseY: 2
 --- !u!114 &1471736331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11178,6 +11180,7 @@ MonoBehaviour:
   rawlevelTime: 300
   timeHasChanged: 0
   levelTimeCanDecrease: 1
+  timeAfter0ToAutodestruction: 1
 --- !u!114 &1843565732
 MonoBehaviour:
   m_ObjectHideFlags: 0

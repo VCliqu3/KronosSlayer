@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClockController : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class ClockController : MonoBehaviour
     private int previousRawTime;
 
     public bool timeHasChanged = false;
-
     public bool levelTimeCanDecrease = true;
+    public float timeAfter0ToAutodestruction = 1f;
 
     private HUDController _HUDController;
     private LevelController _levelController;
@@ -48,7 +49,7 @@ public class ClockController : MonoBehaviour
 
             if(rawlevelTime <= 0)
             {
-                //ShipAutodestruction()
+                StartCoroutine(ShipAutodestruction());
             }
         }
         else
@@ -57,8 +58,10 @@ public class ClockController : MonoBehaviour
         }
     }
 
-    void ShipAutodestruction()
+    IEnumerator ShipAutodestruction()
     {
+        yield return new WaitForSeconds(timeAfter0ToAutodestruction);
 
+        SceneManager.LoadScene("ExplosionDefeatScene");
     }
 }
