@@ -39,7 +39,8 @@ public class BasicEnemyMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics2D.IgnoreLayerCollision(8, 9);
+
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _basicEnemyHealthController = GetComponent<BasicEnemyHealthController>();

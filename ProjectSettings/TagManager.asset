@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - DeadPlayer
   - KingKronos
+  - DeadEnemy
   layers:
   - Default
   - TransparentFX

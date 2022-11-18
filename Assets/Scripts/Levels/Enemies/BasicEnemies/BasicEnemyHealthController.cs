@@ -107,7 +107,7 @@ public class BasicEnemyHealthController : MonoBehaviour
         _basicEnemyDropsController.BasicEnemyDrops();
 
         _animator.SetTrigger("Death");
-        _boxCollider2D.enabled = false;
+        //_boxCollider2D.enabled = false;
 
         yield return new WaitForSeconds(timeFadeAfterDeath);
 
