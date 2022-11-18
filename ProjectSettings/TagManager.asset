@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Enemy
   - DeadPlayer
+  - KingKronos
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,13 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemies
+    uniqueID: 696202869
+    locked: 0
+  - name: Player
+    uniqueID: 600566665
+    locked: 0
+  - name: Front
+    uniqueID: 811005201
     locked: 0

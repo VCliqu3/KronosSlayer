@@ -100,8 +100,12 @@ public class HealthController : MonoBehaviour
             else
             {
                 health = auxHealth;
-                StartCoroutine(HurtPlayer());
+                StartCoroutine(HurtPlayerBlink());
 
+                if (shield <= 0)
+                {
+                    StartCoroutine(HurtPlayer());
+                }
             }
 
             _HUDController.SetHealthBar();
@@ -111,19 +115,29 @@ public class HealthController : MonoBehaviour
 
     IEnumerator HurtPlayer()
     {
-        Physics2D.IgnoreLayerCollision(3, 7); //Ignora colision entre la capa 3 (Player) y la capa 7 (Hazard) (Invulnerabilidad) (Solo Colisiones, no triggers)
-
         isHurting = true; //Bool para trigger colliders se vuelve true
-        hasBeenDamaged = true;
-
         _animator.SetTrigger("GetHurt"); //Trigger para animacion GetHurt
-        _animator.SetLayerWeight(1, 1); //GetHurtBlinkingAnimation Activada
 
         yield return new WaitForSeconds(timeHurting);
 
         isHurting = false; //Bool para trigger colliders regresa a false
+    }
 
-        yield return new WaitForSeconds(invencibilitySeconds - timeHurting); //Espera 2.5s mas 
+    IEnumerator HurtPlayerBlink()
+    {
+        Physics2D.IgnoreLayerCollision(3, 7); //Ignora colision entre la capa 3 (Player) y la capa 7 (Hazard) (Invulnerabilidad) (Solo Colisiones, no triggers)
+
+        //isHurting = true; //Bool para trigger colliders se vuelve true
+        hasBeenDamaged = true;
+
+        //_animator.SetTrigger("GetHurt"); //Trigger para animacion GetHurt
+        _animator.SetLayerWeight(1, 1); //GetHurtBlinkingAnimation Activada
+
+        //yield return new WaitForSeconds(timeHurting);
+
+        //isHurting = false; //Bool para trigger colliders regresa a false
+
+        yield return new WaitForSeconds(invencibilitySeconds); //Espera 2.5s mas  //yield return new WaitForSeconds(invencibilitySeconds - timeHurting);
 
         Physics2D.IgnoreLayerCollision(3, 7, false); //Activa colision entre la capa 3 y 7 (Desactiva Invulnerabilidad)
         _animator.SetLayerWeight(1, 0); //GetHurtBlinkingAnimation Desactivada
