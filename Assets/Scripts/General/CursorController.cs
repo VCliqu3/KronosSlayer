@@ -44,7 +44,7 @@ public class CursorController : MonoBehaviour
 
     void CheckState()
     {
-        if (!onGameplay)
+        if (!onGameplay || PauseButonController.mouseOnPauseButton) //|| PauseButonController.mouseOnPauseButton
         {
             currentState = "NotOnGameplay";
         }

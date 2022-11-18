@@ -596,6 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185280024}
   - component: {fileID: 185280023}
+  - component: {fileID: 185280025}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -633,6 +634,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &185280025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185280022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58cb7636b27ac640a5fa3df2603c79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RegularCursor: {fileID: 2800000, guid: 284697dd6c3345c4ba1077d4821ba3fc, type: 3}
+  RangedCursor: {fileID: 2800000, guid: fb6a0233b1d2fc94295ace5e720517d7, type: 3}
+  MeleeCursor: {fileID: 2800000, guid: 081a5b0079742264ca6ec0d5e79621e1, type: 3}
+  currentState: NotOnGameplay
+  previousState: NotOnGameplay
 --- !u!1 &199462153
 GameObject:
   m_ObjectHideFlags: 0

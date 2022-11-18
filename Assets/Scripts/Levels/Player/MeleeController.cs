@@ -57,7 +57,7 @@ public class MeleeController : MonoBehaviour
 
     void EnableDisableAttack()
     {
-        if(!ModeController.isRanged && !isAttacking && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused) //&& _movementController.isGrounded si no se quiere que ataque saltando 
+        if(!ModeController.isRanged && !isAttacking && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused && !PauseButonController.mouseOnPauseButton) //&& _movementController.isGrounded si no se quiere que ataque saltando //&& !PauseButonController.mouseOnPauseButton
         {
             attackEnable = true;
         }
