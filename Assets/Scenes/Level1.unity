@@ -11312,6 +11312,7 @@ GameObject:
   - component: {fileID: 1843565727}
   - component: {fileID: 1843565732}
   - component: {fileID: 1843565733}
+  - component: {fileID: 1843565734}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -11427,6 +11428,23 @@ MonoBehaviour:
   generalSlider: {fileID: 507295659}
   musicSlider: {fileID: 16452618}
   sfxSlider: {fileID: 616511570}
+--- !u!114 &1843565734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843565726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58cb7636b27ac640a5fa3df2603c79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RegularCursor: {fileID: 2800000, guid: 284697dd6c3345c4ba1077d4821ba3fc, type: 3}
+  RangedCursor: {fileID: 2800000, guid: fb6a0233b1d2fc94295ace5e720517d7, type: 3}
+  MeleeCursor: {fileID: 2800000, guid: 081a5b0079742264ca6ec0d5e79621e1, type: 3}
+  currentState: NotOnGameplay
+  previousState: NotOnGameplay
 --- !u!1 &1844809142
 GameObject:
   m_ObjectHideFlags: 0

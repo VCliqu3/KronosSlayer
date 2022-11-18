@@ -26,6 +26,7 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
+        CursorController.onGameplay = true;
         currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
 
         ChangeAttempsInCurrentLevel(1);
@@ -86,6 +87,9 @@ public class LevelController : MonoBehaviour
     public void ActivateDeathPanel()
     {
         deathPanel.SetActive(true);
+        CursorController.onGameplay = false;
+
+        FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
     }
 
     public void ActivateLevelCompletePanel()
@@ -95,6 +99,10 @@ public class LevelController : MonoBehaviour
 
         Time.timeScale = 0f;
         PauseController.gamePaused = true;
+
+        CursorController.onGameplay = false;
+
+        FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
     }
 
     public void ActivateDenyNextLevelPanel()

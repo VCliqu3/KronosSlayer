@@ -49,6 +49,8 @@ public class PauseController : MonoBehaviour
 
         Time.timeScale = 0f;
         gamePaused = true;
+
+        CursorController.onGameplay = false;
     }
 
     public IEnumerator Resume()
@@ -60,6 +62,7 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 1f;
         gamePaused = false;
 
+        CursorController.onGameplay = true;
     }
 
     public void CallResume()
