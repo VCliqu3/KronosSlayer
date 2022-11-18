@@ -87,7 +87,7 @@ public class PauseController : MonoBehaviour
     }
     //Para reintentar//
 
-    //PA IR AL MENU XD
+    //PA IR AL MENU XD//
 
     public void MainMenuBoton()
     {
@@ -105,5 +105,5 @@ public class PauseController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    //PA IR AL MENU XD
+    //PA IR AL MENU XD//
 }
