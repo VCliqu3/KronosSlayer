@@ -212,7 +212,31 @@ public class BasicEnemyMovementController : MonoBehaviour
 
     public void EnableDisableCanTurnBack()
     {
-        if(playerOnSight)
+        bool onRangeBack = false;
+
+        if (FindObjectOfType<CreepShootController>() != null)
+        {
+            if (FindObjectOfType<CreepShootController>().playerOnShootRangeBack)
+            {
+                onRangeBack = true;
+            }          
+        }
+        else if (FindObjectOfType<TankAttackController>() != null)
+        {
+            if (FindObjectOfType<TankAttackController>().playerOnAttackRangeBack)
+            {
+                onRangeBack = true;
+            }           
+        }
+        else if (FindObjectOfType<SniperShootController>() != null)
+        {
+            if (FindObjectOfType<SniperShootController>().playerOnShootRangeBack)
+            {
+                onRangeBack = true;
+            }          
+        }
+
+        if (playerOnSight)
         {
             if (groundDown && !groundInFront)
             {
@@ -223,38 +247,9 @@ public class BasicEnemyMovementController : MonoBehaviour
                 canTurnBack = false;
             }
         }
-        else if (FindObjectOfType<CreepShootController>() != null)
+        else if (onRangeBack)
         {
-            if (FindObjectOfType<CreepShootController>().playerOnShootRangeBack)
-            {
-                canTurnBack = true;
-            }
-            else
-            {
-                canTurnBack = false;
-            }
-        }
-        else if (FindObjectOfType<TankAttackController>() != null)
-        {
-            if (FindObjectOfType<TankAttackController>().playerOnAttackRangeBack)
-            {
-                canTurnBack = true;
-            }
-            else
-            {
-                canTurnBack = false;
-            }
-        }
-        else if (FindObjectOfType<SniperShootController>() != null)
-        {
-            if (FindObjectOfType<SniperShootController>().playerOnShootRangeBack)
-            {
-                canTurnBack = true;
-            }
-            else
-            {
-                canTurnBack = false;
-            }
-        }
+            canTurnBack = true;
+        }       
     }
 }
