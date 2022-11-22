@@ -3582,7 +3582,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23549305, g: 0.26340136, b: 0.33962262, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -11550,9 +11550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6f3461d76f1684ca1ed01dcdb8e747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToCompleteLevel: 10
-  levelTime: 10
-  rawlevelTime: 10
+  timeToCompleteLevel: 300
+  levelTime: 300
+  rawlevelTime: 300
   timeHasChanged: 0
   levelTimeCanDecrease: 1
   timeAfter0ToAutodestruction: 1
