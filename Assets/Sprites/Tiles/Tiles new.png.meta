@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -6669,7 +6669,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tiles new_224: 1773009104
+      Tiles new_117: -5262994
       Tiles new_191: 1516120947
       Tiles new_189: -1477698291
       Tiles new_162: 301170346
@@ -6980,7 +6980,7 @@ TextureImporter:
       Tiles new_181: 545209572
       Tiles new_290: -1841004830
       Tiles new_77: -1617302001
-      Tiles new_117: -5262994
+      Tiles new_224: 1773009104
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
