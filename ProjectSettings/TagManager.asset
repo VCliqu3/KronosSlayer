@@ -45,11 +45,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: MiddleBackground
-    uniqueID: 471854243
-    locked: 0
   - name: Background
     uniqueID: 3477912693
+    locked: 0
+  - name: MiddleBackground
+    uniqueID: 471854243
     locked: 0
   - name: Back
     uniqueID: 1369724587
