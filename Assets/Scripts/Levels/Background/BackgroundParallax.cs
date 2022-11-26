@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BackgroundParallax : MonoBehaviour
 {
-    public Vector2 BGPos;
-
     public Vector2 BGStartPos;
 
     public GameObject Player;
@@ -20,12 +18,13 @@ public class BackgroundParallax : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BGPos = transform.position;
-        BGStartPos = BGPos;
+        BGStartPos = transform.position;
+
+        PlayerStartPos = Player.transform.position;
     }
 
     void Update()
     {
-        BGPos = transform.position;
+        transform.position = new Vector2(BGStartPos.x+parallaxEffectX*(Player.transform.position.x-PlayerStartPos.x), BGStartPos.y + parallaxEffectY * (Player.transform.position.y - PlayerStartPos.y ));
     }
 }
