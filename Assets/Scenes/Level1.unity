@@ -3688,7 +3688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2324686, y: -1.9231399, z: -10}
+  m_LocalPosition: {x: -4.9505134, y: -1.92315, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73723,6 +73723,7 @@ GameObject:
   - component: {fileID: 1471736326}
   - component: {fileID: 1471736327}
   - component: {fileID: 1471736328}
+  - component: {fileID: 1471736333}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -74040,6 +74041,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1471736333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471736319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d528ae8a318bfc43ace12a09f918602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadow: {fileID: 1735410825808543704, guid: 7a5309e1e3e9da248a48fbf1fb51e5e2, type: 3}
+  pool: []
+  speed: 20
+  _color: {r: 0.43137255, g: 0, b: 0, a: 0}
+  enableShadows: 0
 --- !u!1 &1481635895
 GameObject:
   m_ObjectHideFlags: 0

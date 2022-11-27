@@ -12,6 +12,7 @@ public class MovementController : MonoBehaviour
     private MeleeController _meleeController;
     private HealthController _healthController;
     private HandHeadController _handHeadController;
+    private DashShadowsController _dashShadowsController;
 
     public float movementSpeed = 3f;
     public float velX;
@@ -61,6 +62,7 @@ public class MovementController : MonoBehaviour
         _meleeController = GetComponent<MeleeController>();
         _healthController = GetComponent<HealthController>();
         _handHeadController = GetComponent<HandHeadController>();
+        _dashShadowsController = GetComponent<DashShadowsController>();
 
         _HUDController = FindObjectOfType<HUDController>();
 
@@ -202,11 +204,13 @@ public class MovementController : MonoBehaviour
 
         _rigidbody2D.velocity = transform.right * dashForce;
 
-        _trailRenderer.emitting = true;
+        //_trailRenderer.emitting = true;
+        _dashShadowsController.enableShadows = true;
 
         yield return new WaitForSeconds(dashTime);
 
-        _trailRenderer.emitting = false;
+        //_trailRenderer.emitting = false;
+        _dashShadowsController.enableShadows = false;
 
         _rigidbody2D.gravityScale = originalGravity;
 
