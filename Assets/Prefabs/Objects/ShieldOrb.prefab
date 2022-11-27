@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2770589248468203193}
   - component: {fileID: 2770589248468203192}
   - component: {fileID: 2770589248468203143}
-  - component: {fileID: 1691910038806944153}
+  - component: {fileID: 7914977894342884148}
   m_Layer: 0
   m_Name: ShieldOrb
   m_TagString: Untagged
@@ -163,7 +163,7 @@ MonoBehaviour:
   oscilationAmplitude: 0.3
   oscilationFrequency: 3
   hasStartedOscilating: 0
---- !u!114 &1691910038806944153
+--- !u!114 &7914977894342884148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,12 +172,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2770589248468203197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04940526cacc5d488985a113775e923, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f5b04bfd89fb594282d62ab7728289c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
   collectionRange: 0.25
-  healthAmount: 0
   shieldAmount: 5
+  timeForCollection: 0.5
