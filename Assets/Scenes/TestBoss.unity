@@ -3094,7 +3094,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.0000060796738, y: 0.00012820959, z: 0}
+  m_ChunkCullingBounds: {x: 0.25000918, y: 0.25019234, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -14573,7 +14573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1037780137
 Rigidbody2D:
   serializedVersion: 4
@@ -14612,7 +14612,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.21875, y: 2.09375}
+    oldSize: {x: 2.0542858, y: 1.9742857}
     newSize: {x: 2.21875, y: 2.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -14682,7 +14682,7 @@ SpriteRenderer:
   m_SortingLayerID: 696202869
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0efabb8077e68a4299e61da270ff937, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c89ee37772405dc469bb576312f6c605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -14701,7 +14701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037780136}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.19, y: -1.14, z: 0}
+  m_LocalPosition: {x: -7.125001, y: -3.0625005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
