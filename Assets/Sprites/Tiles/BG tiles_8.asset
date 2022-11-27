@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: bg walls_2
+  m_Name: BG tiles_8
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -276068744, guid: 88f12ccd06d89dd4699ef0df995114cf, type: 3}
+  m_Sprite: {fileID: -118416584, guid: c7a240d00c8ea9644b88e0a007b16c10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
