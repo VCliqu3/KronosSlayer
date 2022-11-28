@@ -3576,7 +3576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.9505134, y: -1.92315, z: -10}
+  m_LocalPosition: {x: -4.9489794, y: -1.92315, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5811,6 +5811,8 @@ GameObject:
   - component: {fileID: 884752255}
   - component: {fileID: 884752257}
   - component: {fileID: 884752256}
+  - component: {fileID: 884752259}
+  - component: {fileID: 884752258}
   m_Layer: 5
   m_Name: FADE OUT PANEL
   m_TagString: Untagged
@@ -5876,6 +5878,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884752254}
   m_CullTransparentMesh: 1
+--- !u!114 &884752258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884752254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32d1baad2b51f84e8002c6eff9d2e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+--- !u!95 &884752259
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884752254}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a6d1889580444438bdc3bb42584eb2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &894496592
 GameObject:
   m_ObjectHideFlags: 0
@@ -5888,6 +5923,7 @@ GameObject:
   - component: {fileID: 894496596}
   - component: {fileID: 894496595}
   - component: {fileID: 894496594}
+  - component: {fileID: 894496597}
   m_Layer: 5
   m_Name: BackToMenuButton
   m_TagString: Untagged
@@ -5959,7 +5995,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 894496595}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 894496597}
+        m_TargetAssemblyTypeName: ButtonsLevelComplete, Assembly-CSharp
+        m_MethodName: SiguienteLvl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &894496595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5998,6 +6046,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894496592}
   m_CullTransparentMesh: 1
+--- !u!114 &894496597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894496592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32d1baad2b51f84e8002c6eff9d2e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 884752259}
 --- !u!4 &911618461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2770589248468203194, guid: b07e7dabf7d981e4bae82953025c1b11, type: 3}
