@@ -14366,13 +14366,14 @@ GameObject:
   - component: {fileID: 1037780145}
   - component: {fileID: 1037780146}
   - component: {fileID: 1037780148}
+  - component: {fileID: 1037780149}
   m_Layer: 11
   m_Name: KingKronos
   m_TagString: KingKronos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1037780137
 Rigidbody2D:
   serializedVersion: 4
@@ -14546,6 +14547,7 @@ MonoBehaviour:
   timeOnGroundOpening: 1
   fallImpulseOpening: 10
   _trailRenderer: {fileID: 1066471114}
+  abilityShadow: {fileID: 6911851401888920192, guid: f7ca45b28580bf7448a86205e54adfe4, type: 3}
 --- !u!114 &1037780143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14611,6 +14613,7 @@ MonoBehaviour:
   isDashing: 0
   chargeDamageReduction: 0.5
   _trailRenderer: {fileID: 1066471114}
+  abilityShadow: {fileID: 2044756514362237913, guid: 0a655f2b30428eb4aa2d072f8ff7e345, type: 3}
 --- !u!114 &1037780145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14655,6 +14658,7 @@ MonoBehaviour:
   isJumpAttacking: 0
   chargeDamageReduction: 0.5
   _trailRenderer: {fileID: 1066471114}
+  abilityShadow: {fileID: 4506256969491078899, guid: ccffcfcb2abe23f49a3f327715f6c5e0, type: 3}
 --- !u!114 &1037780146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14692,6 +14696,7 @@ MonoBehaviour:
   isTPAttacking: 0
   chargeDamageReduction: 0.5
   _trailRenderer: {fileID: 1066471114}
+  abilityShadow: {fileID: 4506256969491078899, guid: ccffcfcb2abe23f49a3f327715f6c5e0, type: 3}
 --- !u!114 &1037780147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14704,10 +14709,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4eb15dbb7660146ae7a3e7bc667331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
-  health: 2
-  maxShield: 1
-  shield: 1
+  maxHealth: 200
+  health: 200
+  maxShield: 150
+  shield: 150
   canAccumulateDamage: 1
   damageAccumulationLimit: 30
   damageAccumulatedCounter: 0
@@ -14743,6 +14748,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyScore: 100
+--- !u!114 &1037780149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037780136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d528ae8a318bfc43ace12a09f918602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadow: {fileID: 2044756514362237913, guid: 0a655f2b30428eb4aa2d072f8ff7e345, type: 3}
+  pool: []
+  speed: 15
+  _color: {r: 0.0436276, g: 0.16330788, b: 0.4056604, a: 1}
+  enableShadows: 0
 --- !u!1 &1045884781
 GameObject:
   m_ObjectHideFlags: 0

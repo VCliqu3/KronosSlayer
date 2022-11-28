@@ -20,7 +20,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
         }
         else if (collision.CompareTag("KingKronos"))
         {
-            if (!collision.GetComponent<KKHealthController>().isDead)
+            if (!collision.GetComponent<KKHealthController>().isDead && collision.GetComponent<KKHealthController>().canTakeDamage)
             {
                 collision.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
                 Destroy(gameObject);

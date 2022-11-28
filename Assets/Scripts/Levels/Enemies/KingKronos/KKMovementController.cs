@@ -45,6 +45,9 @@ public class KKMovementController : MonoBehaviour
 
     public TrailRenderer _trailRenderer;
 
+    private DashShadowsController _dashShadowsController;
+    public GameObject abilityShadow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +60,7 @@ public class KKMovementController : MonoBehaviour
         _KKJumpAttackController = GetComponent<KKJumpAttackController>();
         _KKDashController = GetComponent<KKDashController>();
         _KKTPController = GetComponent<KKTPController>();
+        _dashShadowsController = GetComponent<DashShadowsController>();
 
         StartCoroutine(OpeningScene());
     }
@@ -196,14 +200,17 @@ public class KKMovementController : MonoBehaviour
         _animator.SetTrigger("FallOpening");
         _rigidbody2D.AddForce(new Vector2(0, -fallImpulseOpening), ForceMode2D.Impulse);
 
-        _trailRenderer.emitting = true;
+        _dashShadowsController.shadow = abilityShadow;
+        _dashShadowsController.enableShadows = true;
+        //_trailRenderer.emitting = true;
 
         while (!isGrounded)
         {
             yield return null;
         }
 
-        _trailRenderer.emitting = false;
+        _dashShadowsController.enableShadows = false;
+        //_trailRenderer.emitting = false;
 
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
         _animator.SetTrigger("Land");

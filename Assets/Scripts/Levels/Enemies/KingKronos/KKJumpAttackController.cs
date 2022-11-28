@@ -54,6 +54,9 @@ public class KKJumpAttackController : MonoBehaviour
 
     public TrailRenderer _trailRenderer;
 
+    private DashShadowsController _dashShadowsController;
+    public GameObject abilityShadow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +64,7 @@ public class KKJumpAttackController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _KKMovementController = GetComponent<KKMovementController>();
         _KKHealthController = GetComponent<KKHealthController>();
+        _dashShadowsController = GetComponent<DashShadowsController>();
     }
 
     // Update is called once per frame
@@ -132,14 +136,17 @@ public class KKJumpAttackController : MonoBehaviour
 
         _rigidbody2D.velocity = fallDirection * fallSpeed;
 
-        _trailRenderer.emitting = true;
+        _dashShadowsController.shadow = abilityShadow;
+        _dashShadowsController.enableShadows = true;
+        //_trailRenderer.emitting = true;
 
         while (!_KKMovementController.isGrounded)
         {
             yield return null;
         }
 
-        _trailRenderer.emitting = false;
+        _dashShadowsController.enableShadows = false;
+        // _trailRenderer.emitting = false;
 
         _rigidbody2D.gravityScale = originalGravity;
 

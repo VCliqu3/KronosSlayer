@@ -44,6 +44,9 @@ public class KKTPController : MonoBehaviour
 
     public TrailRenderer _trailRenderer;
 
+    private DashShadowsController _dashShadowsController;
+    public GameObject abilityShadow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,7 @@ public class KKTPController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _KKMovementController = GetComponent<KKMovementController>();
         _KKHealthController = GetComponent<KKHealthController>();
+        _dashShadowsController = GetComponent<DashShadowsController>();
     }
 
     public void TPAttack()
@@ -90,14 +94,17 @@ public class KKTPController : MonoBehaviour
 
         _rigidbody2D.AddForce(new Vector2(0,-downImpulse), ForceMode2D.Impulse);
 
-        _trailRenderer.emitting = true;
+        _dashShadowsController.shadow = abilityShadow;
+        _dashShadowsController.enableShadows = true;
+        //_trailRenderer.emitting = true;
 
         while (!_KKMovementController.isGrounded)
         {
             yield return null;
         }
 
-        _trailRenderer.emitting = false;
+        _dashShadowsController.enableShadows = false;
+        //_trailRenderer.emitting = false;
 
         DamageTPAttackPlayer();
 
@@ -137,14 +144,17 @@ public class KKTPController : MonoBehaviour
 
             _rigidbody2D.AddForce(new Vector2(0, -downImpulse), ForceMode2D.Impulse);
 
-            _trailRenderer.emitting = true;
+            _dashShadowsController.shadow = abilityShadow;
+            _dashShadowsController.enableShadows = true;
+            //_trailRenderer.emitting = true;
 
             while (!_KKMovementController.isGrounded)
             {
                 yield return null;
             }
 
-            _trailRenderer.emitting = false;
+            _dashShadowsController.enableShadows = false;
+            //_trailRenderer.emitting = false;
 
             DamageTPAttackPlayer();
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class KKDashController : MonoBehaviour
 {
@@ -47,6 +48,9 @@ public class KKDashController : MonoBehaviour
 
     public TrailRenderer _trailRenderer;
 
+    private DashShadowsController _dashShadowsController;
+    public GameObject abilityShadow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +58,7 @@ public class KKDashController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _KKMovementController = GetComponent<KKMovementController>();
         _KKHealthController = GetComponent<KKHealthController>();
+        _dashShadowsController = GetComponent<DashShadowsController>();
     }
 
     // Update is called once per frame
@@ -94,11 +99,14 @@ public class KKDashController : MonoBehaviour
 
         _rigidbody2D.velocity = transform.right * dashForce;
 
-        _trailRenderer.emitting = true;
+        _dashShadowsController.shadow = abilityShadow;
+        _dashShadowsController.enableShadows = true;
+        //_trailRenderer.emitting = true;
 
         yield return new WaitForSeconds(dashTime);
 
-        _trailRenderer.emitting = false;
+        _dashShadowsController.enableShadows = false;
+        //_trailRenderer.emitting = false;
 
         _KKMovementController.Stop();
 
@@ -131,6 +139,8 @@ public class KKDashController : MonoBehaviour
         {
             player.GetComponent<HealthController>().TakeDamage(dashAttackDamage, dashAttackShieldPenetration);
         }
+
+        CameraShaker.Instance.ShakeOnce(1f, 1f, 0.1f, 1f);
     }
 
     public void SetIsDashingFalse()
