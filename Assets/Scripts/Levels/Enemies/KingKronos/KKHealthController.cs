@@ -54,6 +54,7 @@ public class KKHealthController : MonoBehaviour
     public float timeFadeAfterDeath = 3f;
 
     public TrailRenderer _trailRenderer;
+    public PhysicsMaterial2D bouncyMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -172,19 +173,23 @@ public class KKHealthController : MonoBehaviour
 
         _HUDController.SetScoreText();
 
+        _rigidbody2D.sharedMaterial = bouncyMaterial;
+
         if (!_KKMovementController.isGrounded)
         {
-            _rigidbody2D.AddForce(new Vector2(0, -deathFallImpulse), ForceMode2D.Impulse);
-
             _animator.Play("FallToDie");
 
             while (!_KKMovementController.isGrounded)
             {
+                _rigidbody2D.AddForce(new Vector2(0, -deathFallImpulse), ForceMode2D.Impulse);
                 yield return null;
             }
         }
+        else 
+        { 
+            _animator.Play("Death");
+        }
 
-        _animator.Play("Death");
         _KKMovementController.KKCanvasAnimator.SetTrigger("FadeOut");
 
         yield return new WaitForSeconds(timeFadeAfterDeath);
