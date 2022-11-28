@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7978108228448225882}
   - component: {fileID: 7978108228448225885}
   - component: {fileID: 7978108228448225884}
-  - component: {fileID: 7978108228448225880}
+  - component: {fileID: 8182961283008221031}
   - component: {fileID: 2102386378778242150}
   m_Layer: 0
   m_Name: HealthOrb
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7978108228448225880
+--- !u!114 &8182961283008221031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,15 +155,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7978108228448225856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04940526cacc5d488985a113775e923, type: 3}
+  m_Script: {fileID: 11500000, guid: 50e948d208eb3b04ca298c1f1e98cc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  collectionRange: 0.25
-  healthAmount: 5
-  shieldAmount: 0
+  initialImpulse: 2.5
+  groundDistanceToStartOscilation: 0.8
+  oscilationAmplitude: 0.3
+  oscilationFrequency: 3
+  hasStartedOscilating: 0
 --- !u!114 &2102386378778242150
 MonoBehaviour:
   m_ObjectHideFlags: 0
