@@ -514,9 +514,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Siguiente
-
-'
+  m_text: "Volver al Men\xFA"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a53cc4d061beb24fa01bfd9c114bf8d, type: 2}
   m_sharedMaterial: {fileID: 8036418658061954305, guid: 6a53cc4d061beb24fa01bfd9c114bf8d, type: 2}
@@ -994,7 +992,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 650, y: 150}
+  m_SizeDelta: {x: 650, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106719834
 MonoBehaviour:
@@ -1024,10 +1022,12 @@ MonoBehaviour:
 
     Gran Adrew
 
-    Jhoncito'
+    Jhoncito
+
+    Alessandro'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0dd36f6994ceee64bb8b50dddc60f116, type: 2}
-  m_sharedMaterial: {fileID: -5208455632358957841, guid: 0dd36f6994ceee64bb8b50dddc60f116, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 50afb6431cc0627489031e0c6bee53a7, type: 2}
+  m_sharedMaterial: {fileID: 2705773334754895801, guid: 50afb6431cc0627489031e0c6bee53a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1051,8 +1051,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
