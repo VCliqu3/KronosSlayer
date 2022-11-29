@@ -198,6 +198,12 @@ public class KKHealthController : MonoBehaviour
 
     public void DestroyEnemy()
     {
+        if (FindObjectOfType<BossBattleController>() != null)
+        {
+            BossBattleController _kkBattleController = FindObjectOfType<BossBattleController>();
+            _kkBattleController.StartCoroutine(_kkBattleController.EndBossBattle());
+        }
+
         Destroy(gameObject);
     }
     

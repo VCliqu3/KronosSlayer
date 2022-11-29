@@ -47,8 +47,20 @@ public class ClockController : MonoBehaviour
             previousRawTime = rawlevelTime;
             _HUDController.SetTimeText();
 
+            if (rawlevelTime % 60 ==0 && rawlevelTime != timeToCompleteLevel)
+            {
+                Debug.Log("Tuki");
+            }
+
+            if (rawlevelTime <= 20 && rawlevelTime !=0)
+            {
+                Debug.Log("TicTac");
+            }
+
+
             if(rawlevelTime <= 0)
             {
+                Debug.Log("GG");
                 StartCoroutine(ShipAutodestruction());
             }
         }

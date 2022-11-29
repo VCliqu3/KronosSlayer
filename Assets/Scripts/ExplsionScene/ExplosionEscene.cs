@@ -17,7 +17,7 @@ public class ExplosionEscene : MonoBehaviour
 
     public void OnCompletedReintentarAnilvl1()
     { 
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(LevelController.currentLevelIndex);
     }
 
     //-------------PARA IR AL MENU--------------//

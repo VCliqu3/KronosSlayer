@@ -7,11 +7,14 @@ public class BossBattleController : MonoBehaviour
     public Transform bossFightPoint;
     public Transform playerCamFollowPoint;
     private CameraController _cameraController;
+    public Animator BossDoorAnimator;
 
     public GameObject Boss;
 
     public float timeToStartBattle;
     public float timeToActivateBoss;
+    public float timeToOpenDoorAfterBossDeath = 1f;
+    public float timeToReturnCamToPlayer = 4f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +35,15 @@ public class BossBattleController : MonoBehaviour
         Boss.SetActive(true);
     }
 
-    public void EndBossBattle()
+    public IEnumerator EndBossBattle()
     {
+        yield return new WaitForSeconds(timeToOpenDoorAfterBossDeath);
+
+        BossDoorAnimator.SetTrigger("Open");
+
+        yield return new WaitForSeconds(timeToReturnCamToPlayer);
+
         _cameraController.CallCameraTranslationTarget(playerCamFollowPoint, 5, 2);
     }
+
 }
