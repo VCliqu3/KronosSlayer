@@ -263,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3182477934570312536
 Transform:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ Transform:
   - {fileID: 3182477933607227153}
   - {fileID: 3182477933520767911}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3182477934570312537
 SpriteRenderer:
@@ -414,10 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4eb15dbb7660146ae7a3e7bc667331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  health: 200
-  maxShield: 150
-  shield: 150
+  maxHealth: 20
+  health: 20
+  maxShield: 1
+  shield: 1
   canAccumulateDamage: 1
   damageAccumulationLimit: 30
   damageAccumulatedCounter: 0
@@ -440,6 +440,9 @@ MonoBehaviour:
   timeFadeAfterDeath: 3
   _trailRenderer: {fileID: 3182477934541625663}
   bouncyMaterial: {fileID: 6200000, guid: febafc74fd870b644a50af28e0ae1baf, type: 2}
+  timeToChangeColor: 2
+  enragedColor: {r: 0.5176471, g: 0, b: 1, a: 1}
+  enragedShadowsColor: {r: 0, g: 0.1716571, b: 0.509434, a: 1}
 --- !u!114 &3182477934570312539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +475,7 @@ MonoBehaviour:
   rectangleHeight: 0.1
   KKCanvasAnimator: {fileID: 0}
   timeStayingUpOpening: 1
-  timeOnGroundOpening: 1
+  timeOnGroundOpening: 2.1
   fallImpulseOpening: 10
   _trailRenderer: {fileID: 3182477934541625663}
   abilityShadow: {fileID: 6911851401888920192, guid: f7ca45b28580bf7448a86205e54adfe4, type: 3}

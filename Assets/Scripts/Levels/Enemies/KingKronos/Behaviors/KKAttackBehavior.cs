@@ -43,7 +43,7 @@ public class KKAttackBehavior : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _KKAttackController.isAttacking = false;
+        //_KKAttackController.isAttacking = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

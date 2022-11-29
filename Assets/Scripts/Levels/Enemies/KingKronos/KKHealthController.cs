@@ -34,10 +34,10 @@ public class KKHealthController : MonoBehaviour
     private KKDashController _KKDashController;
     private KKJumpAttackController _KKJumpAttackController;
     private KKTPController _KKTPController;
+    private DashShadowsController _dashShadowsController;
 
     private BasicEnemyScoreController _basicEnemyScoreController;
     private HUDController _HUDController;
-
 
     public float damageReduction = 0;
     public bool canTakeDamage = true;
@@ -56,6 +56,12 @@ public class KKHealthController : MonoBehaviour
     public TrailRenderer _trailRenderer;
     public PhysicsMaterial2D bouncyMaterial;
 
+    private SpriteRenderer _spriteRenderer;
+    private Material _material;
+    public float timeToChangeColor = 2f;
+    public Color enragedColor;
+    public Color enragedShadowsColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,9 +74,14 @@ public class KKHealthController : MonoBehaviour
         _KKJumpAttackController = GetComponent<KKJumpAttackController>();
         _KKDashController = GetComponent<KKDashController>();
         _KKTPController = GetComponent<KKTPController>();
+        _dashShadowsController = GetComponent<DashShadowsController>();
 
         _basicEnemyScoreController = GetComponent<BasicEnemyScoreController>();
         _HUDController = FindObjectOfType<HUDController>();
+
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _material = _spriteRenderer.material;
+
 
         health = maxHealth;
         shield = maxShield;
@@ -257,6 +268,9 @@ public class KKHealthController : MonoBehaviour
     {
         isEnraged = true;
 
+        StartCoroutine(ChangeColor(enragedColor));
+        _dashShadowsController._color = enragedShadowsColor;
+
         damageAccumulationMultiplier = enragedDamageAccumulationMultiplier; //Cambian las estadisticas de las habilidades KingKronos
 
         _KKMovementController.runSpeed = _KKMovementController.enragedRunSpeed;
@@ -284,5 +298,18 @@ public class KKHealthController : MonoBehaviour
         _KKTPController.timeChargingTP = _KKTPController.enragedtimeChargingTP;
         _KKTPController.downImpulse = _KKTPController.enragedDownImpulse;
         _KKTPController.timeStayingUp = _KKTPController.enragedTimeStayingUp;
+    }
+
+    IEnumerator ChangeColor(Color targetColor)
+    {
+        float t = 0;
+        Color initialColor = _spriteRenderer.color;
+
+        while (t < timeToChangeColor)
+        {
+            t += Time.deltaTime;
+            _material.color = Color.Lerp(initialColor, targetColor, t / timeToChangeColor);
+            yield return null;
+        }
     }
 }

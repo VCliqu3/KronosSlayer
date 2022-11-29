@@ -23,6 +23,7 @@ public class KKRunBehavior : StateMachineBehaviour
         _KKAttackController = animator.gameObject.GetComponent<KKAttackController>();
         _KKHealthController = animator.gameObject.GetComponent<KKHealthController>();
 
+        _KKAttackController.isAttacking = false;
         time = 0f;    
     }
 

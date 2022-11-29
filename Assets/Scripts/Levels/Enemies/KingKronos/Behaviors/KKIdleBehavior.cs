@@ -9,6 +9,7 @@ public class KKIdleBehavior : StateMachineBehaviour
     private KKJumpAttackController _KKJumpAttackController;
     private KKTPController _KKTPController;
     private KKHealthController _KKHealthController;
+    private KKAttackController _KKAttackController;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,7 +19,9 @@ public class KKIdleBehavior : StateMachineBehaviour
         _KKJumpAttackController = animator.gameObject.GetComponent<KKJumpAttackController>();
         _KKTPController = animator.gameObject.GetComponent<KKTPController>();
         _KKHealthController = animator.gameObject.GetComponent<KKHealthController>();
+        _KKAttackController = animator.gameObject.GetComponent<KKAttackController>();
 
+        _KKAttackController.isAttacking = false;
         _KKMovementController.Stop();
     }
 
