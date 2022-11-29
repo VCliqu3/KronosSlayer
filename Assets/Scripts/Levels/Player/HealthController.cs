@@ -33,6 +33,11 @@ public class HealthController : MonoBehaviour
     public PhysicsMaterial2D bouncyMaterial;
     public float deathImpulseY = 2f;
 
+    void Awake()
+    {
+        health = maxHealth;
+        shield = maxShield;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +45,7 @@ public class HealthController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _movementController = GetComponent<MovementController>();
 
-        _HUDController = FindObjectOfType<HUDController>();
-
-        health = maxHealth;
-        shield = maxShield;
+        _HUDController = FindObjectOfType<HUDController>();     
     }
 
     void FixedUpdate()

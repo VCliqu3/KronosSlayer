@@ -616,9 +616,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
-  health: 0
+  health: 25
   maxShield: 30
-  shield: 0
+  shield: 30
   shieldAbsorption: 1
   timeHurting: 0.5
   invencibilitySeconds: 2
