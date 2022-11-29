@@ -1,0 +1,1004 @@
+fileFormatVersion: 2
+guid: 78c08192452c8ce4c9d60a87a4e3e8f9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BG tiles white_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 751.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccff529cc7a35b540b1dfe637ca90d6f
+      internalID: -66808553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 751.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413dd58cf6de27b458895f9cf72691d4
+      internalID: -1313091043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 751.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b62a3a4a3b30e847aa628774410887e
+      internalID: -1258229147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 751.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b31ac97c9a8fd4cbf67e58c8d62468
+      internalID: -1673893776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 751.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca3d3d8658d4434795deacb4e5c41a4
+      internalID: 2010875010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 751.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be68724be2e91340a8fcb51bcd0984d
+      internalID: -1742333312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_6
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 751.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d0766d823188554abefc4b6efc0308b
+      internalID: -994060944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 601.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8422f48ca44562c43b65530e3d035908
+      internalID: 1995871334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 601.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fceca154b0d574f4a952bd2a80279567
+      internalID: -96127934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 601.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f39997667f67544b30991f5629407b
+      internalID: -1390718276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_10
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 601.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7190653a771b84d9967083aecc2b6a
+      internalID: 2031557051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 601.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f33682ee9cb354ea206856461ce5e0
+      internalID: 1188517508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_12
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 601.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4eb6025845138489aa0ac9ac29ab50
+      internalID: 873125489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_13
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 601.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae64eb7ea1a0f14fa996416219e67a4
+      internalID: -46998116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 451.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c1d209728d7ac4caa901b4d8008c47
+      internalID: -1865981161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_15
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 451.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884a9bfc2c95ac7468d512236be641b8
+      internalID: 1921105378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_16
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 451.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2b0795091cfe844981eb9cae33ef2a
+      internalID: 636059872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_17
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 451.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45b9a194a8c13e41aa2393e0abc0e8a
+      internalID: 626299747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_18
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 451.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86af98dc5a5eb0459c01e0a460135b2
+      internalID: 789662762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_19
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 451.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52eb5e828ec36f64db576ea7d314f474
+      internalID: -1732162283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_20
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 451.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e7449c6027c3d49980a0e75a27664f
+      internalID: 697913221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 301.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608635777a164994f91923d06e01d305
+      internalID: 129823140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_22
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 301.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1443733ab128e6b40a45abcff4ad8149
+      internalID: 396251689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_23
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 301.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844797c5a6fa9f745925e2ee04314f5c
+      internalID: -1702293565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_24
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 301.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e816891c10feb468408717fe5d83c4
+      internalID: -513110046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_25
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 301.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab03d18df59b214eab7c46ad523c11b
+      internalID: 1019899856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_26
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 301.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88b1a1b4458dce4d856f6a6d5e34d21
+      internalID: -1016131924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_27
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 301.6667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33fbe3265e1ac664390354970d7d58e9
+      internalID: -1031515819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_28
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 151.66667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98ac98e106c5f1349a5f98bed7d8d836
+      internalID: -987853659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 151.66667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d81d718a3e99b4e8b1b669188280b7
+      internalID: -820773208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_30
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 151.66667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27303ac0bd1437242a2aac5a0f39b5d6
+      internalID: -405221757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_31
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 151.66667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dfd463f840c32f4c84e766be888e502
+      internalID: -1787660101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_32
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 151.66667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42ed4155e348cb46b372c4cc0d4f457
+      internalID: 820867252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_33
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 151.66667
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254e4df5f9128974fa96ae2f9fa999c6
+      internalID: 492398463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_34
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1.6666718
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76841504e0753c54dbd5a6ffda6fbf02
+      internalID: 1371682097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_35
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1.6666718
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155180686456f2341ad6b775541faac5
+      internalID: 645247587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_36
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1.6666718
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db32e333394d54438514cc0bc4e2012
+      internalID: 1385780724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_37
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1.6666718
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c1c5e9fce81404da0c2ae8d8ec5ea3
+      internalID: 1882082751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_38
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1.6666718
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf4b0f1538f94b43a786ca5e2b31419
+      internalID: 940431994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG tiles white_39
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1.6666718
+        width: 150.14285
+        height: 150.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e902eaa158d62a74a95de63cebfb1114
+      internalID: -761930585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BG tiles white_15: 1921105378
+      BG tiles white_9: -1390718276
+      BG tiles white_27: -1031515819
+      BG tiles white_14: -1865981161
+      BG tiles white_31: -1787660101
+      BG tiles white_8: -96127934
+      BG tiles white_33: 492398463
+      BG tiles white_36: 1385780724
+      BG tiles white_34: 1371682097
+      BG tiles white_18: 789662762
+      BG tiles white_13: -46998116
+      BG tiles white_24: -513110046
+      BG tiles white_37: 1882082751
+      BG tiles white_19: -1732162283
+      BG tiles white_22: 396251689
+      BG tiles white_29: -820773208
+      BG tiles white_2: -1258229147
+      BG tiles white_6: -994060944
+      BG tiles white_16: 636059872
+      BG tiles white_11: 1188517508
+      BG tiles white_28: -987853659
+      BG tiles white_17: 626299747
+      BG tiles white_35: 645247587
+      BG tiles white_38: 940431994
+      BG tiles white_3: -1673893776
+      BG tiles white_7: 1995871334
+      BG tiles white_20: 697913221
+      BG tiles white_4: 2010875010
+      BG tiles white_5: -1742333312
+      BG tiles white_26: -1016131924
+      BG tiles white_23: -1702293565
+      BG tiles white_30: -405221757
+      BG tiles white_0: -66808553
+      BG tiles white_10: 2031557051
+      BG tiles white_32: 820867252
+      BG tiles white_1: -1313091043
+      BG tiles white_21: 129823140
+      BG tiles white_12: 873125489
+      BG tiles white_39: -761930585
+      BG tiles white_25: 1019899856
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
