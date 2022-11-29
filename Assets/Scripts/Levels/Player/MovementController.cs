@@ -52,6 +52,7 @@ public class MovementController : MonoBehaviour
     public TrailRenderer _trailRenderer;
 
     private HUDController _HUDController;
+    private LevelController _levelController;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +66,7 @@ public class MovementController : MonoBehaviour
         _dashShadowsController = GetComponent<DashShadowsController>();
 
         _HUDController = FindObjectOfType<HUDController>();
+        _levelController = FindObjectOfType<LevelController>();
 
         dashCooldownCounter = dashCooldown;
     }
@@ -87,7 +89,7 @@ public class MovementController : MonoBehaviour
 
     void EnableDisableMovement()
     {
-        if(!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !isDashing && !_healthController.playerHasDied) //&& !_healthController.isHurting
+        if(!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !isDashing && !_healthController.playerHasDied && !_levelController.levelCompleted) //&& !_healthController.isHurting
         {
             movementEnable = true;
         }
@@ -99,7 +101,7 @@ public class MovementController : MonoBehaviour
 
     void EnableDisableJumping()
     {
-        if (!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !isDashing && !_healthController.playerHasDied) //&& !_meleeController.isOnAttackTransition
+        if (!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !isDashing && !_healthController.playerHasDied && !_levelController.levelCompleted) //&& !_meleeController.isOnAttackTransition
         {
             jumpingEnable = true;
         }

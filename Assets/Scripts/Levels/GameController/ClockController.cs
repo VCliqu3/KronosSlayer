@@ -12,6 +12,7 @@ public class ClockController : MonoBehaviour
 
     public bool timeHasChanged = false;
     public bool levelTimeCanDecrease = true;
+    public bool shipCanExplode = true;
     public float timeAfter0ToAutodestruction = 1f;
 
     private HUDController _HUDController;
@@ -74,6 +75,9 @@ public class ClockController : MonoBehaviour
     {
         yield return new WaitForSeconds(timeAfter0ToAutodestruction);
 
-        SceneManager.LoadScene("ExplosionDefeatScene");
+        if (shipCanExplode)
+        {
+            SceneManager.LoadScene("ExplosionDefeatScene");
+        }
     }
 }

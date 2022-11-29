@@ -90,6 +90,7 @@ public class LevelController : MonoBehaviour
         CursorController.onGameplay = false;
 
         FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
+        FindObjectOfType<ClockController>().shipCanExplode = false;
     }
 
     public void ActivateLevelCompletePanel()
@@ -97,12 +98,15 @@ public class LevelController : MonoBehaviour
         levelCompleted = true;
         levelCompletePanel.SetActive(true);
 
+        
         Time.timeScale = 0f;
         PauseController.gamePaused = true;
+        
 
         CursorController.onGameplay = false;
 
         FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
+        FindObjectOfType<ClockController>().shipCanExplode = false;
     }
 
     public void ActivateDenyNextLevelPanel()

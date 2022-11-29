@@ -34717,6 +34717,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7702469664159287074, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
+      propertyPath: shipCanExplode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702469664159287074, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
       propertyPath: levelTimeCanDecrease
       value: 0
       objectReference: {fileID: 0}
