@@ -44,6 +44,7 @@ public class BossBattleController : MonoBehaviour
         yield return new WaitForSeconds(timeToReturnCamToPlayer);
 
         _cameraController.CallCameraTranslationTarget(playerCamFollowPoint, 5, 2);
+        //_cameraController.FollowTarget(playerCamFollowPoint);
     }
 
 }

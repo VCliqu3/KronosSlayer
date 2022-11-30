@@ -47,6 +47,7 @@ public class KKHealthController : MonoBehaviour
     public bool isDead = false;
 
     public float deathFallImpulse = 15f;
+    public float deathImpulse = 6f;
 
     public bool isEnraged = false;
     public bool onEnrageAnim = false;
@@ -190,9 +191,10 @@ public class KKHealthController : MonoBehaviour
         {
             _animator.Play("FallToDie");
 
+            _rigidbody2D.AddForce(new Vector2(0, -deathFallImpulse), ForceMode2D.Impulse);
+
             while (!_KKMovementController.isGrounded)
-            {
-                _rigidbody2D.AddForce(new Vector2(0, -deathFallImpulse), ForceMode2D.Impulse);
+            {      
                 yield return null;
             }
         }
@@ -311,5 +313,10 @@ public class KKHealthController : MonoBehaviour
             _material.color = Color.Lerp(initialColor, targetColor, t / timeToChangeColor);
             yield return null;
         }
+    }
+
+    public void DeathImpulse()
+    {
+        _rigidbody2D.AddForce(new Vector2(0, deathImpulse), ForceMode2D.Impulse);
     }
 }

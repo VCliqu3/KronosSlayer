@@ -47,6 +47,8 @@ public class KKTPController : MonoBehaviour
     private DashShadowsController _dashShadowsController;
     public GameObject abilityShadow;
 
+    private bool gottenUp = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,8 +115,17 @@ public class KKTPController : MonoBehaviour
 
         yield return new WaitForSeconds(timeOnGround);
 
+        gottenUp = false;
+
+        _animator.SetTrigger("GetUp");
+
         if (_KKHealthController.isEnraged && doubleTPAttackWhenEnraged)
         {
+            while(!gottenUp)
+            {
+                yield return null;
+            }
+
             _animator.SetTrigger("Charge");
 
             yield return new WaitForSeconds(timeChargingEnragedJump);
@@ -162,9 +173,9 @@ public class KKTPController : MonoBehaviour
             _animator.SetTrigger("Land");
 
             yield return new WaitForSeconds(timeOnGround);
-        }
 
-        _animator.SetTrigger("GetUp");
+            _animator.SetTrigger("GetUp");
+        }
 
         isTPAttacking = false;
         TPEnabled = true;
@@ -180,5 +191,10 @@ public class KKTPController : MonoBehaviour
         {
             player.GetComponent<HealthController>().TakeDamage(TPAttackDamage, TPAttacShieldPenetration);
         }
+    }
+
+    public void SetGottenUpTrue()
+    {
+        gottenUp = true;
     }
 }

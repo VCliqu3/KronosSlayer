@@ -416,8 +416,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 20
-  maxShield: 1
-  shield: 1
+  maxShield: 15
+  shield: 15
   canAccumulateDamage: 1
   damageAccumulationLimit: 30
   damageAccumulatedCounter: 0
@@ -435,6 +435,7 @@ MonoBehaviour:
   isHurting: 0
   isDead: 0
   deathFallImpulse: 0
+  deathImpulse: 4
   isEnraged: 0
   onEnrageAnim: 0
   timeFadeAfterDeath: 3
@@ -536,7 +537,7 @@ MonoBehaviour:
   enragedTimeChargingDash: 0.5
   timeOnGround: 1
   dashForce: 15
-  enragedDashForce: 25
+  enragedDashForce: 20
   dashTime: 0
   dashCooldown: 8
   enragedDashCooldown: 6

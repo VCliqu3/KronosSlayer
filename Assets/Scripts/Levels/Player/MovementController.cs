@@ -89,7 +89,7 @@ public class MovementController : MonoBehaviour
 
     void EnableDisableMovement()
     {
-        if(!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !isDashing && !_healthController.playerHasDied && !_levelController.levelCompleted) //&& !_healthController.isHurting
+        if(!isDashing && !_healthController.playerHasDied && !_levelController.levelCompleted) //&& !_healthController.isHurting &&!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && 
         {
             movementEnable = true;
         }
@@ -163,7 +163,7 @@ public class MovementController : MonoBehaviour
     }  
     void RotatePlayer()
     {
-        if (!_meleeController.attackingBehind)
+        if (!_meleeController.attackingBehind && !_meleeController.isAttacking && !_meleeController.isOnAttackTransition)
         {
             if (velX > 0 && !playerFacingRight)
             {
@@ -180,7 +180,7 @@ public class MovementController : MonoBehaviour
 
     void Dash()
     {
-        if (Input.GetKeyDown("e") && dashEnabled && !_meleeController.isAttacking && !_healthController.isHurting && !_healthController.playerHasDied)
+        if (Input.GetKeyDown("e") && dashEnabled && !_healthController.isHurting && !_healthController.playerHasDied) //&& !_meleeController.isAttacking 
         {
             _animator.SetTrigger("Dash");
             StartCoroutine(Dashing());
