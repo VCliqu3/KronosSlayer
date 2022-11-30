@@ -66186,6 +66186,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 511722368}
     m_Modifications:
+    - target: {fileID: 1822974873874414915, guid: 2034e087cbd65274eade94afdfea0105, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 1822974873874414921, guid: 2034e087cbd65274eade94afdfea0105, type: 3}
       propertyPath: m_Name
       value: Sniper
@@ -66200,7 +66204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1822974873874414924, guid: 2034e087cbd65274eade94afdfea0105, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.062504
+      value: 26.411253
       objectReference: {fileID: 0}
     - target: {fileID: 1822974873874414924, guid: 2034e087cbd65274eade94afdfea0105, type: 3}
       propertyPath: m_LocalPosition.y
@@ -67707,7 +67711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707210979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106116,11 +106120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5994970370808592696, guid: d84531cb4b9d49f48983191697aa71b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2324686
+      value: -4.9505134
       objectReference: {fileID: 0}
     - target: {fileID: 5994970370808592696, guid: d84531cb4b9d49f48983191697aa71b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9231399
+      value: -1.92315
       objectReference: {fileID: 0}
     - target: {fileID: 5994970371683423855, guid: d84531cb4b9d49f48983191697aa71b9, type: 3}
       propertyPath: m_Follow
@@ -106233,6 +106237,10 @@ PrefabInstance:
     - target: {fileID: 6844781070183619837, guid: e6e9a2da04a83244ea381b8387adf92c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844781070544599624, guid: e6e9a2da04a83244ea381b8387adf92c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
