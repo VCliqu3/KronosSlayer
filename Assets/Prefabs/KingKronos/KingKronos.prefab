@@ -414,10 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4eb15dbb7660146ae7a3e7bc667331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  health: 20
-  maxShield: 15
-  shield: 15
+  maxHealth: 200
+  health: 200
+  maxShield: 150
+  shield: 150
   canAccumulateDamage: 1
   damageAccumulationLimit: 30
   damageAccumulatedCounter: 0

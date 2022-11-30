@@ -871,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 35}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2072327801
@@ -1014,17 +1014,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gran Haruo
-
-    Gianfran
-
-    Mr. Rapha
-
-    Gran Adrew
-
-    Jhoncito
-
-    Alessandro'
+  m_text: "Haruo Watanabe\nGianfranco Huaman\nRaphael Panduro\t\nAndrew Elera\nJhon
+    Carlos\nAlessandro Luque"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50afb6431cc0627489031e0c6bee53a7, type: 2}
   m_sharedMaterial: {fileID: 2705773334754895801, guid: 50afb6431cc0627489031e0c6bee53a7, type: 2}
