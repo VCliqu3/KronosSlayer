@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 118430017}
   - component: {fileID: 118430016}
   - component: {fileID: 118430021}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2973,7 +2973,7 @@ TilemapRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.2525, y: 0.25019234, z: 0}
+  m_ChunkCullingBounds: {x: 0.27577317, y: 0.27319586, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0

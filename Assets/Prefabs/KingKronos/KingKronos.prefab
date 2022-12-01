@@ -659,3 +659,4 @@ MonoBehaviour:
   speed: 15
   _color: {r: 0.0436276, g: 0.16330788, b: 0.4056604, a: 1}
   enableShadows: 0
+  objectTransormProperties: {fileID: 3182477934570312536}

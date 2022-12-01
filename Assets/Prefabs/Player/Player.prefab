@@ -482,7 +482,7 @@ Transform:
   - {fileID: 7768970590447694505}
   - {fileID: 7768970590057041071}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7768970591787628306
 SpriteRenderer:
@@ -792,3 +792,4 @@ MonoBehaviour:
   speed: 20
   _color: {r: 0.43137255, g: 0, b: 0, a: 0}
   enableShadows: 0
+  objectTransormProperties: {fileID: 7768970591245259675}
