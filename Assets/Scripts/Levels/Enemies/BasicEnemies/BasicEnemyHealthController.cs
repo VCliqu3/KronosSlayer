@@ -16,7 +16,6 @@ public class BasicEnemyHealthController : MonoBehaviour
     private BasicEnemyScoreController _basicEnemyScoreController;
     private BasicEnemyDropsController _basicEnemyDropsController;
     private Animator _animator;
-    private BoxCollider2D _boxCollider2D;
 
     public bool hurtEnable = true;
     public float timeHurting = 0.5f;
@@ -31,7 +30,6 @@ public class BasicEnemyHealthController : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
         _basicEnemyHealthBarController = GetComponent<BasicEnemyHealthBarController>();
         _basicEnemyScoreController = GetComponent<BasicEnemyScoreController>();
         _basicEnemyDropsController = GetComponent<BasicEnemyDropsController>();
@@ -45,6 +43,8 @@ public class BasicEnemyHealthController : MonoBehaviour
     {
         if (!isDead)
         {
+            bool shieldTookDamage = false, healthTookDamage = false;
+
             float damageShieldWouldTake, damageHealthWouldTake;
             float resultingShAb;
             float auxHealth = health; //Health puede ser negativo al recibir daño, por ello se declara una variable auxiliar
@@ -62,11 +62,14 @@ public class BasicEnemyHealthController : MonoBehaviour
                 auxHealth -= damageHealthWouldTake + (damageShieldWouldTake - shield);
                 shield = 0;
 
+                healthTookDamage = true;
             }
             else
             {
                 auxHealth -= damageHealthWouldTake;
                 shield -= damageShieldWouldTake;
+
+                shieldTookDamage=true;
             }
 
             if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
@@ -75,12 +78,17 @@ public class BasicEnemyHealthController : MonoBehaviour
             }
             else 
             {
-                health = auxHealth;
+                health = auxHealth;             
+            }
 
-                if (shield <=0) //if hurtEnable
-                {
-                    HurtEnemy();
-                }
+            if (healthTookDamage) 
+            {
+                HurtEnemy();
+                //SparkEffect;
+            }
+            if (shieldTookDamage)
+            {
+                //ShieldSparkEffect
             }
 
             _basicEnemyHealthBarController.SetHealthBar();
@@ -107,7 +115,6 @@ public class BasicEnemyHealthController : MonoBehaviour
         _basicEnemyDropsController.BasicEnemyDrops();
 
         _animator.SetTrigger("Death");
-        //_boxCollider2D.enabled = false;
 
         yield return new WaitForSeconds(timeFadeAfterDeath);
 

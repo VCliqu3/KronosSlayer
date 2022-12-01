@@ -97,6 +97,8 @@ public class KKHealthController : MonoBehaviour
 
         if (!isDead && damageReduction<1 && canTakeDamage)
         {
+            bool shieldTookDamage = false, healthTookDamage = false;
+
             float damageShieldWouldTake, damageHealthWouldTake;
             float resultingShAb;
             float auxHealth = health; //Health puede ser negativo al recibir daño, por ello se declara una variable auxiliar
@@ -114,11 +116,15 @@ public class KKHealthController : MonoBehaviour
                 auxHealth -= damageHealthWouldTake + (damageShieldWouldTake - shield);
                 shield = 0;
 
+                healthTookDamage = true;
+
             }
             else
             {
                 auxHealth -= damageHealthWouldTake;
                 shield -= damageShieldWouldTake;
+
+                shieldTookDamage = true;
             }
 
             if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
@@ -133,6 +139,15 @@ public class KKHealthController : MonoBehaviour
                 {
                     StartCoroutine(HurtEnemy());
                 }
+            }
+
+            if (healthTookDamage)
+            {
+                //SparkEffect;
+            }
+            if (shieldTookDamage)
+            {
+                //ShieldSparkEffect
             }
 
             if (canAccumulateDamage)

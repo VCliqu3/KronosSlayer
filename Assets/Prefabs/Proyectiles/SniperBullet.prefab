@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2809911548132119558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.416501, y: -2.5974922, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,6 +151,7 @@ MonoBehaviour:
   speed: 6
   direction: {x: 0, y: 0}
   secondsToDestroy: 5
+  terrainCollisionEffect: {fileID: 6116977404448577453, guid: d90a6655d83d81b4a85fee4a199686c1, type: 3}
 --- !u!114 &-15396162136641289
 MonoBehaviour:
   m_ObjectHideFlags: 0

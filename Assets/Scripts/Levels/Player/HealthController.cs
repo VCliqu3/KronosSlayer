@@ -70,6 +70,8 @@ public class HealthController : MonoBehaviour
         
         if (!invincibilityEnabled)
         {
+            bool shieldTookDamage = false, healthTookDamage = false;
+
             float damageShieldWouldTake, damageHealthWouldTake;
             float resultingShAb;
             float auxHealth = health; //Health puede ser negativo al recibir da�o, por ello se declara una variable auxiliar
@@ -86,12 +88,15 @@ public class HealthController : MonoBehaviour
             {
                 auxHealth -= damageHealthWouldTake + (damageShieldWouldTake - shield);
                 shield = 0;
-                
+
+                healthTookDamage = true;
             }
             else
             {
                 auxHealth -= damageHealthWouldTake;
-                shield -= damageShieldWouldTake;         
+                shield -= damageShieldWouldTake;
+
+                shieldTookDamage = true;
             }
       
             if(auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
@@ -103,11 +108,16 @@ public class HealthController : MonoBehaviour
             {
                 health = auxHealth;
                 StartCoroutine(HurtPlayerBlink());
+            }
 
-                if (shield <= 0)
-                {
-                    StartCoroutine(HurtPlayer());
-                }
+            if (healthTookDamage)
+            {
+                StartCoroutine(HurtPlayer());
+                //SparkEffect;
+            }
+            if (shieldTookDamage)
+            {
+                //ShieldSparkEffect
             }
 
             _HUDController.SetHealthBar();

@@ -11,10 +11,13 @@ public class ProyectileMovementController : MonoBehaviour
 
     public float secondsToDestroy = 5f;
 
+    public GameObject terrainCollisionEffect;
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+
         Destroy(gameObject, secondsToDestroy);
     }
 
@@ -33,7 +36,9 @@ public class ProyectileMovementController : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
         {
-           
+            GameObject TCEffect = Instantiate(terrainCollisionEffect, transform.position, transform.rotation);
+
+            Destroy(TCEffect, 2f);
             Destroy(gameObject);
             
         }
