@@ -27,6 +27,9 @@ public class TankAttackController : MonoBehaviour
 
     public bool isAttacking;
 
+    public GameObject ShieldImpactVFX;
+    public float playerSIScale = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +52,25 @@ public class TankAttackController : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            player.GetComponent<HealthController>().TakeDamage(attackDamage, attackShieldPenetration);
+            if (!player.GetComponent<HealthController>().invincibilityEnabled)
+            {
+                if (player.GetComponent<HealthController>().shield > 0)
+                {
+                    GameObject ShImpVFX = Instantiate(ShieldImpactVFX, player.transform.position + new Vector3(0f, 0.5f), transform.rotation);
+
+                    ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * playerSIScale;
+
+                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+                    _APR.hitInitialPos = player.transform.position + new Vector3(0f, 0.5f);
+                    _APR.entityHitTranform = player.transform;
+                    _APR.CalculateOffsetVector();
+
+                    Destroy(ShImpVFX, 1.2f);
+                }
+
+                player.GetComponent<HealthController>().TakeDamage(attackDamage, attackShieldPenetration);
+            }
         }
     }
 

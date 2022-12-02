@@ -39,6 +39,13 @@ public class MeleeController : MonoBehaviour
 
     public bool attackEnable;
 
+    public GameObject ShieldImpactVFX;
+
+    public float creepSIScale = 1f;
+    public float tankIScale = 1f;
+    public float sniperSIScale = 1f;
+    public float KKSIScale = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +117,38 @@ public class MeleeController : MonoBehaviour
     
         foreach(Collider2D basicEnemy in hitBasicEnemies)
         {
+            if (basicEnemy.GetComponent<BasicEnemyHealthController>().shield > 0)
+            {
+                GameObject ShImpVFX = Instantiate(ShieldImpactVFX, basicEnemy.transform.position, transform.rotation);
+
+                float scaleFactor = 1f;
+
+                if(basicEnemy.GetComponent<CreepShootController>() != null)
+                {
+                    scaleFactor = creepSIScale;
+                }
+
+                if (basicEnemy.GetComponent<TankAttackController>() != null)
+                {
+                    scaleFactor = tankIScale;
+                }
+
+                if (basicEnemy.GetComponent<SniperShootController>() != null)
+                {
+                    scaleFactor = sniperSIScale;
+                }
+
+                ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * scaleFactor;
+
+                AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+                _APR.hitInitialPos = basicEnemy.transform.position;
+                _APR.entityHitTranform = basicEnemy.transform;
+                _APR.CalculateOffsetVector();
+
+                Destroy(ShImpVFX, 1.2f);
+            }
+
             basicEnemy.GetComponent<BasicEnemyHealthController>().TakeDamage(damage, shieldPenetration);
         }
 
@@ -117,7 +156,25 @@ public class MeleeController : MonoBehaviour
 
         foreach (Collider2D kk in hitKingKronos)
         {
-            kk.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
+            if (kk.GetComponent<KKHealthController>().canTakeDamage)
+            {
+                if (kk.GetComponent<KKHealthController>().shield > 0)
+                {
+                    GameObject ShImpVFX = Instantiate(ShieldImpactVFX, kk.transform.position + new Vector3(0f, 1f), transform.rotation);
+
+                    ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * KKSIScale;
+
+                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+                    _APR.hitInitialPos = kk.transform.position + new Vector3(0f, 1f);
+                    _APR.entityHitTranform = kk.transform;
+                    _APR.CalculateOffsetVector();
+
+                    Destroy(ShImpVFX, 1.2f);
+                }
+
+                kk.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
+            }
         }
     }
 

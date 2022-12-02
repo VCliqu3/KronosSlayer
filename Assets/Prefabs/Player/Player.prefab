@@ -744,6 +744,11 @@ MonoBehaviour:
   isOnAttackTransition: 0
   attackingBehind: 0
   attackEnable: 0
+  ShieldImpactVFX: {fileID: 8837376511160648931, guid: 6f56ee5fe570efb49a6e18ba4749b371, type: 3}
+  creepSIScale: 1.75
+  tankIScale: 2.5
+  sniperSIScale: 2
+  KKSIScale: 2
 --- !u!114 &7768970591787628313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,4 +797,3 @@ MonoBehaviour:
   speed: 20
   _color: {r: 0.43137255, g: 0, b: 0, a: 0}
   enableShadows: 0
-  objectTransormProperties: {fileID: 7768970591245259675}

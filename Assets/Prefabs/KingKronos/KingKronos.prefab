@@ -499,8 +499,8 @@ MonoBehaviour:
   attackRadius: 1.5
   attackRange: 1
   maxAttackRange: 1.5
-  attackDuration: 2
-  enragedAttackDuration: 1.5
+  attackDuration: 1.5
+  enragedAttackDuration: 1
   attackDamage: 5
   enragedAttackDamage: 8
   attackShieldPenetration: 0
@@ -659,4 +659,3 @@ MonoBehaviour:
   speed: 15
   _color: {r: 0.0436276, g: 0.16330788, b: 0.4056604, a: 1}
   enableShadows: 0
-  objectTransormProperties: {fileID: 3182477934570312536}
