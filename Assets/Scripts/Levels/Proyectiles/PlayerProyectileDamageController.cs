@@ -10,26 +10,30 @@ public class PlayerProyectileDamageController : MonoBehaviour
 
     public GameObject ShieldImpactVFX;
 
+    public float scaleVFX;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
             if (!collision.GetComponent<BasicEnemyHealthController>().isDead)
             {
-                if (collision.GetComponent<BasicEnemyHealthController>().shield > 0)
+                BasicEnemyHealthController _BEHealthController = collision.GetComponent<BasicEnemyHealthController>();
+
+                float startingHealth = _BEHealthController.health;
+
+                if (_BEHealthController.shield > 0)
                 {
-                    GameObject ShImpVFX = Instantiate(ShieldImpactVFX, transform.position, transform.rotation);
-
-                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
-
-                    _APR.hitInitialPos = transform.position;
-                    _APR.entityHitTranform = collision.transform;
-                    _APR.CalculateOffsetVector();
-
-                    Destroy(ShImpVFX, 1.2f);
+                    CreateFeedbackImpactVFX(ShieldImpactVFX, collision.transform, scaleVFX, 1.2f);
                 }
 
-                collision.GetComponent<BasicEnemyHealthController>().TakeDamage(damage, shieldPenetration);
+                _BEHealthController.TakeDamage(damage, shieldPenetration);
+
+                if (_BEHealthController.health < startingHealth)
+                {
+                    //
+                }
+
                 Destroy(gameObject);
             }
             
@@ -38,21 +42,40 @@ public class PlayerProyectileDamageController : MonoBehaviour
         {
             if (!collision.GetComponent<KKHealthController>().isDead && collision.GetComponent<KKHealthController>().canTakeDamage)
             {
-                if (collision.GetComponent<KKHealthController>().shield > 0)
+                KKHealthController _KKHealthController = collision.GetComponent<KKHealthController>();
+
+                float startingHealth = _KKHealthController.health;
+
+                if (_KKHealthController.shield > 0)
                 {
-                    GameObject ShImpVFX = Instantiate(ShieldImpactVFX, transform.position, transform.rotation);
-
-                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
-
-                    _APR.hitInitialPos = transform.position;
-                    _APR.entityHitTranform = collision.transform;
-                    _APR.CalculateOffsetVector();
-
-                    Destroy(ShImpVFX, 1.2f);
+                    CreateFeedbackImpactVFX(ShieldImpactVFX,collision.transform,scaleVFX,1.2f);
                 }
-                collision.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
+
+                _KKHealthController.TakeDamage(damage, shieldPenetration);
+
+                if (_KKHealthController.health < startingHealth)
+                {
+                    //
+                }
+
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void CreateFeedbackImpactVFX(GameObject feedbackVFX, Transform entHit,float scale, float timeToAutodestroy)
+    {
+        GameObject fVFX = Instantiate(feedbackVFX, transform.position, transform.rotation);
+
+        AvoidParentRotation _APR = fVFX.GetComponent<AvoidParentRotation>();
+
+        fVFX.transform.localScale = fVFX.transform.localScale * scale;
+
+
+        _APR.hitInitialPos = transform.position;
+        _APR.entityHitTranform = entHit;
+        _APR.CalculateOffsetVector();
+
+        Destroy(fVFX, timeToAutodestroy);
     }
 }

@@ -167,3 +167,4 @@ MonoBehaviour:
   damage: 5
   shieldPenetration: 0
   ShieldImpactVFX: {fileID: 8837376511160648931, guid: 49a9169874aac0645ad212f21c111a55, type: 3}
+  scaleVFX: 1.5
