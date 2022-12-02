@@ -47,14 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b51cce973f5814498458f1e15286566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds:
-  - name: PasswordInfinity
-    clip: {fileID: 8300000, guid: e20ee3c4db3f88b4280822d662d78c9a, type: 3}
-  - name: DropIt
-    clip: {fileID: 8300000, guid: 261a8db8436a89a469ee7903a7a90ff4, type: 3}
+  musicSounds: []
   sfxSounds:
-  - name: ConcreteFootsteps
-    clip: {fileID: 8300000, guid: 1799fd3f5e6b2d243b396b99060d9c74, type: 3}
+  - name: Player_Footsteps
+    clip: {fileID: 8300000, guid: 7a9a187580a63274485caa6175dc9c84, type: 3}
+  - name: Player_FirstFootstep
+    clip: {fileID: 8300000, guid: e69bd53591c013741b4e80728c4db088, type: 3}
+  - name: Player_SecondFootstep
+    clip: {fileID: 8300000, guid: afe594a6088c2df489db1eba03bf769a, type: 3}
   - name: Player_FirstMeleeAttack
     clip: {fileID: 8300000, guid: 64c8c65704a04fa4298fe39f683704ca, type: 3}
   - name: Player_SecondMeleeAttack

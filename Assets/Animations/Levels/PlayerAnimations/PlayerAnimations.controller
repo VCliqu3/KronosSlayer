@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7e805c12994694bb928777b699210d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkingSFXName: ConcreteFootsteps
+  WalkingSFXName: Player_Footsteps
+  footstep1SFXName: Player_FirstFootstep
+  footstep2SFXName: Player_SecondFootstep
+  individualFootsteps: 1
+  timeBeetweenFootsteps: 0.2
+  timeforFirtsFootstep: 0.2
 --- !u!1102 &-8677956667459756555
 AnimatorState:
   serializedVersion: 6
@@ -708,7 +713,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3772ca80a04650d4c993af01fba369ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkingSFXName: ConcreteFootsteps
+  WalkingSFXName: Player_Footsteps
+  footstep1SFXName: Player_FirstFootstep
+  footstep2SFXName: Player_SecondFootstep
+  individualFootsteps: 1
+  timeBeetweenFootsteps: 0.2
+  timeforFirtsFootstep: 0.2
 --- !u!114 &2559307266221842941
 MonoBehaviour:
   m_ObjectHideFlags: 1
