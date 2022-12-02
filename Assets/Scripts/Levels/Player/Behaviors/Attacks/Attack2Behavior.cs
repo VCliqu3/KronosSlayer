@@ -9,6 +9,8 @@ public class Attack2Behavior : StateMachineBehaviour
 
     private float originalGravity;
 
+    public string attackSFXName;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -32,6 +34,8 @@ public class Attack2Behavior : StateMachineBehaviour
             originalGravity = _movementController._rigidbody2D.gravityScale;
             _movementController._rigidbody2D.gravityScale = 0f;
         }
+
+        AudioManager.instance.PlaySFX(attackSFXName);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

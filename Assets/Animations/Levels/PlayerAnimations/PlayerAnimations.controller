@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d310e23dd90fe3418a4b2fb7d0025fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSFXName: Player_ThirdMeleeAttack
 --- !u!1102 &-4142516514872081162
 AnimatorState:
   serializedVersion: 6
@@ -616,6 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69464826938c01546b4c05e333d05669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSFXName: Player_FirstMeleeAttack
 --- !u!1101 &378905202163386813
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1086,6 +1088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab46af4ca76f664bba9e9ef9209a086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSFXName: Player_SecondMeleeAttack
 --- !u!1102 &7130260181224818569
 AnimatorState:
   serializedVersion: 6

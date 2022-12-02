@@ -33,7 +33,7 @@ Transform:
   - {fileID: 348770840605684755}
   - {fileID: 348770840887326212}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348770840600398334
 MonoBehaviour:
@@ -53,12 +53,14 @@ MonoBehaviour:
   - name: DropIt
     clip: {fileID: 8300000, guid: 261a8db8436a89a469ee7903a7a90ff4, type: 3}
   sfxSounds:
-  - name: GuitarSound1
-    clip: {fileID: 8300000, guid: f9b8639034e727146a4efbe9992f5791, type: 3}
-  - name: GuitarSound2
-    clip: {fileID: 8300000, guid: a52d9a5cb98ca364e8eadfdcd5ba274a, type: 3}
   - name: ConcreteFootsteps
     clip: {fileID: 8300000, guid: 1799fd3f5e6b2d243b396b99060d9c74, type: 3}
+  - name: Player_FirstMeleeAttack
+    clip: {fileID: 8300000, guid: 64c8c65704a04fa4298fe39f683704ca, type: 3}
+  - name: Player_SecondMeleeAttack
+    clip: {fileID: 8300000, guid: b438d0919fef49940a46182518930711, type: 3}
+  - name: Player_ThirdMeleeAttack
+    clip: {fileID: 8300000, guid: 8c3fdbb19fe4f9146888ca55fb1991ea, type: 3}
   musicSource: {fileID: 348770840701301200}
   sfxSource: {fileID: 348770840605684754}
   perpetualSFXSource: {fileID: 348770840887326211}
