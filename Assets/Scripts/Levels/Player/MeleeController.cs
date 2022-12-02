@@ -119,34 +119,20 @@ public class MeleeController : MonoBehaviour
         {
             if (basicEnemy.GetComponent<BasicEnemyHealthController>().shield > 0)
             {
-                GameObject ShImpVFX = Instantiate(ShieldImpactVFX, basicEnemy.transform.position, transform.rotation);
-
-                float scaleFactor = 1f;
-
-                if(basicEnemy.GetComponent<CreepShootController>() != null)
+                if (basicEnemy.GetComponent<CreepShootController>() != null)
                 {
-                    scaleFactor = creepSIScale;
+                    CreateShieldImpacVFX( basicEnemy.transform, creepSIScale, 0f);
                 }
 
                 if (basicEnemy.GetComponent<TankAttackController>() != null)
                 {
-                    scaleFactor = tankIScale;
+                    CreateShieldImpacVFX(basicEnemy.transform, tankIScale, 0f);
                 }
 
                 if (basicEnemy.GetComponent<SniperShootController>() != null)
                 {
-                    scaleFactor = sniperSIScale;
+                    CreateShieldImpacVFX(basicEnemy.transform, sniperSIScale, 0f);
                 }
-
-                ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * scaleFactor;
-
-                AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
-
-                _APR.hitInitialPos = basicEnemy.transform.position;
-                _APR.entityHitTranform = basicEnemy.transform;
-                _APR.CalculateOffsetVector();
-
-                Destroy(ShImpVFX, 1.2f);
             }
 
             basicEnemy.GetComponent<BasicEnemyHealthController>().TakeDamage(damage, shieldPenetration);
@@ -160,17 +146,7 @@ public class MeleeController : MonoBehaviour
             {
                 if (kk.GetComponent<KKHealthController>().shield > 0)
                 {
-                    GameObject ShImpVFX = Instantiate(ShieldImpactVFX, kk.transform.position + new Vector3(0f, 1f), transform.rotation);
-
-                    ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * KKSIScale;
-
-                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
-
-                    _APR.hitInitialPos = kk.transform.position + new Vector3(0f, 1f);
-                    _APR.entityHitTranform = kk.transform;
-                    _APR.CalculateOffsetVector();
-
-                    Destroy(ShImpVFX, 1.2f);
+                    CreateShieldImpacVFX(kk.transform, KKSIScale, 1f);
                 }
 
                 kk.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
@@ -195,4 +171,19 @@ public class MeleeController : MonoBehaviour
         }
     }
 
+
+    public void CreateShieldImpacVFX(Transform entHit, float scale, float offsetY)
+    {
+        GameObject ShImpVFX = Instantiate(ShieldImpactVFX, entHit.position + new Vector3(0f, offsetY), entHit.transform.rotation);
+
+        ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * scale;
+
+        AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+        _APR.hitInitialPos = entHit.position + new Vector3(0f, offsetY);
+        _APR.entityHitTranform = entHit;
+        _APR.CalculateOffsetVector();
+
+        Destroy(ShImpVFX, 1.2f);
+    }
 }

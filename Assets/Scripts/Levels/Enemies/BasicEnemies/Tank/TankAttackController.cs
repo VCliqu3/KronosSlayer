@@ -54,24 +54,36 @@ public class TankAttackController : MonoBehaviour
         {
             if (!player.GetComponent<HealthController>().invincibilityEnabled)
             {
+                float startingHealth = player.GetComponent<HealthController>().health;
+
                 if (player.GetComponent<HealthController>().shield > 0)
                 {
-                    GameObject ShImpVFX = Instantiate(ShieldImpactVFX, player.transform.position + new Vector3(0f, 0.5f), transform.rotation);
-
-                    ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * playerSIScale;
-
-                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
-
-                    _APR.hitInitialPos = player.transform.position + new Vector3(0f, 0.5f);
-                    _APR.entityHitTranform = player.transform;
-                    _APR.CalculateOffsetVector();
-
-                    Destroy(ShImpVFX, 1.2f);
+                    CreateShieldImpacVFX(player.transform, playerSIScale, 0.5f);
                 }
 
                 player.GetComponent<HealthController>().TakeDamage(attackDamage, attackShieldPenetration);
+
+                if (player.GetComponent<HealthController>().health < startingHealth)
+                {
+                    //
+                }
             }
         }
+    }
+
+    public void CreateShieldImpacVFX(Transform entHit, float scale, float offsetY)
+    {
+        GameObject ShImpVFX = Instantiate(ShieldImpactVFX, entHit.position + new Vector3(0f, offsetY), entHit.transform.rotation);
+
+        ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * scale;
+
+        AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+        _APR.hitInitialPos = entHit.position + new Vector3(0f, offsetY);
+        _APR.entityHitTranform = entHit;
+        _APR.CalculateOffsetVector();
+
+        Destroy(ShImpVFX, 1.2f);
     }
 
 }

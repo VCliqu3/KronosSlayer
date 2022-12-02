@@ -29,6 +29,9 @@ public class KKAttackController : MonoBehaviour
 
     public bool isAttacking = false;
 
+    public GameObject ShieldImpactVFX;
+    public float playerSIScale = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +52,39 @@ public class KKAttackController : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            player.GetComponent<HealthController>().TakeDamage(attackDamage, attackShieldPenetration);
+            if (!player.GetComponent<HealthController>().invincibilityEnabled)
+            {
+                float startingHealth = player.GetComponent<HealthController>().health;
+
+                if (player.GetComponent<HealthController>().shield > 0)
+                {
+                    CreateShieldImpacVFX(player.transform, playerSIScale, 0.5f);
+                }
+
+                player.GetComponent<HealthController>().TakeDamage(attackDamage, attackShieldPenetration);
+
+                if (player.GetComponent<HealthController>().health < startingHealth)
+                {
+                    //
+                }
+            }
         }
 
         CameraShaker.Instance.ShakeOnce(1f, 1f, 0.1f, 1f);
+    }
+
+    public void CreateShieldImpacVFX(Transform entHit, float scale, float offsetY)
+    {
+        GameObject ShImpVFX = Instantiate(ShieldImpactVFX, entHit.position + new Vector3(0f, offsetY), entHit.transform.rotation);
+
+        ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * scale;
+
+        AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+        _APR.hitInitialPos = entHit.position + new Vector3(0f, offsetY);
+        _APR.entityHitTranform = entHit;
+        _APR.CalculateOffsetVector();
+
+        Destroy(ShImpVFX, 1.2f);
     }
 }

@@ -9,6 +9,7 @@ public class KKJumpAttackController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private KKMovementController _KKMovementController;
     private KKHealthController _KKHealthController;
+    private KKAttackController _KKAttackController;
 
     public LayerMask whatIsGround;
     public LayerMask playerLayer;
@@ -65,6 +66,7 @@ public class KKJumpAttackController : MonoBehaviour
         _KKMovementController = GetComponent<KKMovementController>();
         _KKHealthController = GetComponent<KKHealthController>();
         _dashShadowsController = GetComponent<DashShadowsController>();
+        _KKAttackController = GetComponent<KKAttackController>();
     }
 
     // Update is called once per frame
@@ -181,7 +183,22 @@ public class KKJumpAttackController : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            player.GetComponent<HealthController>().TakeDamage(jumpAttackDamage, jumpAttackShieldPenetration);
+            if (!player.GetComponent<HealthController>().invincibilityEnabled)
+            {
+                float startingHealth = player.GetComponent<HealthController>().health;
+
+                if (player.GetComponent<HealthController>().shield > 0)
+                {
+                    _KKAttackController.CreateShieldImpacVFX(player.transform, _KKAttackController.playerSIScale, 0.5f);
+                }
+
+                player.GetComponent<HealthController>().TakeDamage(jumpAttackDamage, jumpAttackShieldPenetration);
+
+                if (player.GetComponent<HealthController>().health < startingHealth)
+                {
+                    //
+                }
+            }
         }
     }
 
