@@ -121,17 +121,17 @@ public class MeleeController : MonoBehaviour
             {
                 if (basicEnemy.GetComponent<CreepShootController>() != null)
                 {
-                    CreateShieldImpacVFX( basicEnemy.transform, creepSIScale, 0f);
+                    CreateFeedbackImpactVFX(ShieldImpactVFX, basicEnemy.transform, creepSIScale, 0f, 1.2f);
                 }
 
                 if (basicEnemy.GetComponent<TankAttackController>() != null)
                 {
-                    CreateShieldImpacVFX(basicEnemy.transform, tankIScale, 0f);
+                    CreateFeedbackImpactVFX(ShieldImpactVFX, basicEnemy.transform, tankIScale, 0f, 1.2f);
                 }
 
                 if (basicEnemy.GetComponent<SniperShootController>() != null)
                 {
-                    CreateShieldImpacVFX(basicEnemy.transform, sniperSIScale, 0f);
+                    CreateFeedbackImpactVFX(ShieldImpactVFX, basicEnemy.transform, sniperSIScale, 0f, 1.2f);
                 }
             }
 
@@ -146,7 +146,7 @@ public class MeleeController : MonoBehaviour
             {
                 if (kk.GetComponent<KKHealthController>().shield > 0)
                 {
-                    CreateShieldImpacVFX(kk.transform, KKSIScale, 1f);
+                    CreateFeedbackImpactVFX(ShieldImpactVFX, kk.transform, KKSIScale, 1f, 1.2f);
                 }
 
                 kk.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
@@ -171,19 +171,18 @@ public class MeleeController : MonoBehaviour
         }
     }
 
-
-    public void CreateShieldImpacVFX(Transform entHit, float scale, float offsetY)
+    public void CreateFeedbackImpactVFX(GameObject feedbackVFX, Transform entHit, float scale, float offsetY, float timeToAutodestroy)
     {
-        GameObject ShImpVFX = Instantiate(ShieldImpactVFX, entHit.position + new Vector3(0f, offsetY), entHit.transform.rotation);
+        GameObject fVFX = Instantiate(feedbackVFX, entHit.position + new Vector3(0f, offsetY), entHit.transform.rotation);
 
-        ShImpVFX.transform.localScale = ShImpVFX.transform.localScale * scale;
+        fVFX.transform.localScale = fVFX.transform.localScale * scale;
 
-        AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+        AvoidParentRotation _APR = fVFX.GetComponent<AvoidParentRotation>();
 
         _APR.hitInitialPos = entHit.position + new Vector3(0f, offsetY);
         _APR.entityHitTranform = entHit;
         _APR.CalculateOffsetVector();
 
-        Destroy(ShImpVFX, 1.2f);
+        Destroy(fVFX, timeToAutodestroy);
     }
 }

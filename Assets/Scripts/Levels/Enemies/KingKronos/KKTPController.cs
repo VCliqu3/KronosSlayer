@@ -197,7 +197,7 @@ public class KKTPController : MonoBehaviour
 
                 if (player.GetComponent<HealthController>().shield > 0)
                 {
-                    _KKAttackController.CreateShieldImpacVFX(player.transform, _KKAttackController.playerSIScale, 0.5f);
+                    _KKAttackController.CreateFeedbackImpactVFX(_KKAttackController.ShieldImpactVFX, player.transform, _KKAttackController.playerSIScale, 0.5f, 1.2f);
                 }
 
                 player.GetComponent<HealthController>().TakeDamage(TPAttackDamage, TPAttacShieldPenetration);

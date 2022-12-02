@@ -627,7 +627,7 @@ MonoBehaviour:
   playerHasDied: 0
   invincibilityEnabled: 0
   timeToPopUpDeathPanel: 2
-  bouncyMaterial: {fileID: 0}
+  bouncyMaterial: {fileID: 6200000, guid: febafc74fd870b644a50af28e0ae1baf, type: 2}
   deathImpulseY: 2
 --- !u!114 &7768970591787628308
 MonoBehaviour:
