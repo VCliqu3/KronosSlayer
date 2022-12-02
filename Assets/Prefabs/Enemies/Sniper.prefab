@@ -537,8 +537,8 @@ MonoBehaviour:
   shootRange: 6
   maxShootRange: 7
   shootRangeBack: 6
-  timeAiming: 1.1
-  timeRemainingAiming: 1.25
+  timeAiming: 1.5
+  timeRemainingAiming: 1.1
   bulletSpeed: 15
   bulletDamage: 10
   bulletShieldPenetration: 0

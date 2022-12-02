@@ -19,7 +19,13 @@ public class PlayerProyectileDamageController : MonoBehaviour
                 if (collision.GetComponent<BasicEnemyHealthController>().shield > 0)
                 {
                     GameObject ShImpVFX = Instantiate(ShieldImpactVFX, transform.position, transform.rotation);
-                    ShImpVFX.transform.parent = collision.transform;
+
+                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+                    _APR.hitInitialPos = transform.position;
+                    _APR.entityHitTranform = collision.transform;
+                    _APR.CalculateOffsetVector();
+
                     Destroy(ShImpVFX, 1.2f);
                 }
 
@@ -35,7 +41,13 @@ public class PlayerProyectileDamageController : MonoBehaviour
                 if (collision.GetComponent<KKHealthController>().shield > 0)
                 {
                     GameObject ShImpVFX = Instantiate(ShieldImpactVFX, transform.position, transform.rotation);
-                    ShImpVFX.transform.parent = collision.transform;
+
+                    AvoidParentRotation _APR = ShImpVFX.GetComponent<AvoidParentRotation>();
+
+                    _APR.hitInitialPos = transform.position;
+                    _APR.entityHitTranform = collision.transform;
+                    _APR.CalculateOffsetVector();
+
                     Destroy(ShImpVFX, 1.2f);
                 }
                 collision.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
