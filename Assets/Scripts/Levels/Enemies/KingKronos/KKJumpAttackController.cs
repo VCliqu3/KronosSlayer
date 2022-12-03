@@ -183,20 +183,22 @@ public class KKJumpAttackController : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            if (!player.GetComponent<HealthController>().invincibilityEnabled)
-            {
-                float startingHealth = player.GetComponent<HealthController>().health;
+            HealthController _healthController = player.GetComponent<HealthController>();
 
-                if (player.GetComponent<HealthController>().shield > 0)
+            if (!_healthController.invincibilityEnabled)
+            {
+                float startingHealth = _healthController.health;
+
+                if (_healthController.shield > 0)
                 {
                     _KKAttackController.CreateFeedbackImpactVFX(_KKAttackController.ShieldImpactVFX, player.transform, _KKAttackController.playerSIScale, 0.5f, 1.2f);
                 }
 
-                player.GetComponent<HealthController>().TakeDamage(jumpAttackDamage, jumpAttackShieldPenetration);
+                _healthController.TakeDamage(jumpAttackDamage, jumpAttackDamage);
 
-                if (player.GetComponent<HealthController>().health < startingHealth)
+                if (_healthController.health < startingHealth)
                 {
-                    //
+                    _KKAttackController.CreateFeedbackImpactVFX(_KKAttackController.PlayerImpactVFX, player.transform, _KKAttackController.playerSIScale, 0.5f, 1.2f);
                 }
             }
         }

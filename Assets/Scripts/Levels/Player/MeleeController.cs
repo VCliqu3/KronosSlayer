@@ -40,6 +40,8 @@ public class MeleeController : MonoBehaviour
     public bool attackEnable;
 
     public GameObject ShieldImpactVFX;
+    public GameObject BasicEnemyHealthImpactVFX;
+    public GameObject KKHealthImpactVFX;
 
     public float creepSIScale = 1f;
     public float tankIScale = 1f;
@@ -117,7 +119,10 @@ public class MeleeController : MonoBehaviour
     
         foreach(Collider2D basicEnemy in hitBasicEnemies)
         {
-            if (basicEnemy.GetComponent<BasicEnemyHealthController>().shield > 0)
+            BasicEnemyHealthController _BEHealthController = basicEnemy.GetComponent<BasicEnemyHealthController>();
+            float startingHealth = _BEHealthController.health;
+
+            if (_BEHealthController.shield > 0)
             {
                 if (basicEnemy.GetComponent<CreepShootController>() != null)
                 {
@@ -135,21 +140,47 @@ public class MeleeController : MonoBehaviour
                 }
             }
 
-            basicEnemy.GetComponent<BasicEnemyHealthController>().TakeDamage(damage, shieldPenetration);
+            _BEHealthController.TakeDamage(damage, shieldPenetration);
+
+            if (_BEHealthController.health < startingHealth)
+            {
+                if (basicEnemy.GetComponent<CreepShootController>() != null)
+                {
+                    CreateFeedbackImpactVFX(BasicEnemyHealthImpactVFX, basicEnemy.transform, creepSIScale, 0f, 1.2f);
+                }
+
+                if (basicEnemy.GetComponent<TankAttackController>() != null)
+                {
+                    CreateFeedbackImpactVFX(BasicEnemyHealthImpactVFX, basicEnemy.transform, tankIScale, 0f, 1.2f);
+                }
+
+                if (basicEnemy.GetComponent<SniperShootController>() != null)
+                {
+                    CreateFeedbackImpactVFX(BasicEnemyHealthImpactVFX, basicEnemy.transform, sniperSIScale, 0f, 1.2f);
+                }
+            }
         }
 
         Collider2D[] hitKingKronos = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, KingKronosLayer);
 
         foreach (Collider2D kk in hitKingKronos)
         {
-            if (kk.GetComponent<KKHealthController>().canTakeDamage)
+            KKHealthController _KKHealthController = kk.GetComponent<KKHealthController>();
+            float startingHealth = _KKHealthController.health;
+
+            if (_KKHealthController.canTakeDamage)
             {
-                if (kk.GetComponent<KKHealthController>().shield > 0)
+                if (_KKHealthController.shield > 0)
                 {
                     CreateFeedbackImpactVFX(ShieldImpactVFX, kk.transform, KKSIScale, 1f, 1.2f);
                 }
 
-                kk.GetComponent<KKHealthController>().TakeDamage(damage, shieldPenetration);
+               _KKHealthController.TakeDamage(damage, shieldPenetration);
+            }
+
+            if (_KKHealthController.health < startingHealth)
+            {
+                CreateFeedbackImpactVFX(KKHealthImpactVFX, kk.transform, KKSIScale, 1f, 1.2f);
             }
         }
     }

@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 5193232857407978856}
   - component: {fileID: 8230156257014106750}
   - component: {fileID: 6515515718941565793}
+  - component: {fileID: 8814844364684878434}
   m_Layer: 0
-  m_Name: PlayerHealthImpactRingVFX
+  m_Name: YellowHealthImpactRingVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5193232857407978856
 Transform:
   m_ObjectHideFlags: 0
@@ -4872,6 +4873,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &8814844364684878434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3062904967641939893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348f886213f6f0b4aa900d9417154cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8613953979343519463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4885,7 +4898,7 @@ GameObject:
   - component: {fileID: 3826969263231132168}
   - component: {fileID: -8255801195490160214}
   m_Layer: 0
-  m_Name: PlayerHealthImpactVFX
+  m_Name: YellowHealthImpactVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4946,9 +4959,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 471854243
-  m_SortingLayer: -2
-  m_SortingOrder: 5
+  m_SortingLayerID: 696202869
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

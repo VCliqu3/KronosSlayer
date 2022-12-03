@@ -28,6 +28,7 @@ public class TankAttackController : MonoBehaviour
     public bool isAttacking;
 
     public GameObject ShieldImpactVFX;
+    public GameObject PlayerImpactVFX;
     public float playerSIScale = 1f;
 
     // Start is called before the first frame update
@@ -52,20 +53,22 @@ public class TankAttackController : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
-            if (!player.GetComponent<HealthController>().invincibilityEnabled)
-            {
-                float startingHealth = player.GetComponent<HealthController>().health;
+            HealthController _healthController = player.GetComponent<HealthController>();
 
-                if (player.GetComponent<HealthController>().shield > 0)
+            if (!_healthController.invincibilityEnabled)
+            {
+                float startingHealth = _healthController.health;
+
+                if (_healthController.shield > 0)
                 {
                     CreateFeedbackImpactVFX(ShieldImpactVFX, player.transform, playerSIScale, 0.5f, 1.2f);
                 }
 
-                player.GetComponent<HealthController>().TakeDamage(attackDamage, attackShieldPenetration);
+                _healthController.TakeDamage(attackDamage, attackShieldPenetration);
 
-                if (player.GetComponent<HealthController>().health < startingHealth)
+                if (_healthController.health < startingHealth)
                 {
-                    //
+                    CreateFeedbackImpactVFX(PlayerImpactVFX, player.transform, playerSIScale, 0.5f, 1.2f);
                 }
             }
         }
