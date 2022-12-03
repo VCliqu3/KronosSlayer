@@ -167,4 +167,6 @@ MonoBehaviour:
   damage: 1
   shieldPenetration: 0
   ShieldImpactVFX: {fileID: 8837376511160648931, guid: 49a9169874aac0645ad212f21c111a55, type: 3}
+  basicEnemyHealthImpactVFX: {fileID: 8613953979343519463, guid: 1ed7228687bb7b94eafc39ad25550abb, type: 3}
+  KKHealthImpactVFX: {fileID: 8613953979343519463, guid: 4d5fb9e8b62405e4280687f76bed9f56, type: 3}
   scaleVFX: 1

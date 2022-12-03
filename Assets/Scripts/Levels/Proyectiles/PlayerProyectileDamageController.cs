@@ -9,6 +9,8 @@ public class PlayerProyectileDamageController : MonoBehaviour
     public float shieldPenetration;
 
     public GameObject ShieldImpactVFX;
+    public GameObject basicEnemyHealthImpactVFX;
+    public GameObject KKHealthImpactVFX;
 
     public float scaleVFX;
 
@@ -31,7 +33,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
 
                 if (_BEHealthController.health < startingHealth)
                 {
-                    //
+                    CreateFeedbackImpactVFX(basicEnemyHealthImpactVFX, collision.transform, scaleVFX, 1.2f);
                 }
 
                 Destroy(gameObject);
@@ -55,7 +57,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
 
                 if (_KKHealthController.health < startingHealth)
                 {
-                    //
+                    CreateFeedbackImpactVFX(KKHealthImpactVFX, collision.transform, scaleVFX, 1.2f);
                 }
 
                 Destroy(gameObject);

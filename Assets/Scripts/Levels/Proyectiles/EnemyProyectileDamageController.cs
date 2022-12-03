@@ -8,8 +8,10 @@ public class EnemyProyectileDamageController : MonoBehaviour
     public float shieldPenetration;
 
     public GameObject ShieldImpactVFX;
+    public GameObject playerHealthImpactVFX;
 
     public float scaleVFX;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -29,7 +31,7 @@ public class EnemyProyectileDamageController : MonoBehaviour
 
                 if (_HealthController.health < startingHealth)
                 {
-                    //
+                    CreateFeedbackImpactVFX(playerHealthImpactVFX, collision.transform, scaleVFX, 1.2f);
                 }
 
                 Destroy(gameObject);
