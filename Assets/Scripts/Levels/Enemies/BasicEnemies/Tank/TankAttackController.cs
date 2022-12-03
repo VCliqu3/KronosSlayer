@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class TankAttackController : MonoBehaviour
 {
@@ -72,6 +73,8 @@ public class TankAttackController : MonoBehaviour
                 }
             }
         }
+
+        CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
     }
 
     public void CreateFeedbackImpactVFX(GameObject feedbackVFX, Transform entHit, float scale, float offsetY, float timeToAutodestroy)
@@ -85,6 +88,15 @@ public class TankAttackController : MonoBehaviour
         _APR.hitInitialPos = entHit.position + new Vector3(0f, offsetY);
         _APR.entityHitTranform = entHit;
         _APR.CalculateOffsetVector();
+
+        Destroy(fVFX, timeToAutodestroy);
+    }
+
+    public void CreateGroundImpactVFX(GameObject groundImpVFX, Transform point, float scaleX, float offsetY, float timeToAutodestroy)
+    {
+        GameObject fVFX = Instantiate(groundImpVFX, point.position + new Vector3(0f, offsetY), point.transform.rotation);
+
+        fVFX.transform.localScale = new Vector2(fVFX.transform.localScale.x * scaleX,fVFX.transform.localScale.y);
 
         Destroy(fVFX, timeToAutodestroy);
     }
