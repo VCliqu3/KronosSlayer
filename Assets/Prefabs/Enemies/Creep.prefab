@@ -336,6 +336,7 @@ MonoBehaviour:
   playerOnMaxShootRange: 0
   playerOnShootRangeBack: 0
   isShooting: 0
+  nameSFXcreepShoot: Creep_Shoot
 --- !u!114 &-3587279095763904859
 MonoBehaviour:
   m_ObjectHideFlags: 0

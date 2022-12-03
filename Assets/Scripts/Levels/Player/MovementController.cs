@@ -54,6 +54,10 @@ public class MovementController : MonoBehaviour
     private HUDController _HUDController;
     private LevelController _levelController;
 
+    //SFX
+
+    public string nameSFXplayerDash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -189,6 +193,8 @@ public class MovementController : MonoBehaviour
     }
     IEnumerator Dashing()
     {
+        AudioManager.instance.PlaySFX(nameSFXplayerDash);
+
         velX = 0;
 
         dashEnabled = false;

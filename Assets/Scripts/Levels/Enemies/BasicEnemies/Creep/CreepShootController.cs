@@ -27,6 +27,10 @@ public class CreepShootController : MonoBehaviour
 
     public bool isShooting;
 
+    //SFX
+
+    public string nameSFXcreepShoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +57,8 @@ public class CreepShootController : MonoBehaviour
 
         if (time >= nextTimeFire)
         {
+            AudioManager.instance.PlaySFX(nameSFXcreepShoot);
+
             GameObject eBullet = Instantiate(creepBullet, firePoint.position, firePoint.rotation);
 
             eBullet.GetComponent<ProyectileMovementController>().speed = bulletSpeed;

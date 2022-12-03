@@ -30,6 +30,10 @@ public class SniperShootController : MonoBehaviour
 
     public bool isShooting;
 
+    //SFX
+
+    public string nameSFXsniperShoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +52,8 @@ public class SniperShootController : MonoBehaviour
 
     public void Shoot()
     {
+        AudioManager.instance.PlaySFX(nameSFXsniperShoot);
+
         GameObject eBullet = Instantiate(sniperBullet, firePoint.position, firePoint.rotation);
 
         eBullet.GetComponent<ProyectileMovementController>().speed = bulletSpeed;

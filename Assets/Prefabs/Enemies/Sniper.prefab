@@ -548,6 +548,7 @@ MonoBehaviour:
   playerOnMaxShootRange: 0
   playerOnShootRangeBack: 0
   isShooting: 0
+  nameSFXsniperShoot: Sniper_Shoot
 --- !u!114 &-584721487690271124
 MonoBehaviour:
   m_ObjectHideFlags: 0
