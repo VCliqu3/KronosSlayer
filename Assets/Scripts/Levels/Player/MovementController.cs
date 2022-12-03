@@ -189,6 +189,8 @@ public class MovementController : MonoBehaviour
     }
     IEnumerator Dashing()
     {
+        velX = 0;
+
         dashEnabled = false;
         isDashing = true;
         dashCooldownCounter = 0;

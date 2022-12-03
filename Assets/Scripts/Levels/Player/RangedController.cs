@@ -40,6 +40,9 @@ public class RangedController : MonoBehaviour
 
     private LevelController _levelController;
 
+    //SFX
+    public string nameSFXPlayerShoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +113,8 @@ public class RangedController : MonoBehaviour
                 pBullet.GetComponent<ProyectileMovementController>().speed = bulletSpeed;
                 pBullet.GetComponent<PlayerProyectileDamageController>().damage = bulletDamage;
                 pBullet.GetComponent<PlayerProyectileDamageController>().shieldPenetration = bulletShieldPenetration;
+
+                AudioManager.instance.PlaySFX(nameSFXPlayerShoot);
 
                 time = 0;
             }

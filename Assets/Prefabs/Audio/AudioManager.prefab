@@ -61,6 +61,16 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b438d0919fef49940a46182518930711, type: 3}
   - name: Player_ThirdMeleeAttack
     clip: {fileID: 8300000, guid: 8c3fdbb19fe4f9146888ca55fb1991ea, type: 3}
+  - name: Player_Shoot
+    clip: {fileID: 8300000, guid: 6b256b9408d108d43b8ecb630eea37ba, type: 3}
+  - name: Clock_Minutes
+    clip: {fileID: 8300000, guid: 07fc5a7ed8e7a014b8a15413b6b3ee8f, type: 3}
+  - name: Clock_20Seconds
+    clip: {fileID: 8300000, guid: ac556ba6fca7938428633928b812ba4f, type: 3}
+  - name: Clock_TimesUp
+    clip: {fileID: 8300000, guid: b86492b62da71e94ba08e9022df57579, type: 3}
+  - name: Clock_BombCharging
+    clip: {fileID: 8300000, guid: 60401bde4753c0647aa6876aa69ff626, type: 3}
   musicSource: {fileID: 348770840701301200}
   sfxSource: {fileID: 348770840605684754}
   perpetualSFXSource: {fileID: 348770840887326211}

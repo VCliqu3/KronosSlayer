@@ -26,8 +26,12 @@ public class LevelController : MonoBehaviour
 
     public float timeToPopUpLevelCompletePanel = 1f;
 
+    private ClockController _clockController;
+
     void Start()
     {
+        _clockController = GetComponent<ClockController>();
+
         CursorController.onGameplay = true;
         currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -91,8 +95,10 @@ public class LevelController : MonoBehaviour
         deathPanel.SetActive(true);
         CursorController.onGameplay = false;
 
+        /*
         FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
         FindObjectOfType<ClockController>().shipCanExplode = false;
+        */
     }
 
     public void ActivateLevelCompletePanel()
@@ -105,10 +111,7 @@ public class LevelController : MonoBehaviour
         PauseController.gamePaused = true;
         */
         
-        CursorController.onGameplay = false;
-
-        FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
-        FindObjectOfType<ClockController>().shipCanExplode = false;
+        CursorController.onGameplay = false;     
     }
 
     public void ActivateDenyNextLevelPanel()
@@ -125,7 +128,11 @@ public class LevelController : MonoBehaviour
 
             if (numberEnemiesRemaining <= 0)
             {
+                PauseController.canPauseGame = false;
                 levelCompleted = true;
+
+                _clockController.levelTimeCanDecrease = false;
+                _clockController.shipCanExplode = false;
 
                 FindObjectOfType<MovementController>().Stop();
                 FindObjectOfType<MovementController>().StopOnY();

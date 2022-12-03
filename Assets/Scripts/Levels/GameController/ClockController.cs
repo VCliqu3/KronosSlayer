@@ -18,6 +18,14 @@ public class ClockController : MonoBehaviour
     private HUDController _HUDController;
     private LevelController _levelController;
 
+    //SFX
+    public string nameSFXClockMinutes;
+    public string nameSFXClock20Seconds;
+    public string nameSFXClockTimesUp;
+    public string nameSFXClockBombCharge;
+
+    public float timeToPlayBombChargeSFX = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,18 +58,22 @@ public class ClockController : MonoBehaviour
 
             if (rawlevelTime % 60 ==0 && rawlevelTime != timeToCompleteLevel)
             {
-                Debug.Log("Tuki");
+                AudioManager.instance.PlaySFX(nameSFXClockMinutes);
             }
 
             if (rawlevelTime <= 20 && rawlevelTime !=0)
             {
-                Debug.Log("TicTac");
+                AudioManager.instance.PlaySFX(nameSFXClock20Seconds);
             }
 
-
-            if(rawlevelTime <= 0)
+            if (rawlevelTime == timeToPlayBombChargeSFX)
             {
-                Debug.Log("GG");
+                AudioManager.instance.PlaySFX(nameSFXClockBombCharge);
+            }
+
+            if (rawlevelTime <= 0)
+            {
+                AudioManager.instance.PlaySFX(nameSFXClockTimesUp);
                 StartCoroutine(ShipAutodestruction());
             }
         }

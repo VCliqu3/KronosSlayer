@@ -186,6 +186,7 @@ public class HealthController : MonoBehaviour
     IEnumerator KillPlayer()
     {
         FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
+        FindObjectOfType<ClockController>().shipCanExplode = false;
 
         PauseController.canPauseGame = false;
         _animator.SetTrigger("Death");

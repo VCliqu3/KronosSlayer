@@ -15,6 +15,7 @@ public class PauseController : MonoBehaviour
     public GameObject volumePanel;
     private Animator _pausePanelAnimator;
     private Image _pausePanelImage;
+
     // Start is called before the first frame update
     void Start()
     {

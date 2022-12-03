@@ -37,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7702469664159287072
 MonoBehaviour:
@@ -59,6 +59,7 @@ MonoBehaviour:
   denyNextLevelPanelText: {fileID: 0}
   timeDenyNextLevelPanelActive: 2
   levelCompleted: 0
+  timeToPopUpLevelCompletePanel: 1
 --- !u!114 &7702469664159287075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +89,13 @@ MonoBehaviour:
   rawlevelTime: 300
   timeHasChanged: 0
   levelTimeCanDecrease: 1
+  shipCanExplode: 1
   timeAfter0ToAutodestruction: 1
+  nameSFXClockMinutes: Clock_Minutes
+  nameSFXClock20Seconds: Clock_20Seconds
+  nameSFXClockTimesUp: Clock_TimesUp
+  nameSFXClockBombCharge: Clock_BombCharging
+  timeToPlayBombChargeSFX: 3
 --- !u!114 &7702469664159287070
 MonoBehaviour:
   m_ObjectHideFlags: 0
