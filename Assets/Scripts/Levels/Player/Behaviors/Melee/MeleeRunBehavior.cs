@@ -7,6 +7,8 @@ public class MeleeRunBehavior : StateMachineBehaviour
     private MovementController _movementController;
     private MeleeController _meleeController;
 
+    private LevelController _levelController;
+
     public string WalkingSFXName;
     private bool isPlayingWalkingSFX = false;
 
@@ -28,6 +30,8 @@ public class MeleeRunBehavior : StateMachineBehaviour
         _movementController = animator.gameObject.GetComponent<MovementController>();
         _meleeController = animator.gameObject.GetComponent<MeleeController>();
 
+        _levelController = FindObjectOfType<LevelController>();
+
         time = timeBeetweenFootsteps - timeforFirtsFootstep;
         footstepNumber = 1; 
     }
@@ -39,7 +43,7 @@ public class MeleeRunBehavior : StateMachineBehaviour
         {
             time += Time.deltaTime;
 
-            if(time >= timeBeetweenFootsteps)
+            if(time >= timeBeetweenFootsteps && !_levelController.levelCompleted)
             {
                 time = 0;
                 switch (footstepNumber)
@@ -75,7 +79,7 @@ public class MeleeRunBehavior : StateMachineBehaviour
             isPlayingWalkingSFX = false;
         }
 
-        if (_movementController.velX == 0 || _movementController.groundInFront)
+        if (_movementController.velX == 0 || _movementController.groundInFront || _levelController.levelCompleted)
         {
             animator.Play("MeleeIdle");
         }

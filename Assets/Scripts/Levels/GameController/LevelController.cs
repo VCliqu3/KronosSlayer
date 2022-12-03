@@ -24,6 +24,8 @@ public class LevelController : MonoBehaviour
 
     public bool levelCompleted = false;
 
+    public float timeToPopUpLevelCompletePanel = 1f;
+
     void Start()
     {
         CursorController.onGameplay = true;
@@ -95,14 +97,14 @@ public class LevelController : MonoBehaviour
 
     public void ActivateLevelCompletePanel()
     {
-        levelCompleted = true;
+ 
         levelCompletePanel.SetActive(true);
 
-        
+        /*
         Time.timeScale = 0f;
         PauseController.gamePaused = true;
+        */
         
-
         CursorController.onGameplay = false;
 
         FindObjectOfType<ClockController>().levelTimeCanDecrease = false;
@@ -116,31 +118,43 @@ public class LevelController : MonoBehaviour
 
     public IEnumerator NextLevelLogic()
     {
-        GameObject[] basicEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        int numberEnemiesRemaining = basicEnemies.Length;
+        if (!levelCompleted)
+        {
+            GameObject[] basicEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            int numberEnemiesRemaining = basicEnemies.Length;
 
-        if(numberEnemiesRemaining <= 0)
-        {
-            ActivateLevelCompletePanel();
-        }
-        else
-        {
-            if (!denyNextLevelPanel.activeInHierarchy)
+            if (numberEnemiesRemaining <= 0)
             {
-                ActivateDenyNextLevelPanel();
-                if (numberEnemiesRemaining > 1)
+                levelCompleted = true;
+
+                FindObjectOfType<MovementController>().Stop();
+                FindObjectOfType<MovementController>().StopOnY();
+
+                //_endGateAnimator.SetTrigger("Open");
+
+                yield return new WaitForSeconds(timeToPopUpLevelCompletePanel);
+
+                ActivateLevelCompletePanel();            
+            }
+            else
+            {
+                if (!denyNextLevelPanel.activeInHierarchy)
                 {
-                    denyNextLevelPanelText.text = "Aun quedan " + numberEnemiesRemaining + " enemigos por eliminar.";
+                    ActivateDenyNextLevelPanel();
+                    if (numberEnemiesRemaining > 1)
+                    {
+                        denyNextLevelPanelText.text = "Aun quedan " + numberEnemiesRemaining + " enemigos por eliminar.";
+                    }
+                    else
+                    {
+                        denyNextLevelPanelText.text = "Aun queda " + numberEnemiesRemaining + " enemigo por eliminar.";
+                    }
+                    denyNextLevelPanel.GetComponent<Animator>().SetTrigger("PopUp");
+                    yield return new WaitForSeconds(timeDenyNextLevelPanelActive);
+                    denyNextLevelPanel.GetComponent<Animator>().SetTrigger("Close");
+                    yield return new WaitUntil(() => denyNextLevelPanelText.fontSize == 0); //Se espera que se haya cerrado si el tamaño del texto es 0;
+                    denyNextLevelPanel.SetActive(false);
                 }
-                else
-                {
-                    denyNextLevelPanelText.text = "Aun queda " + numberEnemiesRemaining + " enemigo por eliminar.";
-                }
-                denyNextLevelPanel.GetComponent<Animator>().SetTrigger("PopUp");
-                yield return new WaitForSeconds(timeDenyNextLevelPanelActive);
-                denyNextLevelPanel.GetComponent<Animator>().SetTrigger("Close");
-                yield return new WaitUntil(() => denyNextLevelPanelText.fontSize == 0); //Se espera que se haya cerrado si el tamaño del texto es 0;
-                denyNextLevelPanel.SetActive(false);
             }
         }
 

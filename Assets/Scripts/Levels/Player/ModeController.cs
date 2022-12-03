@@ -13,6 +13,8 @@ public class ModeController : MonoBehaviour
     private RangedController _rangedController;
     private HealthController _healthController;
 
+    private LevelController _levelController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class ModeController : MonoBehaviour
         _meleeController = GetComponent<MeleeController>();
         _rangedController = GetComponent<RangedController>();
         _healthController = GetComponent<HealthController>();
+
+        _levelController = FindObjectOfType<LevelController>();
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class ModeController : MonoBehaviour
 
     void EnableDisableChangeMode()
     {
-        if(!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused)
+        if(!_meleeController.isAttacking && !_meleeController.isOnAttackTransition && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused && !_levelController.levelCompleted)
         {
             canChangeMod = true;
         }

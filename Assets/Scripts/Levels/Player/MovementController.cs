@@ -180,7 +180,7 @@ public class MovementController : MonoBehaviour
 
     void Dash()
     {
-        if (Input.GetKeyDown("e") && dashEnabled && !_healthController.isHurting && !_healthController.playerHasDied) //&& !_meleeController.isAttacking 
+        if (Input.GetKeyDown("e") && dashEnabled && !_healthController.isHurting && !_healthController.playerHasDied && !_levelController.levelCompleted) //&& !_meleeController.isAttacking 
         {
             _animator.SetTrigger("Dash");
             StartCoroutine(Dashing());

@@ -38,6 +38,8 @@ public class RangedController : MonoBehaviour
 
     private HUDController _HUDController;
 
+    private LevelController _levelController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,8 @@ public class RangedController : MonoBehaviour
 
         _HUDController = FindObjectOfType<HUDController>();
         //_HUDController.SetOverheatBar();
+
+        _levelController = FindObjectOfType<LevelController>();
 
         time = 1 / fireRate;
     }
@@ -64,7 +68,7 @@ public class RangedController : MonoBehaviour
 
     void EnableDisableShooting()
     {
-        if (ModeController.isRanged && !gunIsOverheated && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused && !PauseButonController.mouseOnPauseButton) //&& !PauseButonController.mouseOnPauseButton
+        if (ModeController.isRanged && !gunIsOverheated && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused && !PauseButonController.mouseOnPauseButton && !_levelController.levelCompleted) //&& !PauseButonController.mouseOnPauseButton
         {
             shootEnable = true;
         }

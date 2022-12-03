@@ -48,6 +48,8 @@ public class MeleeController : MonoBehaviour
     public float sniperSIScale = 1f;
     public float KKSIScale = 1f;
 
+    private LevelController _levelController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,8 @@ public class MeleeController : MonoBehaviour
         _movementController = GetComponent<MovementController>();
         _healthController = GetComponent<HealthController>();
         _handHeadController = GetComponent<HandHeadController>();
+
+        _levelController = FindObjectOfType<LevelController>();
     }
 
     // Update is called once per frame
@@ -66,7 +70,7 @@ public class MeleeController : MonoBehaviour
 
     void EnableDisableAttack()
     {
-        if(!ModeController.isRanged && !isAttacking && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused && !PauseButonController.mouseOnPauseButton) //&& _movementController.isGrounded si no se quiere que ataque saltando //&& !PauseButonController.mouseOnPauseButton
+        if(!ModeController.isRanged && !isAttacking && !_movementController.isDashing && !_healthController.isHurting && !_healthController.playerHasDied && !PauseController.gamePaused && !PauseButonController.mouseOnPauseButton && !_levelController.levelCompleted) //&& _movementController.isGrounded si no se quiere que ataque saltando //&& !PauseButonController.mouseOnPauseButton
         {
             attackEnable = true;
         }

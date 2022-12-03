@@ -194,7 +194,7 @@ public class KKJumpAttackController : MonoBehaviour
                     _KKAttackController.CreateFeedbackImpactVFX(_KKAttackController.ShieldImpactVFX, player.transform, _KKAttackController.playerSIScale, 0.5f, 1.2f);
                 }
 
-                _healthController.TakeDamage(jumpAttackDamage, jumpAttackDamage);
+                _healthController.TakeDamage(jumpAttackDamage, jumpAttackShieldPenetration);
 
                 if (_healthController.health < startingHealth)
                 {

@@ -7,6 +7,8 @@ public class RangedRunBehavior : StateMachineBehaviour
     private MovementController _movementController;
     private RangedController _rangedController;
 
+    private LevelController _levelController;
+
     public string WalkingSFXName;
     private bool isPlayingWalkingSFX = false;
 
@@ -28,6 +30,8 @@ public class RangedRunBehavior : StateMachineBehaviour
         _movementController = animator.gameObject.GetComponent<MovementController>();
         _rangedController = animator.gameObject.GetComponent<RangedController>();
 
+        _levelController = FindObjectOfType<LevelController>();
+
         time = timeBeetweenFootsteps-timeforFirtsFootstep;
         footstepNumber = 1;
     }
@@ -39,7 +43,7 @@ public class RangedRunBehavior : StateMachineBehaviour
         {
             time += Time.deltaTime;
 
-            if (time >= timeBeetweenFootsteps)
+            if (time >= timeBeetweenFootsteps && !_levelController.levelCompleted)
             {
                 time = 0;
                 switch (footstepNumber)
@@ -75,7 +79,7 @@ public class RangedRunBehavior : StateMachineBehaviour
             isPlayingWalkingSFX = false;
         }
 
-        if(_movementController.velX == 0 || _movementController.groundInFront)
+        if(_movementController.velX == 0 || _movementController.groundInFront || _levelController.levelCompleted)
         {
             animator.Play("RangedIdle");
         }

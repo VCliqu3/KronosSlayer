@@ -7,12 +7,16 @@ public class MeleeIdleBehavior : StateMachineBehaviour
     private MovementController _movementController;
     private MeleeController _meleeController;
 
+    private LevelController _levelController;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _movementController = animator.gameObject.GetComponent<MovementController>();
         _meleeController = animator.gameObject.GetComponent<MeleeController>();
-      
+
+        _levelController = FindObjectOfType<LevelController>();
+
         _meleeController.attackingBehind = false;              
     }
 
@@ -20,7 +24,7 @@ public class MeleeIdleBehavior : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        if (_movementController.velX != 0 && !_movementController.groundInFront) //Si Corre
+        if (_movementController.velX != 0 && !_movementController.groundInFront && !_levelController.levelCompleted) //Si Corre
         {
             animator.Play("MeleeRun");
         }

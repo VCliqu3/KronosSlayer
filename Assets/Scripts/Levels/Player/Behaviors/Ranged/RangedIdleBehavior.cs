@@ -7,17 +7,21 @@ public class RangedIdleBehavior : StateMachineBehaviour
     private MovementController _movementController;
     private RangedController _rangedController;
 
+    private LevelController _levelController;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _movementController = animator.gameObject.GetComponent<MovementController>();
         _rangedController = animator.gameObject.GetComponent<RangedController>();
+
+        _levelController = FindObjectOfType<LevelController>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (_movementController.velX != 0 && !_movementController.groundInFront)
+        if (_movementController.velX != 0 && !_movementController.groundInFront && !_levelController.levelCompleted)
         {
             animator.Play("RangedRun");
         }
