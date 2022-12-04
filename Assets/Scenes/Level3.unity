@@ -105579,6 +105579,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 705d354027c646f42a901afdff373e0c, type: 3}
+--- !u!1 &3586711701360794144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3586711703294300103, guid: 705d354027c646f42a901afdff373e0c, type: 3}
+  m_PrefabInstance: {fileID: 3586711701360794143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5994970370321154488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105783,9 +105788,17 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 7702469664159287072, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
+      propertyPath: endGate
+      value: 
+      objectReference: {fileID: 3586711701360794144}
+    - target: {fileID: 7702469664159287072, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
       propertyPath: levelText
       value: 
       objectReference: {fileID: 881565769}
+    - target: {fileID: 7702469664159287072, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
+      propertyPath: startGate
+      value: 
+      objectReference: {fileID: 8663972812745127591}
     - target: {fileID: 7702469664159287072, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
       propertyPath: deathPanel
       value: 
@@ -106264,6 +106277,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f24c22eee72a5b24d9672de7b1fc6ca2, type: 3}
+--- !u!1 &8663972812745127591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8663972814201353332, guid: f24c22eee72a5b24d9672de7b1fc6ca2, type: 3}
+  m_PrefabInstance: {fileID: 8663972812745127590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8781131866207421514
 PrefabInstance:
   m_ObjectHideFlags: 0

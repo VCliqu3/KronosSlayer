@@ -160,7 +160,7 @@ public class LevelController : MonoBehaviour
                 FindObjectOfType<MovementController>().StopOnY();
 
                 AudioManager.instance.PlaySFX(nameSFXgateOpen);
-                //endGate.GetComponent<Animator>().SetTrigger("Open");
+                endGate.GetComponent<Animator>().SetTrigger("Open");
 
                 yield return new WaitForSeconds(timeToPopUpLevelCompletePanel);
 
@@ -193,11 +193,11 @@ public class LevelController : MonoBehaviour
 
     public IEnumerator CloseStartGate(float time)
     {
-        //startGate.GetComponent<Animator>().SetTrigger("Open") //La animacion solo cambia al sprite de puerta abierta
+        startGate.GetComponent<Animator>().SetTrigger("Open"); //La animacion solo cambia al sprite de puerta abierta
 
         yield return new WaitForSeconds(time);
 
         AudioManager.instance.PlaySFX(nameSFXgateClose);
-        //startGate.GetComponent<Animator>().SetTrigger("Close") //Se cierra la puerta, estado abierto -> cerrado
+        startGate.GetComponent<Animator>().SetTrigger("Close"); //Se cierra la puerta, estado abierto -> cerrado
     }
 }
