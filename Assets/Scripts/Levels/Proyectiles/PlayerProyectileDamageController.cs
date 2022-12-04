@@ -17,6 +17,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
     //SFX
 
     public string nameSFXenemyShieldImpactProyectile;
+    public string nameSFXenemyTakeDamageProyectile;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -39,6 +40,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
                 if (_BEHealthController.health < startingHealth)
                 {
                     CreateFeedbackImpactVFX(basicEnemyHealthImpactVFX, collision.transform, scaleVFX, 1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXenemyTakeDamageProyectile);
                 }
 
                 Destroy(gameObject);

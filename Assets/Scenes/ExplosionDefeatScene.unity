@@ -421,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  nameSFXbombExplosion: Clock_BombExplosion
 --- !u!1 &1029422100
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 288420057}
+  nameSFXbombExplosion: 
 --- !u!1 &1452116144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,6 +1480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 288420057}
+  nameSFXbombExplosion: 
 --- !u!1 &2106719832
 GameObject:
   m_ObjectHideFlags: 0

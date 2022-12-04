@@ -54,6 +54,10 @@ public class MeleeController : MonoBehaviour
 
     public string nameSFXenemyShieldImpactSword;
 
+    public string nameSFXcreepTakeDamageSword;
+    public string nameSFXtankTakeDamageSword;
+    public string nameSFXsniperTakeDamageSword;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -157,16 +161,19 @@ public class MeleeController : MonoBehaviour
                 if (basicEnemy.GetComponent<CreepShootController>() != null)
                 {
                     CreateFeedbackImpactVFX(BasicEnemyHealthImpactVFX, basicEnemy.transform, creepSIScale, 0f, 1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXcreepTakeDamageSword);
                 }
 
                 if (basicEnemy.GetComponent<TankAttackController>() != null)
                 {
                     CreateFeedbackImpactVFX(BasicEnemyHealthImpactVFX, basicEnemy.transform, tankIScale, 0f, 1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXtankTakeDamageSword);
                 }
 
                 if (basicEnemy.GetComponent<SniperShootController>() != null)
                 {
                     CreateFeedbackImpactVFX(BasicEnemyHealthImpactVFX, basicEnemy.transform, sniperSIScale, 0f, 1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXsniperTakeDamageSword);
                 }
             }
         }

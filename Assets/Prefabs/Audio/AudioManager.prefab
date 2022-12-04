@@ -67,14 +67,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e99fc47d1cec5dc449d12205e7a1df91, type: 3}
   - name: Player_ShieldImpact
     clip: {fileID: 8300000, guid: bb0fa5b5023be574797d8add97d8c4e9, type: 3}
+  - name: Player_TakeDamage
+    clip: {fileID: 8300000, guid: efedac1eaa779a042a542359f82b25c4, type: 3}
   - name: Enemy_ShieldImpactProyectile
     clip: {fileID: 8300000, guid: 45879307377b0194e81b47145bb88949, type: 3}
+  - name: Enemy_TakeDamageProyectile
+    clip: {fileID: 8300000, guid: a5c6438139ce7fe44bad0da6cbf0497f, type: 3}
   - name: Enemy_ShieldImpactSword
     clip: {fileID: 8300000, guid: 0506c9a802173b64080227a599ac5133, type: 3}
   - name: Creep_Shoot
     clip: {fileID: 8300000, guid: fdd19620bfd7ef44b9620b9aed407b22, type: 3}
+  - name: Creep_TakeDamageSword
+    clip: {fileID: 8300000, guid: 08758804d2c648348959d04b9b6da7fc, type: 3}
+  - name: Tank_TakeDamageSword
+    clip: {fileID: 8300000, guid: efc2db87649eda543a2007788182022c, type: 3}
   - name: Sniper_Shoot
     clip: {fileID: 8300000, guid: b20d918599aea974a9054238de1adbc1, type: 3}
+  - name: Sniper_TakeDamageSword
+    clip: {fileID: 8300000, guid: c7737c0fb38b92443a974221d6ff46f4, type: 3}
   - name: Proyectile_TerrainCollision
     clip: {fileID: 8300000, guid: 10bb663c9b65a7e438868e2296e266bb, type: 3}
   - name: Clock_Minutes
@@ -85,12 +95,20 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b86492b62da71e94ba08e9022df57579, type: 3}
   - name: Clock_BombCharging
     clip: {fileID: 8300000, guid: 60401bde4753c0647aa6876aa69ff626, type: 3}
+  - name: Clock_BombExplosion
+    clip: {fileID: 8300000, guid: 337c0f141886e6a4595260ec33fc7928, type: 3}
+  - name: Level_PauseOpen
+    clip: {fileID: 8300000, guid: 03dfb159cac30c8488702750eeff69fe, type: 3}
+  - name: Level_PauseClose
+    clip: {fileID: 8300000, guid: 64df267476d17bf4bbc2e9e24e4c0f12, type: 3}
   - name: Level_DenyLevelCompletePanel
     clip: {fileID: 8300000, guid: 9de987abcf6600f408a8db2b50d74ac1, type: 3}
   - name: Level_LevelCompletePanel
     clip: {fileID: 8300000, guid: b4c5369be1bbc144db434140ed85d1a9, type: 3}
   - name: Level_GateOpen
     clip: {fileID: 8300000, guid: e9b8a646ecf9ca24eaa771d8bd0d2f8b, type: 3}
+  - name: Level_GateClose
+    clip: {fileID: 8300000, guid: ec0c38b4c4fdac14ab5e4e8ae0d651b5, type: 3}
   - name: Level_DeathPanel
     clip: {fileID: 8300000, guid: afbdf7cc656d77b42ab4d190ddb33445, type: 3}
   musicSource: {fileID: 348770840701301200}

@@ -172,3 +172,4 @@ MonoBehaviour:
   KKHealthImpactVFX: {fileID: 8613953979343519463, guid: 4d5fb9e8b62405e4280687f76bed9f56, type: 3}
   scaleVFX: 1
   nameSFXenemyShieldImpactProyectile: Enemy_ShieldImpactProyectile
+  nameSFXenemyTakeDamageProyectile: Enemy_TakeDamageProyectile

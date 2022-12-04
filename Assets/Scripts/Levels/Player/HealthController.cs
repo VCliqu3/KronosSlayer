@@ -36,6 +36,7 @@ public class HealthController : MonoBehaviour
     //SFX
 
     public string nameSFXPplayerShieldImpact;
+    public string nameSFXplayerTakeDamage;
 
     void Awake()
     {
@@ -117,7 +118,7 @@ public class HealthController : MonoBehaviour
             if (healthTookDamage)
             {
                 StartCoroutine(HurtPlayer());
-                //SparkEffect;
+                AudioManager.instance.PlaySFX(nameSFXplayerTakeDamage);
             }
             if (shieldTookDamage)
             {

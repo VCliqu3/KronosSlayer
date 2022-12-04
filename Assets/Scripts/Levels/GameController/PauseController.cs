@@ -16,6 +16,11 @@ public class PauseController : MonoBehaviour
     private Animator _pausePanelAnimator;
     private Image _pausePanelImage;
 
+    //SFX
+
+    public string nameSFXpauseOpen;
+    public string nameSFXpauseClose;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +50,8 @@ public class PauseController : MonoBehaviour
 
     public void Pause()
     {
+        AudioManager.instance.PlaySFX(nameSFXpauseOpen);
+
         pausePanel.SetActive(true);
         _pausePanelAnimator.SetTrigger("Pause");
 
@@ -56,6 +63,8 @@ public class PauseController : MonoBehaviour
 
     public IEnumerator Resume()
     {
+        AudioManager.instance.PlaySFX(nameSFXpauseClose);
+
         _pausePanelAnimator.SetTrigger("Resume");
         yield return new WaitUntil(() => _pausePanelImage.color.a == 0); //Se espera que sea completamente transparente
         pausePanel.SetActive(false);

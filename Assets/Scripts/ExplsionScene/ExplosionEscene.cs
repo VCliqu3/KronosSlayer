@@ -8,6 +8,15 @@ public class ExplosionEscene : MonoBehaviour
 {
     public Animator animator;
 
+    //SFX
+
+    public string nameSFXbombExplosion;
+
+    void Start()
+    {
+        AudioManager.instance.PlaySFX(nameSFXbombExplosion);
+    }
+
     //-------ReintentarLvl1-------//
 
     public void ReintentarButonlvl1()
