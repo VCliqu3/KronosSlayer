@@ -60,10 +60,14 @@ MonoBehaviour:
   timeDenyNextLevelPanelActive: 2
   levelCompleted: 0
   timeToPopUpLevelCompletePanel: 1
+  startGate: {fileID: 0}
+  endGate: {fileID: 0}
+  timeForStartGateClose: 2
   nameSFXdenyLevelCompletePanel: Level_DenyLevelCompletePanel
   nameSFXlevelCompletePanel: Level_LevelCompletePanel
   nameSFXdeathPanel: Level_DeathPanel
   nameSFXgateOpen: Level_GateOpen
+  nameSFXgateClose: Level_GateClose
 --- !u!114 &7702469664159287075
 MonoBehaviour:
   m_ObjectHideFlags: 0
