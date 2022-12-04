@@ -59,7 +59,7 @@ MonoBehaviour:
   denyNextLevelPanelText: {fileID: 0}
   timeDenyNextLevelPanelActive: 2
   levelCompleted: 0
-  timeToPopUpLevelCompletePanel: 1
+  timeToPopUpLevelCompletePanel: 1.5
   startGate: {fileID: 0}
   endGate: {fileID: 0}
   timeForStartGateClose: 2
@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c1fdadbf0f62149a340ed9ae653670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seeGameisPaused: 0
   animator: {fileID: 0}
   pausePanel: {fileID: 0}
   volumePanel: {fileID: 0}
