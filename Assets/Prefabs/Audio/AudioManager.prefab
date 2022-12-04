@@ -65,10 +65,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6b256b9408d108d43b8ecb630eea37ba, type: 3}
   - name: Player_Dash
     clip: {fileID: 8300000, guid: e99fc47d1cec5dc449d12205e7a1df91, type: 3}
+  - name: Player_ShieldImpact
+    clip: {fileID: 8300000, guid: bb0fa5b5023be574797d8add97d8c4e9, type: 3}
+  - name: Enemy_ShieldImpactProyectile
+    clip: {fileID: 8300000, guid: 45879307377b0194e81b47145bb88949, type: 3}
+  - name: Enemy_ShieldImpactSword
+    clip: {fileID: 8300000, guid: 0506c9a802173b64080227a599ac5133, type: 3}
   - name: Creep_Shoot
     clip: {fileID: 8300000, guid: fdd19620bfd7ef44b9620b9aed407b22, type: 3}
   - name: Sniper_Shoot
     clip: {fileID: 8300000, guid: b20d918599aea974a9054238de1adbc1, type: 3}
+  - name: Proyectile_TerrainCollision
+    clip: {fileID: 8300000, guid: 10bb663c9b65a7e438868e2296e266bb, type: 3}
   - name: Clock_Minutes
     clip: {fileID: 8300000, guid: 07fc5a7ed8e7a014b8a15413b6b3ee8f, type: 3}
   - name: Clock_20Seconds

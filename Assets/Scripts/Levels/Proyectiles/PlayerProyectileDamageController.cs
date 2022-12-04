@@ -14,6 +14,10 @@ public class PlayerProyectileDamageController : MonoBehaviour
 
     public float scaleVFX;
 
+    //SFX
+
+    public string nameSFXenemyShieldImpactProyectile;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -27,6 +31,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
                 if (_BEHealthController.shield > 0)
                 {
                     CreateFeedbackImpactVFX(ShieldImpactVFX, collision.transform, scaleVFX, 1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXenemyShieldImpactProyectile);
                 }
 
                 _BEHealthController.TakeDamage(damage, shieldPenetration);
@@ -51,6 +56,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
                 if (_KKHealthController.shield > 0)
                 {
                     CreateFeedbackImpactVFX(ShieldImpactVFX,collision.transform,scaleVFX,1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXenemyShieldImpactProyectile);
                 }
 
                 _KKHealthController.TakeDamage(damage, shieldPenetration);
@@ -63,6 +69,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+     
     }
 
     public void CreateFeedbackImpactVFX(GameObject feedbackVFX, Transform entHit,float scale, float timeToAutodestroy)

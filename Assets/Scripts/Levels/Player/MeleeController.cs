@@ -50,6 +50,10 @@ public class MeleeController : MonoBehaviour
 
     private LevelController _levelController;
 
+    //SFX
+
+    public string nameSFXenemyShieldImpactSword;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -142,6 +146,8 @@ public class MeleeController : MonoBehaviour
                 {
                     CreateFeedbackImpactVFX(ShieldImpactVFX, basicEnemy.transform, sniperSIScale, 0f, 1.2f);
                 }
+
+                AudioManager.instance.PlaySFX(nameSFXenemyShieldImpactSword);
             }
 
             _BEHealthController.TakeDamage(damage, shieldPenetration);
@@ -177,6 +183,7 @@ public class MeleeController : MonoBehaviour
                 if (_KKHealthController.shield > 0)
                 {
                     CreateFeedbackImpactVFX(ShieldImpactVFX, kk.transform, KKSIScale, 1f, 1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXenemyShieldImpactSword);
                 }
 
                _KKHealthController.TakeDamage(damage, shieldPenetration);

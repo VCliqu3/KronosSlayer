@@ -152,6 +152,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   secondsToDestroy: 5
   terrainCollisionEffect: {fileID: 6116977404448577453, guid: d90a6655d83d81b4a85fee4a199686c1, type: 3}
+  nameSFXproyectileTerrainCollision: Proyectile_TerrainCollision
 --- !u!114 &-15396162136641289
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -629,6 +629,7 @@ MonoBehaviour:
   timeToPopUpDeathPanel: 2
   bouncyMaterial: {fileID: 6200000, guid: febafc74fd870b644a50af28e0ae1baf, type: 2}
   deathImpulseY: 2
+  nameSFXPplayerShieldImpact: Player_ShieldImpact
 --- !u!114 &7768970591787628308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,6 +753,7 @@ MonoBehaviour:
   tankIScale: 2.5
   sniperSIScale: 2
   KKSIScale: 2
+  nameSFXenemyShieldImpactSword: Enemy_ShieldImpactSword
 --- !u!114 &7768970591787628313
 MonoBehaviour:
   m_ObjectHideFlags: 0

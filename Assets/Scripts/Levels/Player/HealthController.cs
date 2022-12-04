@@ -33,6 +33,10 @@ public class HealthController : MonoBehaviour
     public PhysicsMaterial2D bouncyMaterial;
     public float deathImpulseY = 2f;
 
+    //SFX
+
+    public string nameSFXPplayerShieldImpact;
+
     void Awake()
     {
         health = maxHealth;
@@ -117,7 +121,7 @@ public class HealthController : MonoBehaviour
             }
             if (shieldTookDamage)
             {
-                //ShieldSparkEffect
+                AudioManager.instance.PlaySFX(nameSFXPplayerShieldImpact);
             }
 
             _HUDController.SetHealthBar();

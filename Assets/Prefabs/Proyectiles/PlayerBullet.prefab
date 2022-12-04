@@ -152,6 +152,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   secondsToDestroy: 5
   terrainCollisionEffect: {fileID: 6116977404448577453, guid: 99ba604fc0c8c9244910f8e173414127, type: 3}
+  nameSFXproyectileTerrainCollision: Proyectile_TerrainCollision
 --- !u!114 &7384972147389863503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,3 +171,4 @@ MonoBehaviour:
   basicEnemyHealthImpactVFX: {fileID: 8613953979343519463, guid: 1ed7228687bb7b94eafc39ad25550abb, type: 3}
   KKHealthImpactVFX: {fileID: 8613953979343519463, guid: 4d5fb9e8b62405e4280687f76bed9f56, type: 3}
   scaleVFX: 1
+  nameSFXenemyShieldImpactProyectile: Enemy_ShieldImpactProyectile

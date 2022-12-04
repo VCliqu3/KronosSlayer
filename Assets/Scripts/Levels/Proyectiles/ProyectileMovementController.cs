@@ -13,6 +13,10 @@ public class ProyectileMovementController : MonoBehaviour
 
     public GameObject terrainCollisionEffect;
 
+    //SFX
+
+    public string nameSFXproyectileTerrainCollision;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +41,10 @@ public class ProyectileMovementController : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             GameObject TCEffect = Instantiate(terrainCollisionEffect, transform.position, transform.rotation);
-
             Destroy(TCEffect, 2f);
+
+            AudioManager.instance.PlaySFX(nameSFXproyectileTerrainCollision);
+
             Destroy(gameObject);
             
         }
