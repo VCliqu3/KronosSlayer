@@ -116,9 +116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c1fdadbf0f62149a340ed9ae653670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeGameisPaused: 0
   animator: {fileID: 0}
   pausePanel: {fileID: 0}
   volumePanel: {fileID: 0}
+  setStartPause: 1
   nameSFXpauseOpen: Level_PauseOpen
   nameSFXpauseClose: Level_PauseClose
 --- !u!114 &7702469664159287077

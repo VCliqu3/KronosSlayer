@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
-    public bool seeGameisPaused;
-
     static public bool gamePaused;
     static public bool canPauseGame;
 
@@ -18,6 +16,8 @@ public class PauseController : MonoBehaviour
     private Animator _pausePanelAnimator;
     private Image _pausePanelImage;
 
+    public bool setStartPause = false;
+
     //SFX
 
     public string nameSFXpauseOpen;
@@ -26,7 +26,11 @@ public class PauseController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gamePaused = false;
+        if (setStartPause)
+        {
+            gamePaused = false;
+        }
+
         canPauseGame = true;
 
         _pausePanelAnimator = pausePanel.GetComponent<Animator>();
@@ -37,8 +41,6 @@ public class PauseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        seeGameisPaused = gamePaused;
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!gamePaused && canPauseGame)
@@ -46,7 +48,7 @@ public class PauseController : MonoBehaviour
                 gamePaused = true;
                 Pause();
             }
-            else if (pausePanel.activeInHierarchy && !volumePanel.activeInHierarchy)
+            else if (pausePanel.activeInHierarchy && !volumePanel.activeInHierarchy && gamePaused)
             {
                 StartCoroutine(Resume());
             }
