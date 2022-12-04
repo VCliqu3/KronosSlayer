@@ -85,6 +85,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b86492b62da71e94ba08e9022df57579, type: 3}
   - name: Clock_BombCharging
     clip: {fileID: 8300000, guid: 60401bde4753c0647aa6876aa69ff626, type: 3}
+  - name: Level_DenyLevelCompletePanel
+    clip: {fileID: 8300000, guid: 9de987abcf6600f408a8db2b50d74ac1, type: 3}
+  - name: Level_LevelCompletePanel
+    clip: {fileID: 8300000, guid: b4c5369be1bbc144db434140ed85d1a9, type: 3}
+  - name: Level_GateOpen
+    clip: {fileID: 8300000, guid: e9b8a646ecf9ca24eaa771d8bd0d2f8b, type: 3}
+  - name: Level_DeathPanel
+    clip: {fileID: 8300000, guid: afbdf7cc656d77b42ab4d190ddb33445, type: 3}
   musicSource: {fileID: 348770840701301200}
   sfxSource: {fileID: 348770840605684754}
   perpetualSFXSource: {fileID: 348770840887326211}

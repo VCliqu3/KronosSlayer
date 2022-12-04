@@ -28,6 +28,13 @@ public class LevelController : MonoBehaviour
 
     private ClockController _clockController;
 
+    //SFX
+
+    public string nameSFXdenyLevelCompletePanel;
+    public string nameSFXlevelCompletePanel;
+    public string nameSFXdeathPanel;
+    public string nameSFXgateOpen;
+
     void Start()
     {
         _clockController = GetComponent<ClockController>();
@@ -92,6 +99,8 @@ public class LevelController : MonoBehaviour
 
     public void ActivateDeathPanel()
     {
+        AudioManager.instance.PlaySFX(nameSFXdeathPanel);
+
         deathPanel.SetActive(true);
         CursorController.onGameplay = false;
 
@@ -103,7 +112,7 @@ public class LevelController : MonoBehaviour
 
     public void ActivateLevelCompletePanel()
     {
- 
+        AudioManager.instance.PlaySFX(nameSFXlevelCompletePanel);
         levelCompletePanel.SetActive(true);
 
         /*
@@ -116,6 +125,7 @@ public class LevelController : MonoBehaviour
 
     public void ActivateDenyNextLevelPanel()
     {
+        AudioManager.instance.PlaySFX(nameSFXdenyLevelCompletePanel);
         denyNextLevelPanel.SetActive(true);
     }
 
@@ -137,6 +147,7 @@ public class LevelController : MonoBehaviour
                 FindObjectOfType<MovementController>().Stop();
                 FindObjectOfType<MovementController>().StopOnY();
 
+                AudioManager.instance.PlaySFX(nameSFXgateOpen);
                 //_endGateAnimator.SetTrigger("Open");
 
                 yield return new WaitForSeconds(timeToPopUpLevelCompletePanel);
@@ -156,6 +167,7 @@ public class LevelController : MonoBehaviour
                     {
                         denyNextLevelPanelText.text = "Aun queda " + numberEnemiesRemaining + " enemigo por eliminar.";
                     }
+
                     denyNextLevelPanel.GetComponent<Animator>().SetTrigger("PopUp");
                     yield return new WaitForSeconds(timeDenyNextLevelPanelActive);
                     denyNextLevelPanel.GetComponent<Animator>().SetTrigger("Close");
