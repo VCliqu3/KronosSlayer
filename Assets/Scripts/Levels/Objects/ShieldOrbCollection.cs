@@ -14,6 +14,10 @@ public class ShieldOrbCollection : MonoBehaviour
     public float timeForCollection;
     private float time;
 
+    //VFX
+
+    public GameObject shieldOrbCollectedVFX;
+
     void Update()
     {
         time += Time.deltaTime;
@@ -35,6 +39,10 @@ public class ShieldOrbCollection : MonoBehaviour
             if(_healthController.shield < _healthController.maxShield)
             {
                 _healthController.AddShield(shieldAmount);
+
+                GameObject shieldOCVFX = Instantiate(shieldOrbCollectedVFX, transform.position, transform.rotation);
+                Destroy(shieldOCVFX, 1.2f);
+
                 Destroy(gameObject);
             }
         }

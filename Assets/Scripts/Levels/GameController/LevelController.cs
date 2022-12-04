@@ -120,7 +120,11 @@ public class LevelController : MonoBehaviour
 
     public void ActivateLevelCompletePanel()
     {
-        AudioManager.instance.PlaySFX(nameSFXlevelCompletePanel);
+        if (!((SceneManager.GetActiveScene().buildIndex) == level1BuildIndex + 3)) //Si no es el nivel 4 (KingKronos)
+        {
+            AudioManager.instance.PlaySFX(nameSFXlevelCompletePanel);
+        }
+       
         levelCompletePanel.SetActive(true);
 
         /*

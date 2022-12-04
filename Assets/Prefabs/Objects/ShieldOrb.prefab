@@ -181,3 +181,4 @@ MonoBehaviour:
   collectionRange: 0.25
   shieldAmount: 5
   timeForCollection: 0.5
+  shieldOrbCollectedVFX: {fileID: 3575751325816898975, guid: bc4d69a8301a8ef4c9ead96e048ae976, type: 3}

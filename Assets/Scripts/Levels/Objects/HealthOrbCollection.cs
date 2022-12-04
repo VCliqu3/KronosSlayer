@@ -14,6 +14,10 @@ public class HealthOrbCollection : MonoBehaviour
     public float timeForCollection;
     private float time;
 
+    //VFX
+
+    public GameObject healthOrbCollectedVFX;
+
     void Update()
     {
         time += Time.deltaTime;
@@ -35,6 +39,10 @@ public class HealthOrbCollection : MonoBehaviour
             if (_healthController.health < _healthController.maxHealth)
             {
                 _healthController.AddHealth(healthAmount);
+
+                GameObject healthOCVFX = Instantiate(healthOrbCollectedVFX, transform.position, transform.rotation);
+                Destroy(healthOCVFX, 1.2f);
+
                 Destroy(gameObject);
             }
         }
