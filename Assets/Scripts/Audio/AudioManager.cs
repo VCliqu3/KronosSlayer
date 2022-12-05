@@ -34,17 +34,35 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic(string name)
     {
-        Sound s = Array.Find(musicSounds, x => x.name == name);
+        Sound m = Array.Find(musicSounds, x => x.clip == musicSource.clip); //m es la musica que se esta reproduciendo, puede ser null
 
-        if (s == null)
+        string currentClipName;
+
+        if (m == null)
         {
-            Debug.Log("Sound Not Found");
-            Debug.Log(name);
+            currentClipName = "NoClipPlaying";
         }
         else
         {
-            musicSource.clip = s.clip;
-            musicSource.Play();
+            currentClipName = m.name;
+        }
+
+        if (name != currentClipName)
+        {
+            //
+            Sound s = Array.Find(musicSounds, x => x.name == name);
+
+            if (s == null)
+            {
+                Debug.Log("Sound Not Found");
+                Debug.Log(name);
+            }
+            else
+            {
+                musicSource.clip = s.clip;
+                musicSource.Play();
+            }
+            //
         }
     }
 
