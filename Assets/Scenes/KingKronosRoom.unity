@@ -1129,19 +1129,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3182477934570312518, guid: 37b179abd92af12449cce8f91805cb2f, type: 3}
       propertyPath: health
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3182477934570312518, guid: 37b179abd92af12449cce8f91805cb2f, type: 3}
       propertyPath: shield
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3182477934570312518, guid: 37b179abd92af12449cce8f91805cb2f, type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3182477934570312518, guid: 37b179abd92af12449cce8f91805cb2f, type: 3}
       propertyPath: maxShield
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3182477934570312518, guid: 37b179abd92af12449cce8f91805cb2f, type: 3}
       propertyPath: CurrentColor.a

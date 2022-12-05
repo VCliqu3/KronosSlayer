@@ -1015,7 +1015,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Haruo Watanabe\nGianfranco Huaman\nRaphael Panduro\t\nAndrew Elera\nJhon
-    Carlos\nAlessandro Luque"
+    Carlos\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50afb6431cc0627489031e0c6bee53a7, type: 2}
   m_sharedMaterial: {fileID: 2705773334754895801, guid: 50afb6431cc0627489031e0c6bee53a7, type: 2}
