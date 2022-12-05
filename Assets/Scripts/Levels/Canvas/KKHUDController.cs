@@ -7,6 +7,9 @@ using TMPro;
 
 public class KKHUDController : MonoBehaviour
 {
+    public Color damageBarLowColor;
+    public Color damageBarFullColor;
+
     public Image healthBar;
     public Image shieldBar;
     public Image damageAccumulationBar;
@@ -28,7 +31,8 @@ public class KKHUDController : MonoBehaviour
     public void SetDamageAccumulationBar()
     {
         damageAccumulationBar.fillAmount = _KKHealthController.damageAccumulatedCounter / _KKHealthController.damageAccumulationLimit;
-       
+        damageAccumulationBar.color = Color.Lerp(damageBarLowColor, damageBarFullColor, damageAccumulationBar.fillAmount);
+
     }
     public void SetHealthBar()
     {
