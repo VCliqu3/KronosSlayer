@@ -32849,8 +32849,8 @@ MonoBehaviour:
   Player: {fileID: 1471736319}
   PlayerStartPos: {x: 0, y: 0}
   PlayerPos: {x: 0, y: 0}
-  parallaxEffectX: -0.1
-  parallaxEffectY: -0.1
+  parallaxEffectX: 0
+  parallaxEffectY: 0
 --- !u!4 &1749518884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411369932378024307, guid: 0ae9009d459315e45836f50171e2b931, type: 3}
@@ -34666,6 +34666,7 @@ MonoBehaviour:
   timeToActivateBoss: 3
   timeToOpenDoorAfterBossDeath: 1
   timeToReturnCamToPlayer: 4
+  nameSFXdoorOpen: Level_KingKronosDoorOpen
 --- !u!1001 &7768970591055240465
 PrefabInstance:
   m_ObjectHideFlags: 0

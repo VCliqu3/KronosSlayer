@@ -16,6 +16,10 @@ public class BossBattleController : MonoBehaviour
     public float timeToOpenDoorAfterBossDeath = 1f;
     public float timeToReturnCamToPlayer = 4f;
 
+    //SFX
+
+    public string nameSFXdoorOpen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +43,7 @@ public class BossBattleController : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToOpenDoorAfterBossDeath);
 
+        AudioManager.instance.PlaySFX(nameSFXdoorOpen);
         BossDoorAnimator.SetTrigger("Open");
 
         yield return new WaitForSeconds(timeToReturnCamToPlayer);

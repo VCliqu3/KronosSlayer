@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Haruo Watanabe\nGianfranco Huaman\nRaphael Panduro\t\nAndrew Elera\nJhon
+  m_text: "Haruo Watanabe\nGianfranco Huam\xE1n\nRaphael Panduro\t\nAndrew Elera\nJhon
     Carlos\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50afb6431cc0627489031e0c6bee53a7, type: 2}
