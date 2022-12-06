@@ -1133,6 +1133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 826127878}
   - component: {fileID: 826127879}
+  - component: {fileID: 826127880}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1172,6 +1173,19 @@ MonoBehaviour:
   MeleeCursor: {fileID: 2800000, guid: 081a5b0079742264ca6ec0d5e79621e1, type: 3}
   currentState: NotOnGameplay
   previousState: NotOnGameplay
+--- !u!114 &826127880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826127877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7bcd3b66908f0459ea1525376bad04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMusicScene: MainMenuMusic
 --- !u!1 &852148604
 GameObject:
   m_ObjectHideFlags: 0

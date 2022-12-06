@@ -47,7 +47,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b51cce973f5814498458f1e15286566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds: []
+  musicSounds:
+  - name: MainMenuMusic
+    clip: {fileID: 8300000, guid: 8c88546020d754c40a814c3b2d555a32, type: 3}
+  - name: LevelsMusic
+    clip: {fileID: 8300000, guid: 56c58f97a5bb4c6499775f943479dbb0, type: 3}
+  - name: BossBattleMusic
+    clip: {fileID: 8300000, guid: 885acc9dfc7a1184fb31f841ae6667c2, type: 3}
+  - name: ExplosionSceneMusic
+    clip: {fileID: 8300000, guid: 503073f437b10174bb86709260034180, type: 3}
+  - name: VictorySceneMusic
+    clip: {fileID: 8300000, guid: 5e10adabed2b12445b0d2d7f661b3dc9, type: 3}
+  - name: CreditsSceneMusic
+    clip: {fileID: 8300000, guid: 99115d5a068b7f44aaccbb146607d34a, type: 3}
   sfxSounds:
   - name: Player_Footsteps
     clip: {fileID: 8300000, guid: 7a9a187580a63274485caa6175dc9c84, type: 3}
