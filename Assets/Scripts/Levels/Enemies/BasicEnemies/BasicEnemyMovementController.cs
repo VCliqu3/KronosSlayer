@@ -40,6 +40,7 @@ public class BasicEnemyMovementController : MonoBehaviour
     void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 9);
+        Physics2D.IgnoreLayerCollision(9, 9);
 
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
