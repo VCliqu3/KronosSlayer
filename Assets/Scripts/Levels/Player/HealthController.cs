@@ -115,7 +115,7 @@ public class HealthController : MonoBehaviour
                 StartCoroutine(HurtPlayerBlink());
             }
 
-            if (healthTookDamage)
+            if (healthTookDamage && health !=0)
             {
                 StartCoroutine(HurtPlayer());
                 AudioManager.instance.PlaySFX(nameSFXplayerTakeDamage);

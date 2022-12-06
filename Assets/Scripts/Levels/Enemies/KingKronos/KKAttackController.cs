@@ -34,6 +34,8 @@ public class KKAttackController : MonoBehaviour
 
     public float playerSIScale = 1f;
 
+    public GameObject KingKronosGroundImpactVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,14 @@ public class KKAttackController : MonoBehaviour
         _APR.hitInitialPos = entHit.position + new Vector3(0f, offsetY);
         _APR.entityHitTranform = entHit;
         _APR.CalculateOffsetVector();
+
+        Destroy(fVFX, timeToAutodestroy);
+    }
+    public void CreateGroundImpactVFX(GameObject groundImpVFX, Transform point, float scaleX, float offsetY, float timeToAutodestroy)
+    {
+        GameObject fVFX = Instantiate(groundImpVFX, point.position + new Vector3(0f, offsetY), point.transform.rotation);
+
+        fVFX.transform.localScale = new Vector2(fVFX.transform.localScale.x * scaleX, fVFX.transform.localScale.y);
 
         Destroy(fVFX, timeToAutodestroy);
     }

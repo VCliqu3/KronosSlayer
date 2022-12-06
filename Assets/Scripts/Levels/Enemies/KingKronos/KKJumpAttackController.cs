@@ -202,6 +202,8 @@ public class KKJumpAttackController : MonoBehaviour
                 }
             }
         }
+
+        _KKAttackController.CreateGroundImpactVFX(_KKAttackController.KingKronosGroundImpactVFX, _KKAttackController.attackPoint, _KKAttackController.playerSIScale, 0.15f, 0.5f);
     }
 
     public void SetIsJumpAttackingFalse()

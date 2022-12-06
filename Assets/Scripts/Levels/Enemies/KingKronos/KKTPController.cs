@@ -208,8 +208,10 @@ public class KKTPController : MonoBehaviour
                 {
                     _KKAttackController.CreateFeedbackImpactVFX(_KKAttackController.PlayerImpactVFX, player.transform, _KKAttackController.playerSIScale, 0.5f, 1.2f);
                 }
-            }
+            }  
         }
+
+        _KKAttackController.CreateGroundImpactVFX(_KKAttackController.KingKronosGroundImpactVFX, _KKAttackController.attackPoint, _KKAttackController.playerSIScale, 0.15f, 0.5f);
     }
 
     public void SetGottenUpTrue()

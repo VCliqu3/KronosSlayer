@@ -342,6 +342,8 @@ MonoBehaviour:
   ShieldImpactVFX: {fileID: 8837376511160648931, guid: 6f56ee5fe570efb49a6e18ba4749b371, type: 3}
   PlayerImpactVFX: {fileID: 8613953979343519463, guid: e4c12c1e066af7c40ba4538eed63e357, type: 3}
   playerSIScale: 1.5
+  TankGroundImpactVFX: {fileID: 4215960560296174562, guid: e52f8eb8f0f38614fbf57458de6d1459, type: 3}
+  nameSFXtankGroundImpact: Tank_GroundImpact
 --- !u!114 &5740392969132953572
 MonoBehaviour:
   m_ObjectHideFlags: 0

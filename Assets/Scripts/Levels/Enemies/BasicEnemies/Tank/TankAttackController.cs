@@ -32,6 +32,12 @@ public class TankAttackController : MonoBehaviour
     public GameObject PlayerImpactVFX;
     public float playerSIScale = 1f;
 
+    public GameObject TankGroundImpactVFX;
+
+    //SFX
+
+    public string nameSFXtankGroundImpact;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +79,10 @@ public class TankAttackController : MonoBehaviour
                 }
             }
         }
+
+        AudioManager.instance.PlaySFX(nameSFXtankGroundImpact);
+
+        CreateGroundImpactVFX(TankGroundImpactVFX, attackPoint, playerSIScale, 0.05f, 0.5f);
 
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
     }

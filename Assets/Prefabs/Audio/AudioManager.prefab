@@ -95,6 +95,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fdd19620bfd7ef44b9620b9aed407b22, type: 3}
   - name: Creep_TakeDamageSword
     clip: {fileID: 8300000, guid: 08758804d2c648348959d04b9b6da7fc, type: 3}
+  - name: Tank_GroundImpact
+    clip: {fileID: 8300000, guid: c8b2ba3bcd7718d47b4a203716d792d8, type: 3}
   - name: Tank_TakeDamageSword
     clip: {fileID: 8300000, guid: efc2db87649eda543a2007788182022c, type: 3}
   - name: Sniper_Shoot

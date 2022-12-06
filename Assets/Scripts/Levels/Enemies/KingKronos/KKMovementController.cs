@@ -212,6 +212,8 @@ public class KKMovementController : MonoBehaviour
         _dashShadowsController.enableShadows = false;
         //_trailRenderer.emitting = false;
 
+        _KKAttackController.CreateGroundImpactVFX(_KKAttackController.KingKronosGroundImpactVFX, _KKAttackController.attackPoint, _KKAttackController.playerSIScale, 0.15f, 0.5f);
+
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
         _animator.SetTrigger("Land");
 
