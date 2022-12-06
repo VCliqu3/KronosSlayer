@@ -223,14 +223,14 @@ public class BasicEnemyMovementController : MonoBehaviour
                 onRangeBack = true;
             }          
         }
-        else if (FindObjectOfType<TankAttackController>() != null)
+        if (FindObjectOfType<TankAttackController>() != null)
         {
             if (FindObjectOfType<TankAttackController>().playerOnAttackRangeBack)
             {
                 onRangeBack = true;
             }           
         }
-        else if (FindObjectOfType<SniperShootController>() != null)
+        if (FindObjectOfType<SniperShootController>() != null)
         {
             if (FindObjectOfType<SniperShootController>().playerOnShootRangeBack)
             {
@@ -238,6 +238,7 @@ public class BasicEnemyMovementController : MonoBehaviour
             }          
         }
 
+        
         if (playerOnSight)
         {
             if (groundDown && !groundInFront)
@@ -252,6 +253,7 @@ public class BasicEnemyMovementController : MonoBehaviour
         else if (onRangeBack)
         {
             canTurnBack = true;
-        }       
+        } 
+        
     }
 }
