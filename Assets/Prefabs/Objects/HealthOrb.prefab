@@ -182,3 +182,4 @@ MonoBehaviour:
   healthAmount: 5
   timeForCollection: 0.5
   healthOrbCollectedVFX: {fileID: 740255671486906030, guid: 36114a1d06f5661439060de30a3218ed, type: 3}
+  nameSFXhealhOrbCollecion: Objects_HealthOrbCollection

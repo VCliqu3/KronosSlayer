@@ -709,6 +709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canChangeMod: 1
+  nameSFXplayerModeChangedToMelee: Player_ModeChangeToMelee
+  nameSFXplayerModeChangedToRanged: Player_ModeChangeToRanged
 --- !u!114 &7768970591787628310
 MonoBehaviour:
   m_ObjectHideFlags: 0

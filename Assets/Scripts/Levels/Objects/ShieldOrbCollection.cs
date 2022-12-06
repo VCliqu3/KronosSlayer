@@ -18,6 +18,10 @@ public class ShieldOrbCollection : MonoBehaviour
 
     public GameObject shieldOrbCollectedVFX;
 
+    //SFX
+
+    public string nameSFXshieldOrbCollecion;
+
     void Update()
     {
         time += Time.deltaTime;
@@ -38,6 +42,8 @@ public class ShieldOrbCollection : MonoBehaviour
 
             if(_healthController.shield < _healthController.maxShield)
             {
+                AudioManager.instance.PlaySFX(nameSFXshieldOrbCollecion);
+
                 _healthController.AddShield(shieldAmount);
 
                 GameObject shieldOCVFX = Instantiate(shieldOrbCollectedVFX, transform.position, transform.rotation);

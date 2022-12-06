@@ -15,6 +15,11 @@ public class ModeController : MonoBehaviour
 
     private LevelController _levelController;
 
+    //SFX
+
+    public string nameSFXplayerModeChangedToMelee;
+    public string nameSFXplayerModeChangedToRanged;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,15 +55,24 @@ public class ModeController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && canChangeMod)
         {
-            isRanged = !isRanged;          
+            isRanged = !isRanged;
+
+            if (isRanged)
+            {
+                AudioManager.instance.PlaySFX(nameSFXplayerModeChangedToRanged);
+            }
+            else
+            {
+                AudioManager.instance.PlaySFX(nameSFXplayerModeChangedToMelee);
+            }
         }
 
         if (isRanged)
-        {
+        {       
             _meleeController.attackEnable = false;
         }
         else
-        {
+        {         
             _rangedController.shootEnable = false;
         }
 

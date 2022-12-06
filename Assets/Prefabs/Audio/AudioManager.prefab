@@ -69,8 +69,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bb0fa5b5023be574797d8add97d8c4e9, type: 3}
   - name: Player_TakeDamage
     clip: {fileID: 8300000, guid: efedac1eaa779a042a542359f82b25c4, type: 3}
+  - name: Player_ModeChangeToMelee
+    clip: {fileID: 8300000, guid: 14cb05cbc5e231a41b2da889a487e296, type: 3}
+  - name: Player_ModeChangeToRanged
+    clip: {fileID: 8300000, guid: 08d66bc271879f54db968c0c1a30db36, type: 3}
   - name: Enemy_ShieldImpactProyectile
-    clip: {fileID: 8300000, guid: 45879307377b0194e81b47145bb88949, type: 3}
+    clip: {fileID: 8300000, guid: d90c567fd402b1f4da49c294680509ae, type: 3}
   - name: Enemy_TakeDamageProyectile
     clip: {fileID: 8300000, guid: a5c6438139ce7fe44bad0da6cbf0497f, type: 3}
   - name: Enemy_ShieldImpactSword
@@ -113,6 +117,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: afbdf7cc656d77b42ab4d190ddb33445, type: 3}
   - name: Level_KingKronosDoorOpen
     clip: {fileID: 8300000, guid: 02a17ca65dd979548ac9028d07e9ad2b, type: 3}
+  - name: Objects_HealthOrbCollection
+    clip: {fileID: 8300000, guid: bfaeaf41f1f68b34fbe1cf19c52137e0, type: 3}
+  - name: Objects_ShieldOrbCollection
+    clip: {fileID: 8300000, guid: 1fbd1deade1c72949851680dacf4a056, type: 3}
   musicSource: {fileID: 348770840701301200}
   sfxSource: {fileID: 348770840605684754}
   perpetualSFXSource: {fileID: 348770840887326211}

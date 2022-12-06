@@ -18,6 +18,10 @@ public class HealthOrbCollection : MonoBehaviour
 
     public GameObject healthOrbCollectedVFX;
 
+    //SFX
+
+    public string nameSFXhealhOrbCollecion;
+
     void Update()
     {
         time += Time.deltaTime;
@@ -38,6 +42,8 @@ public class HealthOrbCollection : MonoBehaviour
 
             if (_healthController.health < _healthController.maxHealth)
             {
+                AudioManager.instance.PlaySFX(nameSFXhealhOrbCollecion);
+
                 _healthController.AddHealth(healthAmount);
 
                 GameObject healthOCVFX = Instantiate(healthOrbCollectedVFX, transform.position, transform.rotation);
