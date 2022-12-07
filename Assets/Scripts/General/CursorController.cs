@@ -16,6 +16,8 @@ public class CursorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        onGameplay = false;
+
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         for (int i=LevelController.level1BuildIndex; i< (LevelController.level1BuildIndex + LevelController.numberOfLevels); i++)

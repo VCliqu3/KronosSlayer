@@ -12,7 +12,7 @@ public class LevelController : MonoBehaviour
 
     static public int[] numberOfAttemps = new int[numberOfLevels]; //Hay 3 niveles
 
-    static public int currentLevelIndex;
+    static public int currentLevelIndex = level1BuildIndex;
     public float timeForLevelText = 1f;
     public TMP_Text levelText;
 

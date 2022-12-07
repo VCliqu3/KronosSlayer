@@ -21,6 +21,7 @@ public class ExplosionEscene : MonoBehaviour
 
     public void ReintentarButonlvl1()
     {
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.25f));
         animator.Play("ReintentarAnilvl1");
     }
 
@@ -33,6 +34,7 @@ public class ExplosionEscene : MonoBehaviour
     
     public void MainMenuButon()
     {
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.25f));
         animator.Play("MainMenuAnim");
     }
 
