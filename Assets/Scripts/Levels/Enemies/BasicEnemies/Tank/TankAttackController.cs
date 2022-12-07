@@ -84,7 +84,7 @@ public class TankAttackController : MonoBehaviour
 
         CreateGroundImpactVFX(TankGroundImpactVFX, attackPoint, playerSIScale, 0.05f, 0.5f);
 
-        CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
+        CameraShaker.Instance.ShakeOnce(0.5f, 2f, 0.1f, 2f);
     }
 
     public void CreateFeedbackImpactVFX(GameObject feedbackVFX, Transform entHit, float scale, float offsetY, float timeToAutodestroy)
