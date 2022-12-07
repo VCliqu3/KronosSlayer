@@ -25,6 +25,7 @@ public class DeathPanel : MonoBehaviour
 
     public void MainMenuBoton()
     {
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.15f));
         animator.Play("MainMenuAni");
     }
 

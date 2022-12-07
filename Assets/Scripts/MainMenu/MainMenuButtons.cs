@@ -11,6 +11,8 @@ public class MainMenuButtons : MonoBehaviour
     public void Play()
     {
         animator.Play("FadeOut");
+
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.35f));
     }
 
     public void OnCompletedPlayFadeOut()

@@ -115,18 +115,18 @@ public class AudioManager : MonoBehaviour
     public void SetGeneralVolume()
     {
         musicSource.volume = musicVolume  * generalVolume * generalVolumeFading ;
-        sfxSource.volume = sfxVolume  * generalVolume * generalVolumeFading ;
-        perpetualSFXSource.volume = sfxVolume  * generalVolume * generalVolumeFading ;
+        sfxSource.volume = sfxVolume  * generalVolume;  //*generalVolumeFading
+        perpetualSFXSource.volume = sfxVolume  * generalVolume;  //*generalVolumeFading
     }
     public void SetMusicVolume()
     {
-        musicSource.volume = musicVolume*generalVolume*generalVolumeFading;
+        musicSource.volume = musicVolume * generalVolume * generalVolumeFading;
     }
 
     public void SetSFXVolume()
     {
-        sfxSource.volume = sfxVolume   * generalVolume * generalVolumeFading ;
-        perpetualSFXSource.volume = sfxVolume  * generalVolume * generalVolumeFading ;
+        sfxSource.volume = sfxVolume   * generalVolume;  //*generalVolumeFading
+        perpetualSFXSource.volume = sfxVolume  * generalVolume;  //*generalVolumeFading
     }
 
     public IEnumerator FadeOutGeneralVolume(float timeToFade)
@@ -135,7 +135,7 @@ public class AudioManager : MonoBehaviour
         {
             generalVolumeFading -= 0.01f;
             SetGeneralVolume();
-            yield return new WaitForSeconds(timeToFade * 0.01f);
+            yield return new WaitForSecondsRealtime(timeToFade * 0.01f);
         }
     }
 
@@ -145,7 +145,7 @@ public class AudioManager : MonoBehaviour
         {
             generalVolumeFading += 0.01f;
             SetGeneralVolume();
-            yield return new WaitForSeconds(timeToFade * 0.01f);
+            yield return new WaitForSecondsRealtime(timeToFade * 0.01f);
         }
     }
 }

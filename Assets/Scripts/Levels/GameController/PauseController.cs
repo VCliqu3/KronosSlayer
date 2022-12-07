@@ -108,6 +108,7 @@ public class PauseController : MonoBehaviour
 
     public void MainMenuBoton()
     {
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.25f));
         animator.Play("MainMenuAni");
     }
 
