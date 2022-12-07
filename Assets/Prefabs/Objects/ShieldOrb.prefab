@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialImpulse: 2.5
-  groundDistanceToStartOscilation: 0.8
+  groundDistanceToStartOscilation: 1
   oscilationAmplitude: 0.3
   oscilationFrequency: 3
   hasStartedOscilating: 0
