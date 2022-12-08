@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7bcd3b66908f0459ea1525376bad04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameMusicScene: 
+  nameMusicScene: CreditsSceneMusic
 --- !u!1 &1858673384
 GameObject:
   m_ObjectHideFlags: 0

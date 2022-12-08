@@ -10,8 +10,10 @@ public class VictoryButtons : MonoBehaviour
     
     //Ver los creditos
 
-    public void  NextButton()
+    public void NextButton()
     {
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.35f));
+
         animator.Play("QuePasenLosCreditosXD");
     }
 

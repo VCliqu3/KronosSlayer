@@ -124,6 +124,10 @@ public class LevelController : MonoBehaviour
         {
             AudioManager.instance.PlaySFX(nameSFXlevelCompletePanel);
         }
+        else
+        {
+            StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.35f));
+        }
        
         levelCompletePanel.SetActive(true);
 

@@ -10,9 +10,9 @@ public class MainMenuButtons : MonoBehaviour
 
     public void Play()
     {
-        animator.Play("FadeOut");
-
         StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.35f));
+
+        animator.Play("FadeOut");
     }
 
     public void OnCompletedPlayFadeOut()
@@ -48,7 +48,10 @@ public class MainMenuButtons : MonoBehaviour
     
     public void CreditosButton()
     {
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.35f));
+
         animator.Play("CreditosFadeOut");
+
     }
 
     public void OnCompletedCreditosFadeOut()

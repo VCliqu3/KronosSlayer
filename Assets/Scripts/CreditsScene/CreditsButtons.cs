@@ -12,6 +12,8 @@ public class CreditsButtons : MonoBehaviour
 
     public void  IrAlMenu()
     {
+        StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.35f));
+
         animator.Play("IrAlMenuFadeOut");
     }
 
