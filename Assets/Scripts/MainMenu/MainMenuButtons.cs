@@ -20,7 +20,7 @@ public class MainMenuButtons : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
-    //opciones//
+    //opciones
     
     public void  Opciones()
     {
@@ -32,8 +32,31 @@ public class MainMenuButtons : MonoBehaviour
         SceneManager.LoadScene("OptionsMenu");
     }
 
-    //opciones//
+    //ControlsScene
+    
+    public void ControlsSceneButton()
+    {
+        animator.Play("ControlsSceneFadeOut");
+    }
 
+    public void OnCompletedControlsSceneFadeOut()
+    {
+        SceneManager.LoadScene("ControlsScene");
+    }
+
+    //Creditos
+    
+    public void CreditosButton()
+    {
+        animator.Play("CreditosFadeOut");
+    }
+
+    public void OnCompletedCreditosFadeOut()
+    {
+        SceneManager.LoadScene("CreditsScene");
+    }
+
+    //Salir
 
     public void Salir()
     {
