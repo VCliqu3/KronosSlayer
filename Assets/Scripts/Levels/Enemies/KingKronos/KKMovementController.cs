@@ -200,6 +200,8 @@ public class KKMovementController : MonoBehaviour
         float originalGravity = _rigidbody2D.gravityScale;
         _rigidbody2D.gravityScale = 0f;
 
+        AudioManager.instance.PlaySFX(nameSFXKKTeleport);
+
         _animator.Play("StayUpOpening");
 
         yield return new WaitForSeconds(timeStayingUpOpening);
