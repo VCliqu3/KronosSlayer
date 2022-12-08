@@ -48,6 +48,15 @@ public class KKMovementController : MonoBehaviour
     private DashShadowsController _dashShadowsController;
     public GameObject abilityShadow;
 
+    //SFX
+
+    public string nameSFXKKRoar;
+    public string nameSFXKKDash;
+    public string nameSFXKKTeleportCharge;
+    public string nameSFXKKTeleport;
+    public string nameSFXKKGroundImpact;
+    public string nameSFXKKDeath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -212,6 +221,7 @@ public class KKMovementController : MonoBehaviour
         _dashShadowsController.enableShadows = false;
         //_trailRenderer.emitting = false;
 
+        AudioManager.instance.PlaySFX(nameSFXKKGroundImpact);
         _KKAttackController.CreateGroundImpactVFX(_KKAttackController.KingKronosGroundImpactVFX, _KKAttackController.attackPoint, _KKAttackController.playerSIScale, 0.15f, 0.5f);
 
         CameraShaker.Instance.ShakeOnce(1f, 2f, 0.1f, 2f);
@@ -219,6 +229,7 @@ public class KKMovementController : MonoBehaviour
 
         yield return new WaitForSeconds(timeOnGroundOpening);
 
+        AudioManager.instance.PlaySFX(nameSFXKKRoar);
         _animator.SetTrigger("OPAnim");
     }
 }

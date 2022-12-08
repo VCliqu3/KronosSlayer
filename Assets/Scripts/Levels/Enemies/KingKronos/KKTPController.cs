@@ -78,8 +78,12 @@ public class KKTPController : MonoBehaviour
         _KKHealthController.damageReduction = chargeDamageReduction;
         _animator.Play("ChargeTP");
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKTeleportCharge);
+
         yield return new WaitForSeconds(timeChargingTP);
         _KKHealthController.damageReduction = 0;
+
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKTeleport);
 
         Vector2 playerPos = FindObjectOfType<MovementController>().transform.position;
         transform.position = new Vector2(playerPos.x, playerPos.y + distanceToAppearUp);
@@ -140,6 +144,8 @@ public class KKTPController : MonoBehaviour
             {
                 yield return null;
             }
+
+            AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKTeleport);
 
             Vector2 playerPos_ = FindObjectOfType<MovementController>().transform.position;
             transform.position = new Vector2(playerPos_.x, playerPos_.y + distanceToAppearUp);
@@ -211,6 +217,7 @@ public class KKTPController : MonoBehaviour
             }  
         }
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKGroundImpact);
         _KKAttackController.CreateGroundImpactVFX(_KKAttackController.KingKronosGroundImpactVFX, _KKAttackController.attackPoint, _KKAttackController.playerSIScale, 0.15f, 0.5f);
     }
 

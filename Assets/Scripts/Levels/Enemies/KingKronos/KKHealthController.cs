@@ -202,6 +202,8 @@ public class KKHealthController : MonoBehaviour
 
         _rigidbody2D.sharedMaterial = bouncyMaterial;
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKDeath);
+
         if (!_KKMovementController.isGrounded)
         {
             _animator.Play("FallToDie");
@@ -287,6 +289,8 @@ public class KKHealthController : MonoBehaviour
 
         StartCoroutine(ChangeColor(enragedColor));
         _dashShadowsController._color = enragedShadowsColor;
+
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKRoar);
 
         damageAccumulationMultiplier = enragedDamageAccumulationMultiplier; //Cambian las estadisticas de las habilidades KingKronos
 

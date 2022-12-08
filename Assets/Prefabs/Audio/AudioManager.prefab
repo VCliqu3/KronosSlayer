@@ -103,6 +103,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b20d918599aea974a9054238de1adbc1, type: 3}
   - name: Sniper_TakeDamageSword
     clip: {fileID: 8300000, guid: c7737c0fb38b92443a974221d6ff46f4, type: 3}
+  - name: KK_Roar
+    clip: {fileID: 8300000, guid: 2770e8eb30fcdd04bb5e6467557c6aa6, type: 3}
+  - name: KK_Dash
+    clip: {fileID: 8300000, guid: 09e04f65dfe1b1844a2b244f06f31322, type: 3}
+  - name: KK_TeleportCharge
+    clip: {fileID: 8300000, guid: 9f99be86e9211e14d8dff8fee79e387f, type: 3}
+  - name: KK_Teleport
+    clip: {fileID: 8300000, guid: 2f4d362ab3c2e3544b4d7bfddc9c22c3, type: 3}
+  - name: KK_GroundImpact
+    clip: {fileID: 8300000, guid: e747735b721970d46883bf91ad50e3c0, type: 3}
+  - name: KK_Death
+    clip: {fileID: 8300000, guid: 1f28510192ea18e4b902de092e81184c, type: 3}
   - name: Proyectile_TerrainCollision
     clip: {fileID: 8300000, guid: 10bb663c9b65a7e438868e2296e266bb, type: 3}
   - name: Clock_Minutes

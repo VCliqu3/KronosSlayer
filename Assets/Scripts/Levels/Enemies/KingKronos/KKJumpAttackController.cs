@@ -203,6 +203,7 @@ public class KKJumpAttackController : MonoBehaviour
             }
         }
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKGroundImpact);
         _KKAttackController.CreateGroundImpactVFX(_KKAttackController.KingKronosGroundImpactVFX, _KKAttackController.attackPoint, _KKAttackController.playerSIScale, 0.15f, 0.5f);
     }
 

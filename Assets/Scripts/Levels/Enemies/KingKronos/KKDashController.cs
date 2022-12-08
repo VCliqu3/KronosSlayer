@@ -105,6 +105,8 @@ public class KKDashController : MonoBehaviour
         _dashShadowsController.enableShadows = true;
         //_trailRenderer.emitting = true;
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKDash);
+
         yield return new WaitForSeconds(dashTime);
 
         _dashShadowsController.enableShadows = false;

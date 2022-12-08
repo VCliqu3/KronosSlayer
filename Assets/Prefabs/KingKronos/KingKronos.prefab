@@ -480,6 +480,12 @@ MonoBehaviour:
   fallImpulseOpening: 10
   _trailRenderer: {fileID: 3182477934541625663}
   abilityShadow: {fileID: 6911851401888920192, guid: f7ca45b28580bf7448a86205e54adfe4, type: 3}
+  nameSFXKKRoar: KK_Roar
+  nameSFXKKDash: KK_Dash
+  nameSFXKKTeleportCharge: KK_TeleportCharge
+  nameSFXKKTeleport: KK_Teleport
+  nameSFXKKGroundImpact: KK_GroundImpact
+  nameSFXKKDeath: KK_Death
 --- !u!114 &3182477934570312538
 MonoBehaviour:
   m_ObjectHideFlags: 0
