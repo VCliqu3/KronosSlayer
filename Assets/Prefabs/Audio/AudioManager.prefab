@@ -78,11 +78,13 @@ MonoBehaviour:
   - name: Player_Shoot
     clip: {fileID: 8300000, guid: 6b256b9408d108d43b8ecb630eea37ba, type: 3}
   - name: Player_Dash
-    clip: {fileID: 8300000, guid: e99fc47d1cec5dc449d12205e7a1df91, type: 3}
+    clip: {fileID: 8300000, guid: 4ea3a6d9af418744e9d7d6a28bb5c29b, type: 3}
   - name: Player_ShieldImpact
     clip: {fileID: 8300000, guid: bb0fa5b5023be574797d8add97d8c4e9, type: 3}
   - name: Player_TakeDamage
     clip: {fileID: 8300000, guid: efedac1eaa779a042a542359f82b25c4, type: 3}
+  - name: Player_Death
+    clip: {fileID: 8300000, guid: e3f20d00009a48149bb096118cd82af1, type: 3}
   - name: Player_ModeChangeToMelee
     clip: {fileID: 8300000, guid: 14cb05cbc5e231a41b2da889a487e296, type: 3}
   - name: Player_ModeChangeToRanged

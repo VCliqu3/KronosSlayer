@@ -35,8 +35,9 @@ public class HealthController : MonoBehaviour
 
     //SFX
 
-    public string nameSFXPplayerShieldImpact;
+    public string nameSFXplayerShieldImpact;
     public string nameSFXplayerTakeDamage;
+    public string nameSFXplayerDeath;
 
     void Awake()
     {
@@ -103,13 +104,13 @@ public class HealthController : MonoBehaviour
 
                 shieldTookDamage = true;
             }
-      
-            if(auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
+
+            if (auxHealth <= 0.1f && !playerHasDied) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
             {
                 health = 0;
                 StartCoroutine(KillPlayer());
             }
-            else
+            else if (!playerHasDied) 
             {
                 health = auxHealth;
                 StartCoroutine(HurtPlayerBlink());
@@ -122,7 +123,7 @@ public class HealthController : MonoBehaviour
             }
             if (shieldTookDamage)
             {
-                AudioManager.instance.PlaySFX(nameSFXPplayerShieldImpact);
+                AudioManager.instance.PlaySFX(nameSFXplayerShieldImpact);
             }
 
             _HUDController.SetHealthBar();
@@ -175,7 +176,7 @@ public class HealthController : MonoBehaviour
         float auxHealth = health;
         auxHealth -= healthAmount;      
 
-        if (auxHealth <= 0.1f) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
+        if (auxHealth <= 0.1f && !playerHasDied) //Para resolver bug de float y que no se muestre una cantidad imperceptible en la barra de vida
         {
             health = 0;
             StartCoroutine(KillPlayer());
@@ -196,6 +197,8 @@ public class HealthController : MonoBehaviour
         PauseController.canPauseGame = false;
         _animator.SetTrigger("Death");
         playerHasDied = true;
+
+        AudioManager.instance.PlaySFX(nameSFXplayerDeath);
 
         Physics2D.IgnoreLayerCollision(9, 10); //Collisiones contra Enemigos
         Physics2D.IgnoreLayerCollision(11, 10); //Collisiones contra KingKronos

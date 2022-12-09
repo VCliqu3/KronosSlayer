@@ -629,8 +629,9 @@ MonoBehaviour:
   timeToPopUpDeathPanel: 2
   bouncyMaterial: {fileID: 6200000, guid: febafc74fd870b644a50af28e0ae1baf, type: 2}
   deathImpulseY: 2
-  nameSFXPplayerShieldImpact: Player_ShieldImpact
+  nameSFXplayerShieldImpact: Player_ShieldImpact
   nameSFXplayerTakeDamage: Player_TakeDamage
+  nameSFXplayerDeath: Player_Death
 --- !u!114 &7768970591787628308
 MonoBehaviour:
   m_ObjectHideFlags: 0
