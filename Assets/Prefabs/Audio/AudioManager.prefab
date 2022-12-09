@@ -64,15 +64,17 @@ MonoBehaviour:
   - name: Player_Footsteps
     clip: {fileID: 8300000, guid: 7a9a187580a63274485caa6175dc9c84, type: 3}
   - name: Player_FirstFootstep
-    clip: {fileID: 8300000, guid: e69bd53591c013741b4e80728c4db088, type: 3}
+    clip: {fileID: 8300000, guid: d808809a247ed9a40967a1b4ab7c4309, type: 3}
   - name: Player_SecondFootstep
-    clip: {fileID: 8300000, guid: afe594a6088c2df489db1eba03bf769a, type: 3}
+    clip: {fileID: 8300000, guid: 2991db466bbced74ea7f61b75a567565, type: 3}
   - name: Player_FirstMeleeAttack
     clip: {fileID: 8300000, guid: 64c8c65704a04fa4298fe39f683704ca, type: 3}
   - name: Player_SecondMeleeAttack
     clip: {fileID: 8300000, guid: b438d0919fef49940a46182518930711, type: 3}
   - name: Player_ThirdMeleeAttack
     clip: {fileID: 8300000, guid: 8c3fdbb19fe4f9146888ca55fb1991ea, type: 3}
+  - name: Player_Jump
+    clip: {fileID: 8300000, guid: 73e5a105df448c5438a91cfafc7ab3df, type: 3}
   - name: Player_Shoot
     clip: {fileID: 8300000, guid: 6b256b9408d108d43b8ecb630eea37ba, type: 3}
   - name: Player_Dash

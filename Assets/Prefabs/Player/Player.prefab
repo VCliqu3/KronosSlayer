@@ -675,6 +675,7 @@ MonoBehaviour:
   dashingBehind: 0
   dashCooldownCounter: 3
   _trailRenderer: {fileID: 7768970590856987537}
+  nameSFXplayerJump: Player_Jump
   nameSFXplayerDash: Player_Dash
 --- !u!114 &7768970591787628314
 MonoBehaviour:

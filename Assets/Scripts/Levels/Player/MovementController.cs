@@ -56,6 +56,7 @@ public class MovementController : MonoBehaviour
 
     //SFX
 
+    public string nameSFXplayerJump;
     public string nameSFXplayerDash;
 
     // Start is called before the first frame update
@@ -149,6 +150,8 @@ public class MovementController : MonoBehaviour
             {
                 _rigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 pseudoEnableJumping = false;
+
+                AudioManager.instance.PlaySFX(nameSFXplayerJump);
             }
 
             if (betterJump)
