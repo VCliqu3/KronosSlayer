@@ -200,6 +200,8 @@ public class KKMovementController : MonoBehaviour
         float originalGravity = _rigidbody2D.gravityScale;
         _rigidbody2D.gravityScale = 0f;
 
+        _KKTPController.CreateTeleportVFX(_KKTPController.KingKronosTeleportVFX, transform, 1, 1, 0.4f);
+
         AudioManager.instance.PlaySFX(nameSFXKKTeleport);
 
         _animator.Play("StayUpOpening");

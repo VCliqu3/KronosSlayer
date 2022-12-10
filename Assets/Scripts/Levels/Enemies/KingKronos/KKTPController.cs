@@ -50,6 +50,8 @@ public class KKTPController : MonoBehaviour
 
     private bool gottenUp = false;
 
+    public GameObject KingKronosTeleportVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +85,8 @@ public class KKTPController : MonoBehaviour
         yield return new WaitForSeconds(timeChargingTP);
         _KKHealthController.damageReduction = 0;
 
+        CreateTeleportVFX(KingKronosTeleportVFX, transform, 1, 1, 0.4f);
+
         AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKTeleport);
 
         Vector2 playerPos = FindObjectOfType<MovementController>().transform.position;
@@ -91,6 +95,8 @@ public class KKTPController : MonoBehaviour
 
         float originalGravity = _rigidbody2D.gravityScale;
         _rigidbody2D.gravityScale = 0f;
+
+        CreateTeleportVFX(KingKronosTeleportVFX, transform, 1, 1, 0.4f);
 
         _animator.SetTrigger("StayUp");
 
@@ -145,6 +151,8 @@ public class KKTPController : MonoBehaviour
                 yield return null;
             }
 
+            CreateTeleportVFX(KingKronosTeleportVFX, transform, 1, 1, 0.4f);
+
             AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKTeleport);
 
             Vector2 playerPos_ = FindObjectOfType<MovementController>().transform.position;
@@ -152,6 +160,8 @@ public class KKTPController : MonoBehaviour
             _KKMovementController.ForcedRotation();
 
             _rigidbody2D.gravityScale = 0;
+
+            CreateTeleportVFX(KingKronosTeleportVFX, transform, 1, 1, 0.4f);
 
             _animator.SetTrigger("StayUp");
 
@@ -224,5 +234,14 @@ public class KKTPController : MonoBehaviour
     public void SetGottenUpTrue()
     {
         gottenUp = true;
+    }
+
+    public void CreateTeleportVFX(GameObject teleportVFX, Transform point, float scaleX, float offsetY, float timeToAutodestroy)
+    {
+        GameObject fVFX = Instantiate(teleportVFX, point.position + new Vector3(0f, offsetY), point.transform.rotation);
+
+        fVFX.transform.localScale = new Vector2(fVFX.transform.localScale.x * scaleX, fVFX.transform.localScale.y);
+
+        Destroy(fVFX, timeToAutodestroy);
     }
 }

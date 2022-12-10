@@ -639,6 +639,7 @@ MonoBehaviour:
   chargeDamageReduction: 0.5
   _trailRenderer: {fileID: 3182477934541625663}
   abilityShadow: {fileID: 4506256969491078899, guid: ccffcfcb2abe23f49a3f327715f6c5e0, type: 3}
+  KingKronosTeleportVFX: {fileID: 5896330566309878747, guid: ac044188dddd2ee458916ffd78b88cd7, type: 3}
 --- !u!114 &3182477934570312513
 MonoBehaviour:
   m_ObjectHideFlags: 0
