@@ -8,6 +8,11 @@ public class MainMenuButtons : MonoBehaviour
 {
     public Animator animator;
 
+    //SFX
+
+    public string nameSFXButtonSelected;
+    public string nameSFXButtonPressed;
+
     public void Play()
     {
         StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.35f));
@@ -64,5 +69,15 @@ public class MainMenuButtons : MonoBehaviour
     public void Salir()
     {
         Application.Quit();
+    }
+
+    public void PlaySelectedSFX()
+    {
+        AudioManager.instance.PlaySFX(nameSFXButtonSelected);
+    }
+
+    public void PlayPressedSFX()
+    {
+        AudioManager.instance.PlaySFX(nameSFXButtonPressed);
     }
 }

@@ -415,6 +415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1186063677}
+  nameSFXButtonSelected: MainMenu_ButtonSelected
+  nameSFXButtonPressed: MainMenu_ButtonPressed
 --- !u!95 &122284601
 Animator:
   serializedVersion: 4
@@ -1030,6 +1032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1186063677}
+  nameSFXButtonSelected: MainMenu_ButtonSelected
+  nameSFXButtonPressed: MainMenu_ButtonPressed
 --- !u!114 &673674224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,6 +1643,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  nameSFXButtonSelected: 
+  nameSFXButtonPressed: 
 --- !u!1 &1186918518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,6 +2205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1186063677}
+  nameSFXButtonSelected: MainMenu_ButtonSelected
+  nameSFXButtonPressed: MainMenu_ButtonPressed
 --- !u!114 &1745604208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2461,6 +2469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1186063677}
+  nameSFXButtonSelected: MainMenu_ButtonSelected
+  nameSFXButtonPressed: MainMenu_ButtonPressed
 --- !u!114 &2031104207
 MonoBehaviour:
   m_ObjectHideFlags: 0

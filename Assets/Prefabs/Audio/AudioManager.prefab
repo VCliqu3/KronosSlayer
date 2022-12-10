@@ -50,6 +50,8 @@ MonoBehaviour:
   musicSounds:
   - name: MainMenuMusic
     clip: {fileID: 8300000, guid: 2c9ee3634338bd64398109f9a4c21967, type: 3}
+  - name: TutorialMusic
+    clip: {fileID: 8300000, guid: 51afa2766e8e7e24788588d051eb7846, type: 3}
   - name: LevelsMusic
     clip: {fileID: 8300000, guid: 5001fe30e25ade94c9704b82682e7472, type: 3}
   - name: BossBattleMusic
@@ -111,6 +113,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2770e8eb30fcdd04bb5e6467557c6aa6, type: 3}
   - name: KK_Dash
     clip: {fileID: 8300000, guid: 09e04f65dfe1b1844a2b244f06f31322, type: 3}
+  - name: KK_Jump
+    clip: {fileID: 8300000, guid: 51968d6a1350af247bc0b59e5e3c284a, type: 3}
+  - name: KK_Fall
+    clip: {fileID: 8300000, guid: 7748b8d9d2db45249bae841b0087a8e0, type: 3}
   - name: KK_TeleportCharge
     clip: {fileID: 8300000, guid: 9f99be86e9211e14d8dff8fee79e387f, type: 3}
   - name: KK_Teleport
@@ -155,6 +161,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: bfaeaf41f1f68b34fbe1cf19c52137e0, type: 3}
   - name: Objects_ShieldOrbCollection
     clip: {fileID: 8300000, guid: 1fbd1deade1c72949851680dacf4a056, type: 3}
+  - name: MainMenu_ButtonSelected
+    clip: {fileID: 8300000, guid: 20943f1478b7f7e48b042b90ab5e8683, type: 3}
+  - name: MainMenu_ButtonPressed
+    clip: {fileID: 8300000, guid: a1432735a30110f4383f95ac04123ccc, type: 3}
   musicSource: {fileID: 348770840701301200}
   sfxSource: {fileID: 348770840605684754}
   perpetualSFXSource: {fileID: 348770840887326211}
@@ -341,7 +351,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

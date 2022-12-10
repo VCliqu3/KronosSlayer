@@ -124,7 +124,7 @@ public class LevelController : MonoBehaviour
 
     public void ActivateLevelCompletePanel()
     {
-        if (!((SceneManager.GetActiveScene().buildIndex) == level1BuildIndex + 3)) //Si no es el nivel 4 (KingKronos)
+        if (!((SceneManager.GetActiveScene().buildIndex) == level1BuildIndex + numberOfLevels-1)) //Si no es el ultimo nivel (KingKronos)
         {
             AudioManager.instance.PlaySFX(nameSFXlevelCompletePanel);
         }

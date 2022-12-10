@@ -107699,6 +107699,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 5994970370321154489}
+    - target: {fileID: 4073901079884922954, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
+      propertyPath: nameMusicScene
+      value: TutorialMusic
+      objectReference: {fileID: 0}
     - target: {fileID: 7702469664159287070, guid: 8a82da8a3ab12634589e40b514d49446, type: 3}
       propertyPath: pausePanel
       value: 

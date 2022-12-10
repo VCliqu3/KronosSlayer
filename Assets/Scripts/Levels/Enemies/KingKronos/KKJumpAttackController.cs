@@ -108,6 +108,8 @@ public class KKJumpAttackController : MonoBehaviour
 
         isJumpAttacking = true;
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKJump);
+
         _animator.SetTrigger("Jump");
 
         if (_KKMovementController.isFacingRight)
@@ -135,6 +137,8 @@ public class KKJumpAttackController : MonoBehaviour
         Vector2 fallDirection = new Vector2(playerPosX - transform.position.x, proyectionPlayerPosY - transform.position.y).normalized;
 
         _animator.SetTrigger("JumpAttack");
+
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKFall);
 
         _rigidbody2D.velocity = fallDirection * fallSpeed;
 

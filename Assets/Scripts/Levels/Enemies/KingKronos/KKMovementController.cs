@@ -51,11 +51,14 @@ public class KKMovementController : MonoBehaviour
     //SFX
 
     public string nameSFXKKRoar;
+    public string nameSFXKKJump;
+    public string nameSFXKKFall;
     public string nameSFXKKDash;
     public string nameSFXKKTeleportCharge;
     public string nameSFXKKTeleport;
     public string nameSFXKKGroundImpact;
     public string nameSFXKKDeath;
+    
 
     // Start is called before the first frame update
     void Start()

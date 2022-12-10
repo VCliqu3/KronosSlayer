@@ -16,7 +16,7 @@ public class ButtonsLevelComplete : MonoBehaviour
 
         int currentLvlIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if ((currentLvlIndex == LevelController.level1BuildIndex+2)|| (currentLvlIndex == LevelController.level1BuildIndex + 3)) //Si es el nivel 3 o 4(Boss)
+        if ((currentLvlIndex == LevelController.level1BuildIndex)||(currentLvlIndex == LevelController.level1BuildIndex+LevelController.numberOfLevels-2)|| (currentLvlIndex == LevelController.level1BuildIndex + LevelController.numberOfLevels-1)) //Si es el tutorial o el nivel 3 o 4(Boss)
         {
             StartCoroutine(AudioManager.instance.FadeOutGeneralVolume(0.25f));
         }

@@ -106,6 +106,8 @@ public class KKTPController : MonoBehaviour
 
         _animator.SetTrigger("TPAttack");
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKFall);
+
         _rigidbody2D.AddForce(new Vector2(0,-downImpulse), ForceMode2D.Impulse);
 
         _dashShadowsController.shadow = abilityShadow;
@@ -146,6 +148,8 @@ public class KKTPController : MonoBehaviour
 
             _animator.SetTrigger("Jump");
 
+            AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKJump);
+
             while (_rigidbody2D.velocity.y >= 0)
             {
                 yield return null;
@@ -170,6 +174,8 @@ public class KKTPController : MonoBehaviour
             _rigidbody2D.gravityScale = originalGravity;
 
             _animator.SetTrigger("TPAttack");
+
+            AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKFall);
 
             _rigidbody2D.AddForce(new Vector2(0, -downImpulse), ForceMode2D.Impulse);
 
