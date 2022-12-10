@@ -57,6 +57,7 @@ public class MeleeController : MonoBehaviour
     public string nameSFXcreepTakeDamageSword;
     public string nameSFXtankTakeDamageSword;
     public string nameSFXsniperTakeDamageSword;
+    public string nameSFXKKTakeDamageSword;
 
     // Start is called before the first frame update
     void Start()
@@ -199,6 +200,7 @@ public class MeleeController : MonoBehaviour
             if (_KKHealthController.health < startingHealth)
             {
                 CreateFeedbackImpactVFX(KKHealthImpactVFX, kk.transform, KKSIScale, 1f, 1.2f);
+                AudioManager.instance.PlaySFX(nameSFXKKTakeDamageSword);
             }
         }
     }

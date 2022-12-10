@@ -66,6 +66,7 @@ public class PlayerProyectileDamageController : MonoBehaviour
                 if (_KKHealthController.health < startingHealth)
                 {
                     CreateFeedbackImpactVFX(KKHealthImpactVFX, collision.transform, scaleVFX, 1.2f);
+                    AudioManager.instance.PlaySFX(nameSFXenemyTakeDamageProyectile);
                 }
 
                 Destroy(gameObject);

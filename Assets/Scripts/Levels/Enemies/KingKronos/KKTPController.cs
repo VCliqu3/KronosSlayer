@@ -193,12 +193,19 @@ public class KKTPController : MonoBehaviour
             yield return new WaitForSeconds(timeOnGround);
 
             _animator.SetTrigger("GetUp");
+
+            isTPAttacking = false;
+            TPEnabled = true;
+
+            _KKHealthController.CallEmptyDamageAccumulated();
         }
+        else
+        {
+            isTPAttacking = false;
+            TPEnabled = true;
 
-        isTPAttacking = false;
-        TPEnabled = true;
-
-        _KKHealthController.CallEmptyDamageAccumulated();
+            _KKHealthController.CallEmptyDamageAccumulated();
+        }     
     }
 
     public void DamageTPAttackPlayer()

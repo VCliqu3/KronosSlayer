@@ -762,6 +762,7 @@ MonoBehaviour:
   nameSFXcreepTakeDamageSword: Creep_TakeDamageSword
   nameSFXtankTakeDamageSword: Tank_TakeDamageSword
   nameSFXsniperTakeDamageSword: Sniper_TakeDamageSword
+  nameSFXKKTakeDamageSword: KK_TakeDamageSword
 --- !u!114 &7768970591787628313
 MonoBehaviour:
   m_ObjectHideFlags: 0
