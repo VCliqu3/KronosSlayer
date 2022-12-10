@@ -17,7 +17,7 @@ public class MainMenuButtons : MonoBehaviour
 
     public void OnCompletedPlayFadeOut()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(LevelController.level1BuildIndex);
     }
 
     //opciones

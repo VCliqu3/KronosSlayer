@@ -7,7 +7,7 @@ using TMPro;
 
 public class LevelController : MonoBehaviour
 {
-    static public int numberOfLevels = 4;
+    static public int numberOfLevels = 5;
     static public int level1BuildIndex = 3;
 
     static public int[] numberOfAttemps = new int[numberOfLevels]; //Hay 3 niveles
@@ -93,13 +93,17 @@ public class LevelController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        if ((SceneManager.GetActiveScene().buildIndex) == level1BuildIndex + 3) //Si es el nivel 4
+        if((SceneManager.GetActiveScene().buildIndex) == level1BuildIndex)
+        {
+            levelText.text = "Tutorial";
+        }
+        else if ((SceneManager.GetActiveScene().buildIndex) == level1BuildIndex + numberOfLevels-1) //Si es el nivel 4
         {
             levelText.text = "King Kronos";
         }
         else
         {
-            levelText.text = "Nave " + (SceneManager.GetActiveScene().buildIndex - level1BuildIndex + 1);
+            levelText.text = "Nave " + (SceneManager.GetActiveScene().buildIndex - level1BuildIndex);
         }
         levelText.gameObject.SetActive(true);
 
