@@ -59,7 +59,7 @@ public class LevelController : MonoBehaviour
     }
     public void ChangeAttempsInCurrentLevel(int quantity)
     {
-        numberOfAttemps[SceneManager.GetActiveScene().buildIndex - level1BuildIndex] += quantity; //El buildIndex del Level1 es 1
+        numberOfAttemps[SceneManager.GetActiveScene().buildIndex - level1BuildIndex] += quantity;
     }
 
     public int CalculateAttempsInCurrentLevel()
