@@ -107883,7 +107883,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8208912365167976566, guid: 149c2d4172104384c812ce08ea64e662, type: 3}
       propertyPath: m_text
-      value: Tutorial Completado
+      value: Tutorial Acabado
       objectReference: {fileID: 0}
     - target: {fileID: 8208912365290548288, guid: 149c2d4172104384c812ce08ea64e662, type: 3}
       propertyPath: m_text

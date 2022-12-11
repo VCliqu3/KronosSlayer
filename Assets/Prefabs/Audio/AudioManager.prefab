@@ -87,6 +87,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: efedac1eaa779a042a542359f82b25c4, type: 3}
   - name: Player_Death
     clip: {fileID: 8300000, guid: e3f20d00009a48149bb096118cd82af1, type: 3}
+  - name: Player_GunOverheated
+    clip: {fileID: 8300000, guid: 8185609913fc6fb4595ea122f58236de, type: 3}
+  - name: Player_GunOverheatEnd
+    clip: {fileID: 8300000, guid: 63a936a649d1fc049ae7304bf19d850c, type: 3}
   - name: Player_ModeChangeToMelee
     clip: {fileID: 8300000, guid: 14cb05cbc5e231a41b2da889a487e296, type: 3}
   - name: Player_ModeChangeToRanged

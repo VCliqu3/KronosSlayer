@@ -41,7 +41,10 @@ public class RangedController : MonoBehaviour
     private LevelController _levelController;
 
     //SFX
+
     public string nameSFXPlayerShoot;
+    public string nameSFXPlayerGunOverheated;
+    public string nameSFXPlayerGunOverheatEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -152,6 +155,8 @@ public class RangedController : MonoBehaviour
             {
                 gunIsOverheated = true;
 
+                AudioManager.instance.PlaySFX(nameSFXPlayerGunOverheated);
+
                 StartCoroutine(CoolGunDown());
             }
         }
@@ -179,5 +184,7 @@ public class RangedController : MonoBehaviour
         yield return new WaitForSeconds(timeAtMinOverheat);
 
         gunIsOverheated = false;
+
+        AudioManager.instance.PlaySFX(nameSFXPlayerGunOverheatEnd);
     }
 }

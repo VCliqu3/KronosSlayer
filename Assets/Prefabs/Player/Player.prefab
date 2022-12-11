@@ -795,6 +795,8 @@ MonoBehaviour:
   overheatCounter: 0
   gunIsOverheated: 0
   nameSFXPlayerShoot: Player_Shoot
+  nameSFXPlayerGunOverheated: Player_GunOverheated
+  nameSFXPlayerGunOverheatEnd: Player_GunOverheatEnd
 --- !u!114 &7768970591787628316
 MonoBehaviour:
   m_ObjectHideFlags: 0
