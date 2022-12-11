@@ -19,6 +19,10 @@ public class VictoryButtons : MonoBehaviour
 
     public void OnCompletedQuePasenLosCreditosXD()
     {
+        ScoreController.ResetScoreInAllLevels();
+        ScoreController.ResetEnemiesKilledInAllLevels();
+        LevelController.ResetAttempsInAllLevels();
+
         SceneManager.LoadScene("CreditsScene");
     }
 

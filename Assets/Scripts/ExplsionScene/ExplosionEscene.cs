@@ -26,7 +26,10 @@ public class ExplosionEscene : MonoBehaviour
     }
 
     public void OnCompletedReintentarAnilvl1()
-    { 
+    {
+        ScoreController.score[LevelController.currentLevelIndex - LevelController.level1BuildIndex] = 0;
+        ScoreController.enemiesKilled[LevelController.currentLevelIndex - LevelController.level1BuildIndex] = 0;
+
         SceneManager.LoadScene(LevelController.currentLevelIndex);
     }
 

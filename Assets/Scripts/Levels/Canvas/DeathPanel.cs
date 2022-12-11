@@ -17,6 +17,10 @@ public class DeathPanel : MonoBehaviour
     public void OnCompletedReintentarAni()
     {
         Time.timeScale = 1f;
+
+        FindObjectOfType<ScoreController>().ResetScoreInCurrentLevel();
+        FindObjectOfType<ScoreController>().ResetEnemiesKilledInCurrentLevel();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //Para reintentar//
