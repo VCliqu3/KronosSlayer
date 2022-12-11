@@ -481,6 +481,7 @@ MonoBehaviour:
   _trailRenderer: {fileID: 3182477934541625663}
   abilityShadow: {fileID: 6911851401888920192, guid: f7ca45b28580bf7448a86205e54adfe4, type: 3}
   nameSFXKKRoar: KK_Roar
+  nameSFXKKAttack: KK_Attack
   nameSFXKKJump: KK_Jump
   nameSFXKKFall: KK_Fall
   nameSFXKKDash: KK_Dash

@@ -20,6 +20,8 @@ public class KKAttackBehavior : StateMachineBehaviour
 
         _KKMovementController.Stop();
         _KKAttackController.isAttacking = true;
+
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKAttack);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

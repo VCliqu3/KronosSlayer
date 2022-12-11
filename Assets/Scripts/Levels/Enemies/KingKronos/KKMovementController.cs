@@ -51,6 +51,7 @@ public class KKMovementController : MonoBehaviour
     //SFX
 
     public string nameSFXKKRoar;
+    public string nameSFXKKAttack;
     public string nameSFXKKJump;
     public string nameSFXKKFall;
     public string nameSFXKKDash;

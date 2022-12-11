@@ -116,6 +116,8 @@ public class KKDashController : MonoBehaviour
 
         _animator.SetTrigger("DashAttack");
 
+        AudioManager.instance.PlaySFX(_KKMovementController.nameSFXKKAttack);
+
         yield return new WaitForSeconds(timeOnGround);
 
         _animator.SetTrigger("GetUp");
